@@ -1,0 +1,64 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Micro-Services Honours Project</title>
+    <link>https://example.com/tags/</link>
+    <description>Recent content in Tags on Micro-Services Honours Project</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+        <atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Service meshes, Node modules and more</title>
+      <link>https://example.com/posts/01-12-2020/</link>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/01-12-2020/</guid>
+      <description>&lt;p&gt;Service meshes and Linkerd specifically seems to be nice and really useful. However, at the moment I will not be using it because I have not even started to use Kubernates. The nice part is that all of this is just setting up the proxies on the k8s cluster and no need to do anything in code. I will definitely be coming back to this at a later stage.&lt;/p&gt;
+&lt;p&gt;My next step will be to look into Kubernates, just not sure if I should do that before or after I have code running.&lt;/p&gt;
+&lt;h1 id=&#34;resources&#34;&gt;Resources&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=Hc-XFPHDDk4&#34;target=&#34;_blank&#34;&gt;That DevOps Guy YouTube Video&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Getting familiar with typescript and kafkajs</title>
+      <link>https://example.com/posts/30-11-2020/</link>
+      <pubDate>Mon, 30 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/30-11-2020/</guid>
+      <description>&lt;p&gt;Yesterday I did not get the chance to properly setup a kafka connection with typescript. I kept enountering problems, laster on even was getting some tsc build problems with kafka-nodes source. Upon closer inspection, kafka-node has not been maintained for at least a year. Because of that I decided to switch away and to kafkajs, it seems to still be in development and also has builtin types which I can just read. I guess that it the price to pay for not using an &amp;ldquo;officially supported language&amp;rdquo; and having to rely on comunity libraries.&lt;/p&gt;
+&lt;h1 id=&#34;resources-used&#34;&gt;Resources used&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/tulios/kafkajs&#34;target=&#34;_blank&#34;&gt;Kafkajs&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Firs Entry</title>
+      <link>https://example.com/posts/firs-entry/</link>
+      <pubDate>Sun, 29 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/posts/firs-entry/</guid>
+      <description>&lt;p&gt;Today I am finally getting started with development. So far it will just be getting familiar with using some of the technologies that I will be using. Today it&amp;rsquo;s kafka.&lt;/p&gt;
+&lt;p&gt;I have started by locally deploying a kafka stack on my local machine using docker-compose with Zookeeper and using Conduktor as a gui client for kafka.&lt;/p&gt;
+&lt;p&gt;So far I have just done this in javascript. Will get this done in typescript too.&lt;/p&gt;
+&lt;p&gt;So far I have been using the &amp;lsquo;kafka-node&amp;rsquo; npm package, which comes with its own types, however, they seem to not be documented well, although, the source seems to be easy to read. With all that in mind, I am still having some problems connecting to the kafka setup. Zookeeper keeps complaining about &amp;lsquo;no connection established for the client&amp;rsquo;.&lt;/p&gt;
+&lt;h2 id=&#34;notes-to-self&#34;&gt;Notes to self&lt;/h2&gt;
+&lt;p&gt;Found out that when I&amp;rsquo;m trying to produce and consume data, I need to treat them as strings or arrays of strings. If I&amp;rsquo;m producing them as arrays of strings, they will need to be added in as separate messages.&lt;/p&gt;
+&lt;p&gt;When producing, the partition and the offset are returned to the &amp;lsquo;ready&amp;rsquo; callback, however it only returns it for the first item in the array if you are producing one.&lt;/p&gt;
+&lt;h1 id=&#34;resources-used&#34;&gt;Resources used&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.npmjs.com/package/kafka-node#kafkaclient&#34;target=&#34;_blank&#34;&gt;NPM Kafka-node&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://thatcoder.space/getting-started-with-kafka-and-node-js-with-example/&#34;target=&#34;_blank&#34;&gt;Getting Started with Kafka and nodejs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/simplesteph/kafka-stack-docker-compose&#34;target=&#34;_blank&#34;&gt;kafka-stack-docker-compose&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.conduktor.io/&#34;target=&#34;_blank&#34;&gt;Conduktor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

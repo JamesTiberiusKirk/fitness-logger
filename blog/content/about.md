@@ -1,7 +1,7 @@
 ---
 title: "About"
 date: 2020-12-01T16:22:30Z
-draft: true
+draft: false 
 ---
 
 Hi, my name is Dumitru Vulpe. This blog is for cataloging my journey through developing my 4th year (at university) honours project. The honours project consists of a frontend app for logging workouts and a micro-services based backend.

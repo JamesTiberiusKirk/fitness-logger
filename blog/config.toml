@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://jamestiberiuskirk.github.io/fitness-logger/"
 title = "Micro-Services Honours Project"
 theme = "hugo-notepadium"
 
@@ -50,5 +50,5 @@ title = "About"
 url = "/about"
 
 [[params.nav.custom]]
-title = "fitness-logger"
+title = "fitness-logger git"
 url = "https://github.com/JamesTiberiusKirk/fitness-logger"

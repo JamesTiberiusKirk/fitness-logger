@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     env:
-      working-dir: ./blog
+      working-dir: ./fitness-logger/fl-shared
 
     runs-on: ubuntu-latest
     steps: 

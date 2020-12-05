@@ -1,0 +1,48 @@
+name: FL-shared Package Publish
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    env:
+      working-dir: ./blog
+
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Checking out Repo
+        uses: actions/checkout@v2
+
+      - name: Setting Dependencies
+        working-directory: ${{env.working-dir}}
+        run: npm install
+      
+      - name : Running Tests
+        working-directory: ${{env.working-dir}}
+        run: npm ci:test
+      
+      - name: Build
+        working-directory: ${{env.working-dir}}
+        run: npm build
+      
+ #     - name: Publish Node Module
+        
+
+    
+#  publish-gpr:
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - uses: actions/setup-node@v1
+#        with#:
+#          node-version: 12
+#          registry-url: https://npm.pkg.github.com/
+#          scope: "@JamesTiberiusKirk"
+#      - run: npm install
+#      - run: git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
+#      - run: npm version --minor
+#      - run: git push --tags && git push
+#      - run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}#}

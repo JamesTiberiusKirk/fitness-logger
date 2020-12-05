@@ -24,7 +24,7 @@ jobs:
       
       - name : Running Tests
         working-directory: ${{env.working-dir}}
-        run: npm ci:test
+        run: npm run ci:test
       
       - name: Build
         working-directory: ${{env.working-dir}}

@@ -30,7 +30,7 @@ enable = false  # optional: true, false. Enable globally, default: false. You ca
 use = "katex"  # option: "katex", "mathjax". default: "katex"
 
 [params.syntax]
-use = "prismjs"  # builtin: "prismjs", "hljs". "none" means Chroma
+use = "hljs"  # builtin: "prismjs", "hljs". "none" means Chroma
 theme = "xcode"
 darkTheme = "xcode-dark"  # apply this theme in dark mode
 
@@ -52,3 +52,8 @@ url = "/about"
 [[params.nav.custom]]
 title = "fitness-logger git"
 url = "https://github.com/JamesTiberiusKirk/fitness-logger"
+
+
+[taxonomies]
+    tag = "tags"
+    category = "categories"

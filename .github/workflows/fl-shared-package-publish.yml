@@ -35,9 +35,9 @@ jobs:
       - name: Setting up Npm Registry Settings
         working-directory: ${{env.working-dir}}
         run: |
-          git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com" && git config --global user.name "$GITHUB_ACTOR"
+          git config --global user.email "dumitru.v.dv@gmail.com" && git config --global user.name "Dumitru Vulpe"
           npm version --minor
           git push --tags && git push
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.TOKEN}}

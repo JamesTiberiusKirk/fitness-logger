@@ -20,23 +20,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-
-    # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
-      # with:
-          # submodules: true  # Fetch Hugo themes
-          # fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
     - name: Checkout
       uses: actions/checkout@v2
       with:
         submodules: true
-        # repository: https://github.com/JamesTiberiusKirk/fitness-logger
         ref: 'master'
         token: '${{secrets.TOKEN}}'
-      # shell: bash
-      # run: |
-        # auth_header="$(git config --local --get http.https://github.com/.extraheader)"
-        # git submodule sync --recursive
-        # git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=0
 
     # Step 2 - Sets up the latest version of Hugo
     - name: Setup Hugo
@@ -58,7 +47,7 @@ jobs:
 
 
     # Step 6 - Push our generated site to our gh-pages branch
-    - name: Deploy
+    - name: Deploy Blog
       uses: peaceiris/actions-gh-pages@v3
       with:
           github_token: ${{ secrets.GITHUB_TOKEN }}

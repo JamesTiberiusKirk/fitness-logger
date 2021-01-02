@@ -23,10 +23,11 @@ jobs:
 
     # Step 1 - Checks-out your repository under $GITHUB_WORKSPACE
     - uses: actions/checkout@v2
+      # with:
+          # submodules: true  # Fetch Hugo themes
+          # fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
     - name: Checkout
-      with:
-          submodules: true  # Fetch Hugo themes
-          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+      shell: bash
       run:
         auth_header="$(git config --local --get http.https://github.com/.extraheader)"
         git submodule sync --recursive

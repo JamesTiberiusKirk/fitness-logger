@@ -13,6 +13,7 @@ The few things I would like to setup for this sub project would be:
 - Typescript
 - JSDoc (or some typescript alternative)
 - CI/CD with github actions
+- Versioning
 
 # Unit Testing
 For this I will just be using mocha and chai.
@@ -20,4 +21,6 @@ For this I will just be using mocha and chai.
 # Documentation
 I will be following the typescript documnetation standart from Microsoft. However, I will, for now, not be generation any documentation from it. Ideally I would like to just output the docs to the README of the project or a neighburing markdown documnet. I have managed to compile markdown using jsdoc2md package, however, this will not provide any ts typings. For now I will just stick to just commenting the code properly, and someday I will comeback and figure out a way to compile markdown out of the comments.
 
+
+# Versioning
 

@@ -1,3 +1,6 @@
 [submodule "blog/themes/hugo-notepadium"]
 	path = blog/themes/hugo-notepadium
 	url = https://github.com/cntrump/hugo-notepadium.git
+[submodule "fitness-logger/fl-services/fl-test"]
+	path = fitness-logger/fl-services/fl-test
+	url = git@github.com:JamesTiberiusKirk/fl-test.git

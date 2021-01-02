@@ -34,6 +34,11 @@ jobs:
 
       - name: Setting up Npm Registry Settings
         working-directory: ${{env.working-dir}}
-        run: npm publish
+        run: |
+          echo "init.author.name=Dumitru Vulpe" > ~/.npmrc
+          echo "init.author.email=dumitru.v.dv@gmail.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.TOKEN}}" >> ~/.npmrc
+          echo "@jamestiberiuskirk:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.TOKEN}}

@@ -31,7 +31,7 @@ jobs:
         submodules: true
         repository: https://github.com/JamesTiberiusKirk/fitness-logger
         ref: 'master'
-        token: '${{secretes.TOKEN}}'
+        token: '${{secrets.TOKEN}}'
       # shell: bash
       # run: |
         # auth_header="$(git config --local --get http.https://github.com/.extraheader)"

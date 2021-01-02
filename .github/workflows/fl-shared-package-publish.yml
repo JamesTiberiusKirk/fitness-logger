@@ -46,7 +46,7 @@ jobs:
 
       - name: Setting up Npm Registry Settings
         working-directory: ${{env.working-dir}}
-        run: touch ~/.npmrc && echo "@jamestiberiuskirk:registry=https://npm.pkg.github.com/" >> .npmrc
+        run: echo "@jamestiberiuskirk:registry=https://npm.pkg.github.com/" >> .npmrc
       
       - name: Publishing Package
         working-directory: ${{env.working-dir}}

@@ -4,10 +4,8 @@
 name: FL Shared Publish
 
 on:
-  release:
-    types: [created]
   push:
-    branches: ["main"]
+    branches: [ master ]
 
 env:
   working-dir: ./fitness-logger/fl-shared

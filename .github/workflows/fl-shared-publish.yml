@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: 15
 
-      - run: npm ci
-        working-directory: ${{env.workding-dir}}
-
       - run: npm run ci:test
         working-directory: ${{env.workding-dir}}
 

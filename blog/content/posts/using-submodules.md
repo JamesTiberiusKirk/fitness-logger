@@ -5,5 +5,7 @@ draft: true
 ---
 
 
-very finiky
+very finiky but possible
 
+
+was having problems with github actions now being able to checkout with the private submodule

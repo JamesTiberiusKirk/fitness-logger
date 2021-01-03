@@ -24,3 +24,14 @@ I will be following the typescript documnetation standart from Microsoft. Howeve
 
 # Versioning
 
+
+# off the cuff notes (to be re-ritten)
+- it was a pain to set up the ci-cd for the shared code
+- need to figure out versioning
+    - for now i am doing it manually by upping the number in package.json
+- also linking module locally is very easy
+```bash
+npm link #inside fl-shared
+npm link @jamestiberiuskirk/fl-shared #inside the services which need to consume it
+```
+    - I have however made npm scripts to automate this

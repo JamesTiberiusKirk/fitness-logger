@@ -1,4 +1,4 @@
-name: FL-shared Package Publish
+name: FL-shared Package Publish (OLD)
 on:
   push:
     branches: [ master ]

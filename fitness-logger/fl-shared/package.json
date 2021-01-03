@@ -1,12 +1,13 @@
 {
   "name": "@jamestiberiuskirk/fl-shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "build": "tsc --declaration",
+    "build": "rm -rf ./dist && tsc",
     "dev:test": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
-    "ci:test": "mocha -r ts-node/register src/**/*.test.ts"
+    "ci:test": "mocha -r ts-node/register src/**/*.test.ts",
+    "link:locally":"npm link"
   },
   "author": "Dumitru Vulpe",
   "license": "ISC",

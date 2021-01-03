@@ -1,7 +1,7 @@
 import * as chai from 'chai';
 import 'mocha';
 
-import { log } from './index';
+import { logger } from './index';
 
 const expect = chai.expect;
 
@@ -10,7 +10,7 @@ const expect = chai.expect;
  */
 describe('Placeholder test for logging', () => {
   it('should test the placeholder function', () => {
-      log('this is a log from test');
+      logger('this is a log from test');
       chai.expect(true).to.be.true;
   });
 });

@@ -1,13 +1,13 @@
 {
   "name": "@jamestiberiuskirk/fl-shared",
   "version": "0.0.4",
-  "description": "",
+  "description": "Shared libraries for fitness logger.",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf ./dist && tsc",
     "dev:test": "nodemon --watch . --ext ts --exec \"mocha -r ts-node/register src/**/*.test.ts\"",
     "ci:test": "mocha -r ts-node/register src/**/*.test.ts",
-    "link:locally":"npm link"
+    "link:locally": "npm link"
   },
   "author": "Dumitru Vulpe",
   "license": "ISC",

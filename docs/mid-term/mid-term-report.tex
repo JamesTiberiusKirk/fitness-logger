@@ -2,13 +2,25 @@
 \usepackage[utf8]{inputenc}
 \usepackage{mathptmx}
 
+% Overall doc formatting 
 \addtolength{\oddsidemargin}{-.875in}
 \addtolength{\evensidemargin}{-.875in}
 \addtolength{\textwidth}{1.75in}
-
 \addtolength{\topmargin}{-.875in}
 \addtolength{\textheight}{1.75in}
 
+% To remove section numbering but keep the contents table
+\makeatletter
+\renewcommand{\@seccntformat}[1]{}
+\makeatother
+
+% Para formatting including indentation
+\setlength{\parindent}{4em}
+\setlength{\parskip}{1em}
+\renewcommand{\baselinestretch}{1.0}
+
+% To enable indentation on first para
+\usepackage{indentfirst}
 
 \title{Fitness Logger Mid-term Report}
 \author{Dumitru Vulpe}
@@ -20,17 +32,27 @@
 \tableofcontents
 \newpage
 
-\section{Introduction}
+\section{Project Summary}
 
-\section{Summary}
-Summary of aims and objectives of the project
+Here I will be outlining what the purpose of my project is, including some technical detail about how the backend will be implemented. The purpose of this project is more of a proof of concept and a learning experience rather then a practical way to implement this project in this way. \par
+
+The base concept is to just be a fitness logging application which you would then be able to use to generate graphs and trends to see the progress. This project is meant to be made in a manner which allows a great deal of flexibility when in comes to the types of logs entered by the user. \par
+
+The frontend will just be mostly an Android app which will be mostly made up of forms and will also have a trends section. If time allows it, I will also be implementing a web frontend to be used as an admin console. In this project, the backend is the most complex part and will take the most amount of effort and research. Simply because the backend will be implemented with micro services. \par
 
 \section{Background Research}
 
+The background market research for this project just consisted of searching and trying out different workout apps. However most of them tend to have either bug, or force you to follow a specific program, or do not have the ability to specific (custom) elements of an exercise. The problem is that there a lot of different aspect which could be logged, this is the reason why most athletes, or average gym goers which log workouts use notebooks in order to customise the log level to their needs.  \par
+
+The specific gap in the market which this project is attempting to fill is to make a simple, yet customisable fitness/workout logger which will let you create an entry, say ``bench press'' or ``caffeine'' (consumed before a workout), customise the values entered for each entry (for example for ``bench press'' have sets, which would have number of reps and a weight value in kg and for ``caffeine'' enter in the amount in mg), then repeatedly be able to enter values and track it overtime. \par
+
 \section{Main Features}
 
-\section{Current Progress}
+Be able to create different ``tracking points'' or as referred to them above, entries, with different properties. Be able to enter individual entries for those ``tracking points'' in organised groups. After witch, the app would be able to generate trends to visualise the progress. \par
 
+\section{Current Progress}
+All of the main setup has already been done. The git repo is setup fully with the CI pipeline 
+I have a git repo with sub-modules for the individual components
 
 \section{Personal Reflection}
 

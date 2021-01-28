@@ -7,3 +7,6 @@
 [submodule "fl-blog"]
 	path = fl-blog
 	url = git@github.com:JamesTiberiusKirk/fl-blog.git
+[submodule "fitness-logger/fl-services/fl-auth"]
+	path = fitness-logger/fl-services/fl-auth
+	url = git@github.com:JamesTiberiusKirk/fl-auth.git

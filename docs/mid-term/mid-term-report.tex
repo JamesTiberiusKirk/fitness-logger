@@ -22,6 +22,10 @@
 % To enable indentation on first para
 \usepackage{indentfirst}
 
+% For pictures
+\usepackage{graphicx}
+
+
 \title{Fitness Logger Mid-term Report}
 \author{Dumitru Vulpe}
 \date{January 2021}
@@ -36,9 +40,7 @@
 
 Here I will be outlining what the purpose of my project is, including some technical detail about how the backend will be implemented. The purpose of this project is more of a proof of concept and a learning experience rather then a practical way to implement this project in this way. \par
 
-The base concept is to just be a fitness logging application which you would then be able to use to generate graphs and trends to see the progress. This project is meant to be made in a manner which allows a great deal of flexibility when in comes to the types of logs entered by the user. \par
-
-The frontend will just be mostly an Android app which will be mostly made up of forms and will also have a trends section. If time allows it, I will also be implementing a web frontend to be used as an admin console. In this project, the backend is the most complex part and will take the most amount of effort and research. Simply because the backend will be implemented with micro services. \par
+The base concept is to just be a fitness logging application which you would then be able to use to generate graphs and trends to see the progress. This project is meant to be made in a manner which allows a great deal of flexibility when in comes to the types of logs entered by the user. The frontend will just be mostly an Android app which will be mostly made up of forms and will also have a trends section. If time allows it, I will also be implementing a web frontend to be used as an admin console. In this project, the backend is the most complex part and will take the most amount of effort and research. Simply because the backend will be implemented with micro services. \par
 
 \section{Background Research}
 
@@ -51,12 +53,35 @@ The specific gap in the market which this project is attempting to fill is to ma
 Be able to create different ``tracking points'' or as referred to them above, entries, with different properties. Be able to enter individual entries for those ``tracking points'' in organised groups. After witch, the app would be able to generate trends to visualise the progress. \par
 
 \section{Current Progress}
-All of the main setup has already been done. The git repo is setup fully with the CI pipeline 
-I have a git repo with sub-modules for the individual components
+
+Since I did not have any prior micro services experience I first had to start by researching the topic. Then I quickly started putting together ideas about how I would like to organise my project, technology I would be using and more. After the research part I started creating the main repo I would be using and setup subsequent sub-module repositories for the different sub components. \par
+
+In terms of the actual coding, so far the shared library which will mainly be used has been setup and appropriately linked so that it can be used by the rest of the micro services. Next, the main template for services started coming together with all of the libraries that I would need. \par
+
+The main language for this project is Nodejs with typescript. However, one common assumption which we have about micro services development is that we can easily interchange libraries, languages and frameworks since we will be writing multiple programs, so as a part of my proof of concept, I wanted to test that and written my first micro service in GoLang. \par
+
+The first micro service is for authentication. It's main functionality is to just register users and create JWT tokens for them (at the login stage). This is the base functionality of it, and at the moment I do not plan to be adding any more features to it, I already some some in mind which would be nice to have. One of them is adding state like functionality side by side with the JWT token system. This would be nice in terms use user account management and to have the ability to logout. \par
+
 
 \section{Personal Reflection}
 
+\subsection{Main Challenges}
+The main challenges which I had until now were to do mostly just all of the research into the topic of micro services and the amount of options there are when designing a project using micro services. This challenge was amplified due to the fact that there does not exist a standard way of designing micro services and I had no previous experience with them. I also had to learn more specific stuff which was a bit tricky to get a hold of. For example, learning how to make a shared library in Nodejs with typescript.\par
+
+\subsection{My Thoughts}
+This project is still far from being finished, with the actual development for the functionality needed being started only in mid January. The parts to be completed come as follows: database design, database implementation, the actual micro services, the frontend app, deployment in Kubernetes, and micro service logging. In terms of the timeline for this project, the plan is to finish implementing all the core parts of this project before the end of March, this is so that there is enough time for deployment, troubleshooting and report writing in April. This will definitely be a bit of a crunch, however, it should still be doable.\par
+
+\newpage
 \section{Conclusion}
+
+\begin{center}
+    \includegraphics[scale=0.4]{GanttChart}
+    Gantt Chart\par
+\end{center}
+
+The main milestones I have are the ones in the Gantt Chart: research, setup, backend development, frontend development and testing \& troubleshooting. Right now I am in the backend development phase. And the reason why it is the longest is simply because along side writing all the micro services I will also have to setup a Kubernetes deployments. When it comes to the frontend development, there is only one main app which I will be developing to consume the API If given enough time I will also be developing an admin console for metrics and any administration purposes. The testing and troubleshooting phase is there for fixing last minute problems, testing the application (end to end and possible user testing) and for writing the final report. \par
+
+I am confident in being able to finish the application, however, my main risk is simply time. I might not be able to fully finish the frontend application. So far, I seem to be on track.\par
 
 \end{document}
 

@@ -3,4 +3,6 @@
 \contentsline {section}{\numberline {3}Main Features}{2}{}%
 \contentsline {section}{\numberline {4}Current Progress}{2}{}%
 \contentsline {section}{\numberline {5}Personal Reflection}{3}{}%
-\contentsline {section}{\numberline {6}Conclusion}{3}{}%
+\contentsline {subsection}{\numberline {5.1}Main Challenges}{3}{}%
+\contentsline {subsection}{\numberline {5.2}My Thoughts}{3}{}%
+\contentsline {section}{\numberline {6}Conclusion}{4}{}%

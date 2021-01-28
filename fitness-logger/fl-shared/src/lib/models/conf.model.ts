@@ -4,8 +4,8 @@
  */
 export interface MicroserviceConfig {
     name: string;
-    serverConfig?: ServerConfig;
-    dbConfig?: DbConfig;
+    serverConfig: ServerConfig;
+    dbConfig: DbConfig;
 }
 
 /**
@@ -26,15 +26,31 @@ export interface DbConfig {
     password: string;
 }
 
+/**
+ * Config for the Kafka consumer.
+ */
+export interface KafkaConsumerConfig {
+    hosts: string[];
+    clientId: string;
+    groupId: string;
+}
+
+/**
+ * Config for the Kafka producer.
+ */
+export interface KafkaProducerConfig {
+    hosts: string[];
+    clientId: string;
+}
 
 /**
  * Environment config.
  */
 export interface EnvironmentConfig {
-    MS_NANE: string | undefined;
+    MS_NAME: string | undefined;
     HTTP_PORT: string | undefined;
     DB_HOST: string | undefined;
     DB_PORT: string | undefined;
-    DB_USERNAMER: string | undefined;
+    DB_USERNAME: string | undefined;
     DB_PASSWORD: string | undefined;
 }

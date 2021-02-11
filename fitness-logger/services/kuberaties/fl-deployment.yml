@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fl-auth
+  labels:
+    component: fl-auth
+spec:
+  containers:
+    - name: fl-auth
+      image: ghcr.io/jamestiberiuskirk/fl-auth
+      ports:
+        - containerPort: 3000
+      env:
+        - name: DB_HOST
+          value: "192.168.0.100"
+        - name: DB_PORT
+          value: "27017"
+        - name: DB_NAME
+          value: "fl-auth"
+        - name: DB_USER
+          value: "fl-auth"
+        - name: DB_PASSWORD
+          value: "fl-auth123"
+        - name: SERVER_PORT
+          value: ":3000"
+        - name: JWT_SECRET
+          value: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+  imagePullSecrets:
+    - name: image-pull-secret-file

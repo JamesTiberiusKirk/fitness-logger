@@ -1,0 +1,12 @@
+apiVersion: v1
+king: Ingress
+metadata:
+  name: fitness-logger-ingress
+spec:
+  rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+        serviceName: fl-auth
+        servicePort: 3000

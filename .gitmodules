@@ -10,3 +10,6 @@
 [submodule "fitness-logger/fl-services/fl-auth"]
 	path = fitness-logger/fl-auth
 	url = git@github.com:JamesTiberiusKirk/fl-auth.git
+[submodule "fitness-logger/fl-shared"]
+	path = fitness-logger/fl-shared
+	url = git@github.com:JamesTiberiusKirk/fl-shared.git

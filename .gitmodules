@@ -13,3 +13,6 @@
 [submodule "fitness-logger/fl-shared"]
 	path = fitness-logger/fl-shared
 	url = git@github.com:JamesTiberiusKirk/fl-shared.git
+[submodule "fitness-logger/fl-tp-types"]
+	path = fitness-logger/fl-tp-types
+	url = git@github.com:JamesTiberiusKirk/fl-tp-types.git

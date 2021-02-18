@@ -1,0 +1,4 @@
+http :80/auth/register email=test@gmail.com username=test password=testPass
+http :80/auth/login email=test@gmail.com password=testPass
+http POST :80/types/ access-token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmFhMWI1ZDM1Y2E1OWRlNzYxOTI0ZiIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJyb2xlcyI6WyJ1c2VyIl0sImV4cCI6MTYxMzQ5MzIwNCwiaXNzIjoiZmwtYXV0aCJ9.SW3s0v2kBD3LYJc7cpV4uX83Pm0GTEmZkWms_4DbPt4" tp_name="Tucked front lever" description="" data_type="single-value"
+http GET :80/types/ access-token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwMmFhMWI1ZDM1Y2E1OWRlNzYxOTI0ZiIsInVzZXJuYW1lIjoidGVzdCIsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJyb2xlcyI6WyJ1c2VyIl0sImV4cCI6MTYxMzQ5MzIwNCwiaXNzIjoiZmwtYXV0aCJ9.SW3s0v2kBD3LYJc7cpV4uX83Pm0GTEmZkWms_4DbPt4"

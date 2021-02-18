@@ -8,8 +8,6 @@ db.createUser(
   ]
 })
 
-
-
 db = db.getSiblingDB('fl-tracking-points')
 
 db.createUser(

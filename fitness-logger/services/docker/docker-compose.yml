@@ -15,19 +15,34 @@ services:
       SERVER_PORT: "3000"
       JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
 
-  fl-tracking-points:
+  fl-tp-types:
     # build: ../../fl-tracking-points/
-    image: ghcr.io/jamestiberiuskirk/fl-tracking-points:latest
+    image: ghcr.io/jamestiberiuskirk/fl-tp-types:latest
     environment:
-      MS_NAME: "fl-tracking-points"
+      MS_NAME: "fl-tp-types"
       DB_HOST: "docker_mongo_1"
         #DB_HOST: "192.168.0.100"
       DB_PORT: "27017"
-      DB_NAME: "fl-tracking-points"
-      DB_USER: "fl-tracking-points"
-      DB_PASSWORD: "fl-tracking-points123"
+      DB_NAME: "fl-tp-types"
+      DB_USER: "fl-tp-types"
+      DB_PASSWORD: "fl-tp-types123"
       SERVER_PORT: "3000"
       JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+
+  fl-tp:
+    # build: ../../fl-tracking-points/
+    image: ghcr.io/jamestiberiuskirk/fl-tp:latest
+    environment:
+      MS_NAME: "fl-tp"
+      DB_HOST: "docker_mongo_1"
+        #DB_HOST: "192.168.0.100"
+      DB_PORT: "27017"
+      DB_NAME: "fl-tp"
+      DB_USER: "fl-tp"
+      DB_PASSWORD: "fl-tp"
+      SERVER_PORT: "3000"
+      JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+      FL_API_HOST: "http://fl-proxy:80"
 
   fl-proxy:
     build: ./fl-proxy
@@ -35,5 +50,5 @@ services:
       - "80:80"
     depends_on:
       - fl-auth
-      - fl-tracking-points
+      - fl-tp-types
     restart: always

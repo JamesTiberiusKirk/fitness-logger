@@ -16,3 +16,6 @@
 [submodule "fitness-logger/fl-tp-types"]
 	path = fitness-logger/fl-tp-types
 	url = git@github.com:JamesTiberiusKirk/fl-tp-types.git
+[submodule "fitness-logger/fitness_logger_app"]
+	path = fitness-logger/fitness_logger_app
+	url = git@github.com:JamesTiberiusKirk/fitness_logger_app.git

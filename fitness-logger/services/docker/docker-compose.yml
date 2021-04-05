@@ -11,9 +11,9 @@ services:
       DB_PORT: "27017"
       DB_NAME: "fl-auth"
       DB_USER: "fl-auth"
-      DB_PASSWORD: "fl-auth123"
+      DB_PASSWORD: $MONGO_FL_AUTH
       SERVER_PORT: "3000"
-      JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+      JWT_SECRET: $JWT_SECRET
 
   fl-tp-types:
     # build: ../../fl-tracking-points/
@@ -25,9 +25,9 @@ services:
       DB_PORT: "27017"
       DB_NAME: "fl-tp-types"
       DB_USER: "fl-tp-types"
-      DB_PASSWORD: "fl-tp-types123"
+      DB_PASSWORD: $MONGO_FL_TP_TYPES
       SERVER_PORT: "3000"
-      JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+      JWT_SECRET: $JWT_SECRET
 
   fl-tp:
     # build: ../../fl-tracking-points/
@@ -39,9 +39,9 @@ services:
       DB_PORT: "27017"
       DB_NAME: "fl-tp"
       DB_USER: "fl-tp"
-      DB_PASSWORD: "fl-tp"
+      DB_PASSWORD: $MONGO_FL_TP
       SERVER_PORT: "3000"
-      JWT_SECRET: "[:7Wa*yZ*VSndbq6fPchJEw-.qP+;?"
+      JWT_SECRET: $JWT_SECRET
       FL_API_HOST: "http://fl-proxy:80"
 
   fl-proxy:

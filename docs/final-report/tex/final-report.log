@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  5 APR 2021 19:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  6 APR 2021 11:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -765,10 +765,14 @@ Underfull \hbox (badness 2707) in paragraph at lines 151--151
 []\OT1/ptm/m/n/10 Something about info C goes
  []
 
-[2]
+
+Underfull \vbox (badness 3417) has occurred while \output is active []
+
+ [2]
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
 25.
- (/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+
+(/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 Underfull \hbox (badness 10000) in paragraph at lines 224--227
@@ -790,9 +794,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 232--237
 \OT1/ptm/m/n/10 Watch-Con-nect: A Toolkit for Pro-to-typ-ing
  []
 
-[3
-
-] (./final-report.aux)
+[3] (./final-report.aux)
 Package rerunfilecheck Info: File `final-report.out' has not changed.
 (rerunfilecheck)             Checksum: 367E8A1F8BE32ABB2A3AF1D0D1F10C89;654.
 
@@ -807,12 +809,12 @@ Here is how much of TeX's memory you used:
  34440 multiletter control sequences out of 15000+600000
  435937 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,10n,98p,1902b,320s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,10n,98p,1902b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/ut
 mb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
 xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final-report.pdf (3 pages, 68416 bytes).
+Output written on final-report.pdf (3 pages, 68521 bytes).
 PDF statistics:
  141 PDF objects out of 1000 (max. 8388607)
  114 compressed objects within 2 object streams

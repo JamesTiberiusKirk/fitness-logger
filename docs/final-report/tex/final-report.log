@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  6 APR 2021 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  7 APR 2021 11:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -620,8 +620,8 @@ LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
-8.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
+1.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -631,45 +631,45 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box60
 )
 (./final-report.aux)
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 58.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 41.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-58.
+41.
  (/usr/share/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 41.
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-58.
+41.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 41.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-58.
+41.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 58.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 5
-8.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 41.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 4
+1.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 58.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 58.
-LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -697,9 +697,9 @@ e
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 58.
+loading the todonotes package. on input line 41.
 
-Package hyperref Info: Link coloring OFF on input line 58.
+Package hyperref Info: Link coloring OFF on input line 41.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -711,113 +711,70 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 58.
-LaTeX Info: Redefining \pageref on input line 58.
-LaTeX Info: Redefining \nameref on input line 58.
+LaTeX Info: Redefining \ref on input line 41.
+LaTeX Info: Redefining \pageref on input line 41.
+LaTeX Info: Redefining \nameref on input line 41.
 
 (./final-report.out) (./final-report.out)
 \@outlinefile=\write4
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 4
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 4
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 4
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 4
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 6
-2.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 4
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
-5.
 
-(/usr/share/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-
-LaTeX Warning: Reference `fig:computerImg' on page 1 undefined on input line 10
-6.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+LaTeX Warning: Empty `thebibliography' environment on input line 102.
 
 
-]
-Underfull \hbox (badness 2707) in paragraph at lines 151--151
-[]\OT1/ptm/m/n/10 Something about info C goes
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-Underfull \vbox (badness 3417) has occurred while \output is active []
-
- [2]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 2
-25.
-
-(/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 224--227
-[]$\OT1/pcr/m/n/10 http : / / www . bbc . co . uk /
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 224--227
-\OT1/pcr/m/n/10 skillswise / factsheet /
- []
-
-
-Underfull \hbox (badness 4048) in paragraph at lines 232--237
-[]\OT1/ptm/m/n/10 Steven Houben and Nico-lai Mar-quardt. 2015.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 232--237
-\OT1/ptm/m/n/10 Watch-Con-nect: A Toolkit for Pro-to-typ-ing
- []
-
-[3] (./final-report.aux)
+] (./final-report.aux)
 Package rerunfilecheck Info: File `final-report.out' has not changed.
-(rerunfilecheck)             Checksum: 367E8A1F8BE32ABB2A3AF1D0D1F10C89;654.
-
-
-LaTeX Warning: There were undefined references.
-
+(rerunfilecheck)             Checksum: FF0E82E04949799728FD42C269648910;521.
  ) 
 Here is how much of TeX's memory you used:
- 17750 strings out of 479383
- 332278 string characters out of 5875831
- 608817 words of memory out of 5000000
- 34440 multiletter control sequences out of 15000+600000
- 435937 words of font info for 105 fonts, out of 8000000 for 9000
+ 17631 strings out of 479383
+ 330749 string characters out of 5875831
+ 602637 words of memory out of 5000000
+ 34345 multiletter control sequences out of 15000+600000
+ 421871 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,10n,98p,1902b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,8n,98p,440b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
-ts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/ut
-mb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
-xmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on final-report.pdf (3 pages, 68521 bytes).
+ts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr
+8a.pfb>
+Output written on final-report.pdf (1 page, 33037 bytes).
 PDF statistics:
- 141 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
- 205 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 97 PDF objects out of 1000 (max. 8388607)
+ 75 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
+ 189 words of extra memory for PDF output out of 10000 (max. 10000000)
 

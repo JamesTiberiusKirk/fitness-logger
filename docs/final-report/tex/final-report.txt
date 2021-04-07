@@ -1,0 +1,68 @@
+Honours Project Report
+Fitness Logger with Micro-services
+Dumitru Vulpe
+BSc (Hons) Applied Computing
+May 2020
+
+Abstract
+
+This project is a tool to let people be able to log and track
+workouts overtime easily from their phone in a flexible
+yet complete way. The initial purpose was to make a
+phone application which can be used across different disciplines of sport and with different workout types. This
+was done by breaking up the data in different manageable units so that the use can create their own workflow
+for logging workouts.
+
+1
+
+Introduction
+
+2
+
+Background
+
+3
+
+Specification
+
+4
+
+Design
+
+5
+
+Implementation and Testing
+
+6
+
+Evaluation
+
+6.1
+
+Usability
+
+6.2
+
+Other Criteria
+
+7
+
+Description of the Final Product
+
+8
+
+Conclusion
+
+Acknowledgements
+References
+
+However, this was not the main appeal of this project.
+The main appeal of this project was the backend implementation. This is because as a part of the architecture design process, it was decided that a micro-services
+structure would be followed. This was done for a multitude of reasons, including as a learning experience for
+this kind of backend architecture.
+
+Appendices
+
+1
+
+

@@ -42,25 +42,86 @@
 
 \maketitle
 
-\begin{abstract} %  133 out of 200 words
+% \cleardoublepage
 
-  This project is a tool to let people be able to log and track workouts overtime easily from their phone in a flexible yet complete way. The initial purpose was to make a phone application which can be used across different disciplines of sport and with different workout types. This was done by breaking up the data in different manageable units so that the use can create their own workflow for logging workouts.
+% \tableofcontents % need to figure out a way disable then enable twocolumn
 
-  However, this was not the main appeal of this project. The main appeal of this project was the backend implementation. This is because as a part of the architecture design process, it was decided that a micro-services structure would be followed. This was done for a multitude of reasons, including as a learning experience for this kind of  backend architecture.
+% \cleardoublepage
+
+\begin{abstract} 
+
+This project is a tool to let people be able to log and track workouts overtime easily from their phone in a flexible yet complete way. The initial purpose was to make a phone application which can be used across different disciplines of sport and with different workout types. This would be done by breaking up the data in different manageable units so that the use can create their own workflow for logging workouts.
+
+However, this was not the main appeal for choosing this project. The main appeal of this project was the backend implementation. This is because as a part of the architecture design process, it was decided that a micro-services structure would be followed. This was chosen for a multitude of reasons, including as a learning experience for this kind of backend architecture.
 
 \end{abstract}
 
 \section{Introduction}
 \vspace{-1ex}
 
+This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.
+
+
+\subsection{Why micro services}
+\vspace{-1ex}
+
+The basic principle of micro services as supposed to a monolith, is to split up the backend application into multiple smaller application. For example, in theory, a service such as Amazon, could have a separate micro service for the cart function, one for listings, one more user account management, one for payment and more.
+Micro services architectures are becoming more and more relevant simply because the industry is getting becoming more and more complex. And as size, complexity and user bases increase, so does the need for well scaled web applications. Micro services type architectures are simply one way to cleanly and easily scale web applications. So because of industry relevance and my personal enthusiasm, it was decided that this project's backend would also follow this architecture. 
+
+\subsection{Creating a potential product}
+\vspace{-1ex}
+
+% TODO: 
+% mini intro for the "product section" say smth along the lines of 
+%   - with a base product that is simple, yet flexible enough
+%   - certain features could be added at a low cost behind a pay wall
+%     - features like cloud data backup, workout analysis and more
+
+\subsubsection{The problem}
+\vspace{-1ex}
+
+% TODO: the first sentence needs to be re-phrased
+From personal experience and research, there isnt a simple, yet flexible application for logging workout sessions and related notes for said session. The applications which I have tried so far are either made for a specific workout programs or are not complete, buggy or just do not have enough flexibility in the type of logging you can achieve.
+
+% TODO: need to talk about why flexibility is such a problem
+% workouts and exercises can vary in types
+
+\subsubsection{My planned solution}
+\vspace{-1ex}
+
+The idea was that the system would be designed around the data structure which would be saved by the user. This data structure would be made as simple as possible while still allowing all the common basic exercise options (such as repetitions, resistance values, sets etc) but also others (such as the option to just write a single value). Furthermore, the system would allow the user to create their own exercise types which they would then use when logging a workout. 
+
 \section{Background}
 \vspace{-1ex}
+
+\subsection{Architecture design}
+
+% TODO: see if u can find a citation for the "popular questions to be answered" 
+A lot of time during this project was allocated to research for the backend architecture design, specifically micro services. When it comes to the world of micro services, there does not exist just one generally accepted standard that people adopt, and there are a lot of decisions to make. For instance the questions of how the different services should be split, some say it should be split by the feature, some say by the individual data element. Another popular questions is how the services diagram should look like, one of the popular answers are to have a separate authentication service to provide authentication for the application and proxy the requests to all the other services. However, regardless of the question, there are a lot of different ways solutions to all of these questions that need to be answered when starting a project using micro services and all of them come with their own advantages and disadvantages. 
+
+\subsubsection{Helpful technologies}
+
+When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling. 
+
+% Talk about inner service comms
+%   - Async
+%     - message busses
+%     - RPC
+%     - events
+%   - Sync
+%     - HTTP
+
+% Talk about service meshes
+
+\subsection{Market} % Competitors apps
 
 \section{Specification}
 \vspace{-1ex}
 
 \section{Design}
 \vspace{-1ex}
+
+% NOTE: In order to tackle the main problem of simplicity and flexibility it was decided that the data would be atomised as much as possible, 
 
 \section{Implementation and Testing}
 \vspace{-1ex}
@@ -82,9 +143,14 @@
 \vspace{-1ex}
 
 \begin{thebibliography}{9}
-    % \bibitem{BBC}
-    % BBC. Graphs and Charts: Reading Bar Charts. (2011).\\
-    % \url{http://www.bbc.co.uk/skillswise/factsheet/ma37grap-e3-f-reading-bar-charts}
+
+  \bibitem{Docker}
+  Docker (Software) Wikipedia (2021).\\
+  \url{https://en.wikipedia.org/wiki/Docker_(software)}
+
+  \bibitem{k8s}
+  Kubernetes website (2021).\\
+  \url{https://kubernetes.io/}
 \end{thebibliography}
 
 \section*{Appendices}

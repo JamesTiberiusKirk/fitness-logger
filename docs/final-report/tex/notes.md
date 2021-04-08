@@ -2,6 +2,14 @@
 
 # Intro
 
+This project is split into two main objectives; one, creating the start of an application which would be useful to people in fitness; the second being a learning experience to teach myself and as an entry point into backend systems architecture and more specifically micro services architectures.
+
+## 
+
+## The problem
+
+## My planned solution
+
 # Background
 
 - This is about the microservices that I have made 

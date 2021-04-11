@@ -8,10 +8,4 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Helpful technologies}{4}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Market}{4}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Specification}{4}{section.3}%
-\contentsline {section}{\numberline {4}Design}{4}{section.4}%
-\contentsline {section}{\numberline {5}Implementation and Testing}{4}{section.5}%
-\contentsline {section}{\numberline {6}Evaluation}{4}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Usability}{4}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Other Criteria}{4}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Description of the Final Product}{4}{section.7}%
-\contentsline {section}{\numberline {8}Conclusion}{4}{section.8}%
+\contentsline {section}{\numberline {4}Design}{5}{section.4}%

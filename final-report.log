@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  8 APR 2021 21:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  10 APR 2021 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -607,6 +607,95 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip55
 )
+(/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count292
+\mult@box=\box60
+\multicol@leftmargin=\dimen267
+\c@unbalance=\count293
+\c@collectmore=\count294
+\doublecol@number=\count295
+\multicoltolerance=\count296
+\multicolpretolerance=\count297
+\full@width=\dimen268
+\page@free=\dimen269
+\premulticols=\dimen270
+\postmulticols=\dimen271
+\multicolsep=\skip56
+\multicolbaselineskip=\skip57
+\partial@page=\box61
+\last@line=\box62
+\maxbalancingoverflow=\dimen272
+\mult@rightbox=\box63
+\mult@grightbox=\box64
+\mult@gfirstbox=\box65
+\mult@firstbox=\box66
+\@tempa=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\c@minrows=\count298
+\c@columnbadness=\count299
+\c@finalcolumnbadness=\count300
+\last@try=\dimen273
+\multicolovershoot=\dimen274
+\multicolundershoot=\dimen275
+\mult@nat@firstbox=\box104
+\colbreak@box=\box105
+\mc@col@check@num=\count301
+)
+(/usr/share/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(/usr/share/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+)
+\Gm@cnth=\count302
+\Gm@cntv=\count303
+\c@Gm@tempcnt=\count304
+\Gm@bindingoffset=\dimen276
+\Gm@wd@mp=\dimen277
+\Gm@odd@mp=\dimen278
+\Gm@even@mp=\dimen279
+\Gm@layoutwidth=\dimen280
+\Gm@layoutheight=\dimen281
+\Gm@layouthoffset=\dimen282
+\Gm@layoutvoffset=\dimen283
+\Gm@dimlist=\toks31
+)
 (/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
@@ -620,70 +709,70 @@ LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 4
-1.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
+2.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count292
-\l__pdf_internal_box=\box60
+\l__kernel_color_stack_int=\count305
+\l__pdf_internal_box=\box106
 )
 (./final-report.aux)
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 41.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 52.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-41.
+52.
  (/usr/share/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 52.
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-41.
+52.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 52.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-41.
+52.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 41.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 4
-1.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 52.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 5
+2.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 41.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
-LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count293
-\scratchdimen=\dimen267
-\scratchbox=\box61
-\nofMPsegments=\count294
-\nofMParguments=\count295
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count296
-\MPscratchDim=\dimen268
-\MPnumerator=\count297
-\makeMPintoPDFobject=\count298
-\everyMPtoPDFconversion=\toks32
+\scratchcounter=\count306
+\scratchdimen=\dimen284
+\scratchbox=\box107
+\nofMPsegments=\count307
+\nofMParguments=\count308
+\everyMPshowfont=\toks32
+\MPscratchCnt=\count309
+\MPscratchDim=\dimen285
+\MPnumerator=\count310
+\makeMPintoPDFobject=\count311
+\everyMPtoPDFconversion=\toks33
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -693,13 +782,8 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package hyperref Info: Link coloring OFF on input line 52.
 
-Package todonotes Warning: The length marginparwidth is less than 2cm and will 
-most likely cause issues with the appearance of inserted todonotes. The issue c
-an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 41.
-
-Package hyperref Info: Link coloring OFF on input line 41.
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -709,79 +793,140 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count299
+\c@section@level=\count312
 )
-LaTeX Info: Redefining \ref on input line 41.
-LaTeX Info: Redefining \pageref on input line 41.
-LaTeX Info: Redefining \nameref on input line 41.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./final-report.out) (./final-report.out)
 \@outlinefile=\write4
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 4
-4.
 
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=10.0pt
+* \footskip=30.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
+* \columnsep=20.00003pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 5
+5.
 (/usr/share/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 4
-4.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 5
+5.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 4
-4.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 5
+5.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 4
-4.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 5
+5.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 4
-4.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 5
+5.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
-)
-Underfull \vbox (badness 1226) has occurred while \output is active []
+) [1
 
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./final-report.toc)
+\tf@toc=\write5
+ [2]
+Underfull \hbox (badness 10000) in paragraph at lines 92--95
 
+ []
 
-]
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
+
+ []
+
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-49.
-
+27.
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Underfull \hbox (badness 10000) in paragraph at lines 148--150
-[]$\OT1/pcr/m/n/10 https : / / en . wikipedia . org / wiki /
+Overfull \hbox (153.12251pt too wide) in paragraph at lines 134--134
+[]  \OT1/pcr/m/n/10 - the other being the flexibility part of the workout loggi
+ng[] 
  []
 
-[2] (./final-report.aux)
+
+Overfull \hbox (663.12251pt too wide) in paragraph at lines 134--134
+[]    \OT1/pcr/m/n/10 - explain how each user can create their own types which 
+could be anything not just exercises with their own defined measurement units a
+nd more.[] 
+ []
+
+
+Overfull \hbox (435.12251pt too wide) in paragraph at lines 134--134
+[]    \OT1/pcr/m/n/10 - could even talk about my initial idea of creating a hig
+hly flexible tagging system which can be searched[] 
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 165--167
+[]$\OT1/pcr/b/n/9 https : / / en . wikipedia . org / wiki / Docker _
+ []
+
+[5] (./final-report.aux)
 Package rerunfilecheck Info: File `final-report.out' has not changed.
-(rerunfilecheck)             Checksum: 5CFD4775E6ED59C63311DD0166DE2808;1022.
+(rerunfilecheck)             Checksum: 303531DEC5CE24693F892C0ECBAE9211;586.
  ) 
 Here is how much of TeX's memory you used:
- 17719 strings out of 479383
- 332026 string characters out of 5875831
- 609703 words of memory out of 5000000
- 34417 multiletter control sequences out of 15000+600000
- 432832 words of font info for 101 fonts, out of 8000000 for 9000
+ 18332 strings out of 479383
+ 340932 string characters out of 5875831
+ 630671 words of memory out of 5000000
+ 35014 multiletter control sequences out of 15000+600000
+ 442603 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,8n,98p,1155b,384s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,6n,98p,1157b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
-ts/type1/urw/courier/ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/ut
-mb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on final-report.pdf (2 pages, 50671 bytes).
+ts/type1/urw/courier/ucrb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/
+ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
+texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1
+/urw/times/utmr8a.pfb>
+Output written on final-report.pdf (5 pages, 70259 bytes).
 PDF statistics:
- 144 PDF objects out of 1000 (max. 8388607)
- 119 compressed objects within 2 object streams
- 26 named destinations out of 1000 (max. 500000)
- 245 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 151 PDF objects out of 1000 (max. 8388607)
+ 121 compressed objects within 2 object streams
+ 24 named destinations out of 1000 (max. 500000)
+ 181 words of extra memory for PDF output out of 10000 (max. 10000000)
 

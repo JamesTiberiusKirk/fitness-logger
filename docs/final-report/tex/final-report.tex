@@ -16,7 +16,7 @@
 \usepackage{titling}	% allows you to move title up the page
 \usepackage[
   pdftex,
-  colorlinks=true,
+  % colorlinks=true,
   pdfborder={0 0 0},
   linkcolor=red
 ]{hyperref}
@@ -30,7 +30,8 @@
 \usepackage{sectsty}			% set font sizes			
 \sectionfont{\Large}			% (assumes default font size 10pt)
 \subsectionfont{\large}
-\subsubsectionfont{\large}
+% \subsubsectionfont{\large}
+\subsubsectionfont{\normalsize}
 \paragraphfont{\normalsize}
 
 % positioning
@@ -49,17 +50,17 @@
 % This is a constant to space out the section titles from their body
 \newcommand{\vspaceconst}{-2ex}
 
-% For to do notes
+% For notes
 \newcommand{\TODO}{\textbf{\textit{\textcolor{red}{TODO:}}} }
+\newcommand{\NOTE}{\textbf{\textit{\textcolor{red}{NOTE:}}} }
 
 \title{Honours Project Report\\Fitness Logger with Micro-services}
 \author{Dumitru Vulpe\\BSc (Hons) Applied Computing\\Supervised by Andrew Colby}
-\date{May 2020}
+\date{May 2021}
 
 \begin{document}
 
 \maketitle
-
 
 \vspace*{\fill/2}
 \begin{abstract} 
@@ -78,6 +79,8 @@ However, the main appeal of this project is the backend implementation. This is 
 \begin{multicols}{2}
 \section{Introduction}
 \vspace{\vspaceconst}
+
+\TODO~Need to come back after I'm done with the entire report to summarise it
 
 This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.
 
@@ -110,41 +113,98 @@ When using the application the user would first create a custom `type'. This typ
 \section{Background}
 \vspace{\vspaceconst}
 
+\TODO~talk about common problems that arise in companies and how using micro services can help solve those problems. See if u can find some sources
+
 \subsection{Architecture design}
-\TODO see if u can find a citation for the "popular questions to be answered" 
+\TODO~see if u can find a citation for the "popular questions to be answered" 
 
 A lot of time during this project was allocated to research of the backend architecture design, specifically relating to micro services. And when it comes to it, there is not just one or few generally accepted standards and patterns that projects adopt. This is simply because each and every system architect needs to answer a lot of questions about it will all be built.
  For instance, the questions about how the different services should be split, some say it should be split by the feature, some say by the individual data element, by endpoint and more. Another popular questions is how the services diagram should look like, one of the popular answers are to have a separate authentication service to provide authentication for the application and proxy the requests to all the other services. However, regardless of the question, there are a lot of different ways solutions to all of these questions that need to be answered when starting a project using micro services and all of them come with their own advantages and disadvantages. 
 
 \subsubsection{Helpful technologies}
 
-When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling.\\
-Micro services would often also need to talk to each other and as before, depending on requirements and design, there are different ways to do it. Overall there are two options many systems using both synchronous and asynchronous calls. Synchronous calls are usually straight forward and done over HTTP and the only thing that would need to be solved is proper authentication. Asynchronous calls are often made with either RPC calls (commonly gRPS\cite{grpc} would be used) or a message/event bus system such as Kafka\cite{kafka}. 
-
-  Another great series of helpful technologies are service meshes, they provide great insight into your cluster of micro services. It is a dedicated infrastructure layer that all the different micro services would proxy their communication in-between. This can provide a multitude of benefits including communication observability, call chain traceability, secure connections and more. Examples of such services are Linkerd\cite{linkerd} and Istio\cite{istio}.
+  When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling.\\
+Micro services would often also need to talk to each other and as before, depending on requirements and design, there are different ways to do it. Overall there are two options many systems using both synchronous and asynchronous calls. Synchronous calls are usually straight forward and done over HTTP and the only thing that would need to be solved is proper authentication. Asynchronous calls are often made with either RPC calls (commonly gRPC\cite{grpc} would be used) or a message/event bus system such as Kafka\cite{kafka}.\\
+  Another great series of helpful technologies are service meshes, they provide great insight into your cluster of micro services. It is a dedicated infrastructure layer that all the different micro services would proxy their communication in-between. This can provide a multitude of benefits including communication observability, call chain traceability, secure connections and more. Examples of such services are Linkerd\cite{linkerd} and Istio\cite{istio}. If this project would be using Kubernetes, a service mesh would definitely be very useful and worth wile to integrate into the system.
 
 \subsection{Market} % Competitors apps
+\vspace{\vspaceconst}
 
-\TODO Need to find and list of competitor apps\\
+\TODO~Need to find and list of competitor apps\\
 - the one I have tried was zero to hero\\
 
 \section{Specification}
 \vspace{\vspaceconst}
 
-\begin{verbatim}
-This will be split into two problems
-  - one being the scalability
-    - warranting the micro services
-  - the other being the flexibility part of the workout logging
-    - explain how each user can create their own types which could be anything not just exercises with their own defined measurement units and more. 
-    - could even talk about my initial idea of creating a highly flexible tagging system which can be searched
-\end{verbatim}
+\subsection{Micro services}
+\vspace{\vspaceconst}
 
-The proposed project is tackling two main problems, one being a conceptual problem as a part of backend architecture which would need to be tackled in the future in case of heavy use or in case of the product getting multiple development teams. This problem is more of a conceptual proof of concept, that it could be done with relatively low complexity but yet giving us all of the benefits of micro services.
+The proposed project is tackling two main problems, one being a whole set conceptual problem which are very common with increased project sizes, weather that is in terms of complexity, code base, team size or general scope of the project. So it is generally welcome to try and apprehend for these problems ahead of time by careful planning and designing of the system. In this case, the careful planning and designing would be done on the backend architecture. Here, using micro services would solve a lot of problems, both technical and business problems.
 
-And the other problem being or concept and usability. The backend problem consists of scalability of the application.
+\subsubsection{Business \& general project management problems}
+\vspace{\vspaceconst}
 
-\newpage
+When a project grows in size to the point where there is a need for multiple teams it can become quite challenging to have all of the teams work on the same code base. Different tactics such as smart management of source management system could help with this issue. One such example would be to have different development branches for each team, however, this could introduce more problems such as needing to re-base the branch mid development. Here a much better way would be to simply have the teams work on different codebases, each making up a micro service. Depending on how the teams are organised, or on how the features are broken down in each micro service, each team would be solely responsible of one or more micro services, making them the de facto experts on that specific micro a service and its inner workings.\\
+What about when new individuals or teams enter the workforce? There is usually a fair amount of time taken just simply getting acclimated with the codebase and the whole product. Now, this would be true weather the project is or is not following a micro services architecture, however, if the project is just a monolith, usually the individual or team would need to get familiar with the while codebase. This would not need to be true in case of micro services.\\
+With micro services the individual or team would just need to look at the API documentation of the project, then only get accustomed with the micro service(s) that they would be working on. This way collaboration between teams also will become easier due to each team maintaining their own small codebases, and documentation for how to interact with their services.\\
+
+\subsubsection{The technical aspect}
+\vspace{\vspaceconst}
+
+Originally projects would just be one monolithic application and if we needed more performance we would optimise the code and add more power through better server hardware (or add more resources to the virtual machine or container if it was applicable). This is called vertical scaling. However, what happens when we need even more scaling? There can only be so much power we can add to one single server and only so much optimisation we can do to a codebase. Projects then started to scale their applications horizontally by deploying more instances of it, then adding some form of a load balancer which would balance the requests across all of their different deployments. These deployments could be individual computers, running the application directly on bare metal\footnote{Bare metal meaning that there is no other layer of management such as virtualisation or containerization and is running directly on the host OS.}. This, however, could be quite inefficient because it would scale the whole application and this might not be needed.\\
+For example, assume \textit{Application x} has a user profile endpoint which is just a simple CRUD\footnote{Referring to data operations of Create Read Update Delete.} operation and a pictures endpoint which is responsible for handling picture uploads, picture compression, storage, serving, etc. The part which will need the most processing power will be the pictures endpoint, but when vertically scaling a monolith, all of the endpoints get deployed again regardless if they needed the extra resources or not. This in principle is wasted resources and by extension wasted budget for a project.\\
+
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./charts/Scale-up-vs-Scale-out.png}
+\captionof{figure}{Scaling out vs scaling in}
+~\label{fig:ScaleOutVsIn}
+\endgroup
+Note figure~\ref{fig:ScaleOutVsIn}, this is an example of vertical scaling (or scaling up) versus horizontal scaling (scaling out) for a file system. \\
+
+\subsubsection{Solution}
+\vspace{\vspaceconst}
+As it turns out, micro services architecture, plus technologies such as Docker and Kubernetes solve this exact problem by having each feature/endpoint/verb/structure on a different service then vertically scaling each service when needed with a load balancer re-directing the traffic to instances.\\
+In the long term this will also save on resources because developers will not need to spend as much time on writing code which can will take complete advantage of all of the computing resources available to it.\\
+
+\subsection{The application}
+\vspace{\vspaceconst}
+
+When it comes to logging any sort of fitness activities, there is no standard, and there are a lot of different ways an individual or a trainer might log these activities; there simply does not exist a \textit{one size fits all solution} to this. It all just depends on the goals of said person or trainer. Because of this it is gets fairly complex when it comes to trying to make a digital form which could be filled out and be able to process and display all the data from it in any meaningful way. Usually different applications would create a rigid structure for the data then there would be forms to input the data in. For some people that would work perfectly, but not for all especially across athletes from different disciples of sport.\\
+
+\begingroup
+\centering
+\begin{tabular}{l l p{3cm}}
+  \toprule
+  \# & Exercise & Sets \\ [0.5ex]
+  \midrule
+  1 & Squat & 10x40kg, 10x60kg, 8x70kg, 8x80kg\\
+  \midrule
+  2 & Dead lift & 12x50kg, 12x70kg, 10x80kg, 8x100kg\\
+  \midrule
+  3 & Hack squat & 15x50kg, 15x60kg, 15x70kg, 12x70kg\\
+  \midrule
+  4 & Leg press & 15x40kg, 15x60kg, 15x70kg, 15x80kg\\
+  \midrule
+  5 & Ham string curl & 15x26kg, 15x32kg, 15x36kg, 15x32kg\\
+  \bottomrule
+\end{tabular}
+\captionof{table}{Simple workout log example}
+~\label{table:WorkoutLogExample1}
+\endgroup
+
+For instance, one of the simplest logging types would be just performing straight sets of different exercises, some exercises being done with weights, or some other form of resistance which would also be noted down with every set. Table \ref{table:WorkoutLogExample1} shows one such example. However, as mentioned just now, it is a very simple form of logging and there are a lot more details that could be added, or a lot more variations that people could be doing which would need to be noted. Some examples are the following: \textit{super-setting}\footnote{Super-setting is performing a set of one exercise and another set of another exercise straight away without resting, then repeating the cycle.} and \textit{drop-setting}\footnote{Drop-setting is when the athlete performs another set without set at a smaller resistance, usually -20\%}. These are just some of the more common ones, however, not everyone will use these exercise techniques so not everyone will need to be able to log them. All of this adds extra complexity, which means an application for logging will either be very complex, or only useful to a subgroup of people with a specific workout style.
+
+
+\subsubsection{Solution}
+\vspace{\vspaceconst}
+ 
+ The premise to the solution in this project is quite simple. \textit{make it simple and stupid}. The solution which is being proposed it to simplify the data structure as much as possible while still including 
+
+\NOTE
+  - the flexibility part of the workout logging\\
+    - explain how each user can create their own types which could be anything not just exercises with their own defined measurement units and more. \\
+    - could even talk about my initial idea of creating a highly flexible tagging system which can be searched\\
 
 \section{Design}
 \vspace{\vspaceconst}
@@ -153,13 +213,15 @@ And the other problem being or concept and usability. The backend problem consis
 \centering
 \includegraphics[width=0.7\linewidth]{./charts/fitness-logger.jpg}
 \captionof{figure}{Fitness Logger Architecture}
-~\label{fig:a}
+~\label{fig:FitnessLoggerChart}
 \endgroup
 
+- Overall arch
+- 
 
 
 
-% % NOTE: In order to tackle the main problem of simplicity and flexibility it was decided that the data would be atomised as much as possible, 
+% NOTE: In order to tackle the main problem of simplicity and flexibility it was decided that the data would be atomised as much as possible, 
 
 % \section{Implementation and Testing}
 % \vspace{\vspaceconst}

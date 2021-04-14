@@ -19,3 +19,6 @@
 [submodule "fitness-logger/fitness_logger_app"]
 	path = fitness-logger/fitness_logger_app
 	url = git@github.com:JamesTiberiusKirk/fitness_logger_app.git
+[submodule "fitness-logger/fl-tp"]
+	path = fitness-logger/fl-tp
+	url = git@github.com:JamesTiberiusKirk/fl-tp.git

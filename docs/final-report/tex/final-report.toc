@@ -14,4 +14,12 @@
 \contentsline {subsubsection}{\numberline {3.1.3}Solution}{5}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}The application}{5}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Solution}{6}{subsubsection.3.2.1}%
-\contentsline {section}{\numberline {4}Design}{6}{section.4}%
+\contentsline {subsection}{\numberline {3.3}Methodology}{6}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Milestones}{7}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Project management}{7}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Design}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Technological design}{8}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Database}{8}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Data structures}{8}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Programming languages \& frameworks}{9}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Micro service split}{9}{subsubsection.4.1.4}%

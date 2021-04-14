@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  10 APR 2021 17:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  13 APR 2021 06:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -27,20 +27,6 @@ File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 Package: balance 1999/02/23 4.3 (PWD)
 \oldvsize=\dimen139
 )
-(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
-)
-Package graphics Info: Driver file: pdftex.def on input line 105.
-
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-))
 (/usr/share/texmf-dist/tex/latex/txfonts/txfonts.sty
 Package: txfonts 2008/01/22 v3.2.1
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 21.
@@ -129,7 +115,10 @@ Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
-)
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
 (/usr/share/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
 )
@@ -211,6 +200,18 @@ Package: pgf 2020/12/01 v3.1.7a (3.1.7a)
 (/usr/share/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
 (/usr/share/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+)
 \Gin@req@height=\dimen155
 \Gin@req@width=\dimen156
 )
@@ -696,6 +697,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen283
 \Gm@dimlist=\toks31
 )
+(/usr/share/texmf-dist/tex/latex/capt-of/capt-of.sty
+Package: capt-of 2009/12/29 v0.2 standard captions outside of floats
+)
 (/usr/share/texmf-dist/tex/latex/sectsty/sectsty.sty
 Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
 les
@@ -709,8 +713,8 @@ LaTeX Warning: Command \underline  has changed.
                Check if current package is valid.
 
 )
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 5
-2.
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 6
+1.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -720,45 +724,45 @@ File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box106
 )
 (./final-report.aux)
-LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 52.
+LaTeX Font Info:    Checking defaults for OML/txmi/m/it on input line 61.
 LaTeX Font Info:    Trying to load font information for OML+txmi on input line 
-52.
+61.
  (/usr/share/texmf-dist/tex/latex/txfonts/omltxmi.fd
 File: omltxmi.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMS/txsy/m/n on input line 61.
 LaTeX Font Info:    Trying to load font information for OMS+txsy on input line 
-52.
+61.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omstxsy.fd
 File: omstxsy.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for OMX/txex/m/n on input line 61.
 LaTeX Font Info:    Trying to load font information for OMX+txex on input line 
-52.
+61.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/omxtxex.fd
 File: omxtxex.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 52.
-LaTeX Font Info:    Trying to load font information for U+txexa on input line 5
-2.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for U/txexa/m/n on input line 61.
+LaTeX Font Info:    Trying to load font information for U+txexa on input line 6
+1.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxexa.fd
 File: utxexa.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
+LaTeX Font Info:    ... okay on input line 61.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -782,7 +786,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package hyperref Info: Link coloring OFF on input line 52.
+Package hyperref Info: Link coloring OFF on input line 61.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -795,9 +799,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count312
 )
-LaTeX Info: Redefining \ref on input line 52.
-LaTeX Info: Redefining \pageref on input line 52.
-LaTeX Info: Redefining \nameref on input line 52.
+LaTeX Info: Redefining \ref on input line 61.
+LaTeX Info: Redefining \pageref on input line 61.
+LaTeX Info: Redefining \nameref on input line 61.
 
 (./final-report.out) (./final-report.out)
 \@outlinefile=\write4
@@ -836,31 +840,31 @@ LaTeX Info: Redefining \nameref on input line 52.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+txr on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for OT1+txr on input line 6
+4.
 (/usr/share/texmf-dist/tex/latex/txfonts/ot1txr.fd
 File: ot1txr.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txmia on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for U+txmia on input line 6
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxmia.fd
 File: utxmia.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsya on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for U+txsya on input line 6
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsya.fd
 File: utxsya.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyb on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for U+txsyb on input line 6
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyb.fd
 File: utxsyb.fd 2000/12/15 v3.1
 )
-LaTeX Font Info:    Trying to load font information for U+txsyc on input line 5
-5.
+LaTeX Font Info:    Trying to load font information for U+txsyc on input line 6
+4.
 
 (/usr/share/texmf-dist/tex/latex/txfonts/utxsyc.fd
 File: utxsyc.fd 2000/12/15 v3.1
@@ -869,64 +873,150 @@ File: utxsyc.fd 2000/12/15 v3.1
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./final-report.toc)
 \tf@toc=\write5
  [2]
-Underfull \hbox (badness 10000) in paragraph at lines 92--95
+Underfull \hbox (badness 10000) in paragraph at lines 102--105
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 121--123
+Underfull \hbox (badness 10000) in paragraph at lines 133--135
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-27.
-(/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-Overfull \hbox (153.12251pt too wide) in paragraph at lines 134--134
-[]  \OT1/pcr/m/n/10 - the other being the flexibility part of the workout loggi
-ng[] 
+
+Underfull \hbox (badness 5519) in paragraph at lines 144--144
+[]\OT1/ptm/b/n/10 Business & gen-eral project man-age-ment
  []
 
 
-Overfull \hbox (663.12251pt too wide) in paragraph at lines 134--134
-[]    \OT1/pcr/m/n/10 - explain how each user can create their own types which 
-could be anything not just exercises with their own defined measurement units a
-nd more.[] 
- []
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
-
-Overfull \hbox (435.12251pt too wide) in paragraph at lines 134--134
-[]    \OT1/pcr/m/n/10 - could even talk about my initial idea of creating a hig
-hly flexible tagging system which can be searched[] 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 165--167
+Underfull \hbox (badness 10000) in paragraph at lines 154--156
+
+ []
+
+
+LaTeX Warning: File `./charts/Scale-up-vs-Scale-out.png' not found on input lin
+e 159.
+
+
+! Package pdftex.def Error: File `./charts/Scale-up-vs-Scale-out.png' not found
+: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.159 ...idth]{./charts/Scale-up-vs-Scale-out.png}
+                                                  
+? 
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
+59.
+(/usr/share/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 161--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 167--169
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+
+Package multicol Warning: I moved some lines to the next page.
+(multicol)                Footnotes on page 5 might be wrong on input line 174.
+
+
+[5]
+Underfull \hbox (badness 7344) in paragraph at lines 181--182
+[]\OT1/ptm/m/n/10 10x40kg, 10x60kg,
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 183--184
+[]\OT1/ptm/m/n/10 12x50kg, 12x70kg,
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 185--186
+[]\OT1/ptm/m/n/10 15x50kg, 15x60kg,
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 187--188
+[]\OT1/ptm/m/n/10 15x40kg, 15x60kg,
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 189--190
+[]\OT1/ptm/m/n/10 15x26kg, 15x32kg,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 215--220
+
+ []
+
+
+LaTeX Warning: File `./charts/fitness-logger.jpg' not found on input line 226.
+
+
+! Package pdftex.def Error: File `./charts/fitness-logger.jpg' not found: using
+ draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.226 ...7\linewidth]{./charts/fitness-logger.jpg}
+                                                  
+? q
+OK, entering \batchmode...
+
+Package multicol Warning: I moved some lines to the next page.
+(multicol)                Footnotes on page 6 might be wrong on input line 227.
+
+
+ [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 262--264
 []$\OT1/pcr/b/n/9 https : / / en . wikipedia . org / wiki / Docker _
  []
 
-[5] (./final-report.aux)
+ [8] (./final-report.aux)
 Package rerunfilecheck Info: File `final-report.out' has not changed.
-(rerunfilecheck)             Checksum: 303531DEC5CE24693F892C0ECBAE9211;586.
+(rerunfilecheck)             Checksum: 474A4783182D5D836734D429F243C3E1;1192.
  ) 
 Here is how much of TeX's memory you used:
- 18332 strings out of 479383
- 340932 string characters out of 5875831
- 630671 words of memory out of 5000000
- 35014 multiletter control sequences out of 15000+600000
- 442603 words of font info for 120 fonts, out of 8000000 for 9000
+ 18437 strings out of 479383
+ 342937 string characters out of 5875831
+ 634025 words of memory out of 5000000
+ 35069 multiletter control sequences out of 15000+600000
+ 450726 words of font info for 130 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,6n,98p,1157b,523s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 122i,8n,124p,1239b,555s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/urw/courier/ucrb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/courier/
 ucrr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-dist/fonts/type1
-/urw/times/utmr8a.pfb>
-Output written on final-report.pdf (5 pages, 70259 bytes).
+/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on final-report.pdf (8 pages, 96305 bytes).
 PDF statistics:
- 151 PDF objects out of 1000 (max. 8388607)
- 121 compressed objects within 2 object streams
- 24 named destinations out of 1000 (max. 500000)
- 181 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 241 PDF objects out of 1000 (max. 8388607)
+ 206 compressed objects within 3 object streams
+ 46 named destinations out of 1000 (max. 500000)
+ 253 words of extra memory for PDF output out of 10000 (max. 10000000)
 

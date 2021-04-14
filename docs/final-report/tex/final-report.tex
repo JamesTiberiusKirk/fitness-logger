@@ -26,6 +26,56 @@
 \usepackage{graphicx}
 \usepackage{capt-of}
 
+% for code blocks
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\usepackage{color}
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+% \definecolor{darkgray}{rgb}{.4,.4,.4}
+% \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\lstdefinelanguage{TypeScript}{
+  keywords={undefined, boolean, number, string, break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  ndkeywords={class, enum, interface, export, boolean, throw, implements, import, this},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
+\lstset{
+   language=TypeScript,
+   backgroundcolor=\color{lightgray},
+   extendedchars=true,
+   basicstyle=\footnotesize\ttfamily,
+   showstringspaces=false,
+   showspaces=false,
+   numbers=left,
+   numberstyle=\footnotesize,
+   numbersep=9pt,
+   tabsize=2,
+   breaklines=true,
+   showtabs=false,
+   captionpos=b
+}
+\renewcommand{\lstlistingname}{Code Snipped}
+%%%%%%%%%
+
+% Foot note line size
+\renewcommand{\footnoterule}{%
+  \kern -3pt
+  \hrule width \textwidth height 0.5pt
+  \kern 2pt
+}
+
 % font  sizes
 \usepackage{sectsty}			% set font sizes			
 \sectionfont{\Large}			% (assumes default font size 10pt)
@@ -53,6 +103,14 @@
 % For notes
 \newcommand{\TODO}{\textbf{\textit{\textcolor{red}{TODO:}}} }
 \newcommand{\NOTE}{\textbf{\textit{\textcolor{red}{NOTE:}}} }
+
+% For my sanity
+\newcommand{\tpt}{\textit{`tracking point type'}}
+\newcommand{\tpts}{\textit{`tracking point types'}}
+\newcommand{\tp}{\textit{`tracking point'}}
+\newcommand{\tps}{\textit{`tracking points'}}
+\newcommand{\tg}{\textit{`tracking group'}}
+\newcommand{\tgs}{\textit{`tracking groups'}}
 
 \title{Honours Project Report\\Fitness Logger with Micro-services}
 \author{Dumitru Vulpe\\BSc (Hons) Applied Computing\\Supervised by Andrew Colby}
@@ -199,12 +257,64 @@ For instance, one of the simplest logging types would be just performing straigh
 \subsubsection{Solution}
 \vspace{\vspaceconst}
  
- The premise to the solution in this project is quite simple. \textit{make it simple and stupid}. The solution which is being proposed it to simplify the data structure as much as possible while still including 
+The premise to the solution in this project is quite simple, \textit{`keep it simple and stupid'}. The solution which is being proposed it to simplify the data structure as much as possible while still including some of the minimum features such as drop-sets, super-sets, notes, measurement units, etc. But also let the user create their own custom exercises which they will keep track of, reuse and then be able to look back on their history. As an extension to this system, the actual exercise data (as opposed to the meta-data that has just been discussed, such as data about each set, see table \ref{table:WorkoutLogExample1}, sets columns for an example) is variable in type as well. At the moment there are only two sub-types implemented, a usual \textit{set} type and a \textit{single value} type which just logs one single value per exercise. This lets users be able to better track things such as static holds\footnote{Static holds are experiences where you hold a position for a duration of time.}.\\
+An example use case would be people which would like to keep track of their caffeine intake for every single workout. So there would be a custom exercise type with the measurement unit of \textit{mg} made by the user which would be called  `Caffeine' and would have a data type of \textit{single value}. Then on each workout that the user starts, they would have the option to log a point of exercise type `Caffeine' with the amount of caffeine ingested.\\
+There was also an initial intention to create a really flexible report/charting analytical system for all of the data stored by the user. That system would be using tags as its base concept, and everything would be `tagable'. Then based on those tags, the user would be able to perform searches and compiling reports and cross referencing data on charts.\\
+For example, a user would be able to tag a workout as a \textit{de-load workout}\footnote{A de-load workout is when the athlete uses lower weights as a form of rest but still workouts.} with a \textit{`\#de-load'} tag. Then, the user would want to generate a report or a chart which would show all of the workouts but miss out the ones where he de-loaded by creating a filter for not including this tag.\\
+These tags could also be used as a way to define the different workout splits\footnote{A workout split meaning the different muscle groups the workout is targeting, e.g. \textit{Chest and back day}.} such as \textit{`\#chest'} and \textit{`\#back'} for a chest and back workout.\\
+This concept could even be done on a finer scale on a per-exercise type basis. Give each exercise tags for each muscle or muscle groups they are working out, then be able to look up the exercise base on those tags.\\
 
-\NOTE
-  - the flexibility part of the workout logging\\
-    - explain how each user can create their own types which could be anything not just exercises with their own defined measurement units and more. \\
-    - could even talk about my initial idea of creating a highly flexible tagging system which can be searched\\
+\subsection{Methodology}
+\vspace{\vspaceconst}
+\NOTE~In this whole section I'm speaking from first person.\\
+
+This project was mostly split into three main parts, the research phase, the setup phase, and the development phase. The research phase being especially important because I had no prior experience with such a micro services architecture. This was a completely new to me and I was not really sure what to expect. So I also had to be fairly flexible with my requirements because I was not sure what I could achieve and what I had to leave on the conceptual table. In the setup phase I had to setup the git repositories, an NPM library which was used as the shared code library amongst the projects, and a template which can be used for easier creation of extra services. Then, the last phase was actually split into multiple parts, the backend, the frontend and the testing and debugging phase.\\
+
+\subsubsection{Milestones}
+\begingroup
+\centering
+\begin{tabular}{l p{3.4cm} p{3.1cm}}
+  \# & Milestone & Deadline\\
+  \midrule
+  1 & Research & mid October to end of November\\
+  2 & Setup & December\\
+  3 & Backend development & January and February\\
+  4 & Frontend development & March\\
+  5 & Testing and troubleshooting & April\\
+\end{tabular}
+\captionof{table}{Mile Stone List}
+\endgroup
+
+When it came to adhering to the scheduled milestones I had set myself I have done mostly a pretty good job initially only slightly deviating and taking one week longer with the frontend development due to inexperience with the framework.\\
+To split this down further, there were some mini milestones set for each micro service, of which there were 3: \textit{`fl-auth'}, \textit{`fl-tp-types'} and \textit{`fl-tp'}. With \textit{`fl-auth'} taking two weeks to complete, and the other two micro services taking 3 weeks each. Although, this is without why proper integration testing and troubleshooting. Some of that had to be done while building the frontend.\\
+
+\subsubsection{Project management}
+When it comes to integrated project management tools such as a Github Projects board or normal virtual Kanban board, I personally find them to be tiresome to use and usually result in more work to manage and keep track of them over time. In my opinion, they only come in useful when there are multiple contributors to a project or when the project scope is bigger than this project. However, here are some of the ways I managed my project.\\
+First and foremost, I had a complete understanding about what the end goal of my project was, complete with an MVP and stretch goals. There was no need to have that broken down into individual stories for a backlog. So for the majority of the development, I only kept a to-do list in my personal journal. The only time when it was needed to start keeping track of stories was near the end when I started finding bugs, and came across small improvements I wanted to implement. This came in the form of a physical Kanban board with post it notes. I had an individual one for backend (refer to figure~\ref{fig:backendKanban}) and one for frontend (refer to figure~\ref{fig:frontendKanban}).\\
+
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./img/backend_backlog.jpg}
+\captionof{figure}{Backend Kanban Board}
+~\label{fig:backendKanban}
+\endgroup
+
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./img/frontend_backlog.jpg}
+\captionof{figure}{Frontend Kanban Board}
+~\label{fig:frontendKanban}
+\endgroup
+
+This project's main client is myself, even though I am wanting to see if this can be taken to the market, this project is still make primarily for myself. For this reason, I precisely knew what the requirements and deliverables existed, so there was no need for an iterative approach to development. Meaning there was no need to agile sprint cycles.\\
+The approach which I used was one of an \textit{`adaptive waterfall'} method. Meaning that I already had a good idea what the final product would look like and only made small adjustments in my plan as I would hit different milestones.\\
+
+\NOTE\TODO~thats where i need some digitised stuff\\
+- will also need to get some examples of my todo lists\\
+- see if u can ask one of the guys to send u a picture of the requirements for the project that you have at home\\
+- The research noes will also come in useful here\\
+
+\TODO~need to figure out how the appendix works and how to reference stuff from there
 
 \section{Design}
 \vspace{\vspaceconst}
@@ -213,17 +323,122 @@ For instance, one of the simplest logging types would be just performing straigh
 \centering
 \includegraphics[width=0.7\linewidth]{./charts/fitness-logger.jpg}
 \captionof{figure}{Fitness Logger Architecture}
-~\label{fig:FitnessLoggerChart}
+~\label{fig:flChart}
 \endgroup
 
-- Overall arch
-- 
+Even though micro services usually can increases the hugely complexity, this project stayed relatively simple. Figure~\ref{fig:flChart} shows a general diagram for this project which is largely made up of 3 parts, the client application, the docker container running an Nginx reverse proxy forwarding the traffic to the services,the docker containers running the services and the database management system, MongoDB in this case.\\
+
+\subsection{Technological design}
+\vspace{\vspaceconst}
+
+\subsubsection{Database}
+\vspace{\vspaceconst}
+
+The database management system that was chosen for this project was MongoDB.\@ This is a document object storage database (aka No SQL db), meaning it stores JSON\footnote{JSON stands for JavaScript Object Notation and it is a data formatting standard used for sending data over networks, saving data to files and more.} objects which can potentially have a tree like structure, which is actually important to some of the data which the project will be storing. Other than MongoDB being able to store object trees another reason why it was chosen was because of its ease of use with virtually any programming language. For example, in NodeJS, a read operation would be just as simple as \textit{'collection.findOne({})'}, just providing a JSON or a BSON\footnote{BSON stands for Binary JSON which is just binary encoded JSON model.} object with the search parameters matching the field names in the database. A create operations is even simpler, \textit{`collection.insertOne(data)'}, with data being any kind of JSON serializeable object.\\
+
+The alternative DBMS system which was considered for this project was Posture SQL. This is probably the best SQL system from a point of view of features and speed. However, the more considered it was the more it was realised that there is no point of using a relational database because the relations would have to be defines on the backend application side. That is because, if the different services where to interact with each other's database, or were all to use the same database, it could potentially case problems with data integrity on the database side. So, it is generally accepted as good practice that all micro services would have their own database, and if they needed to read or write data to another micro service's database, they would do it through their API.\@ Also, MongoDB offered the project the flexibility to use nested JSON objects which ended up being used in the \textit{`fl-tp'} service (see section \ref{sec:dataStruct}).
+
+\subsubsection{Data structures}\label{sec:dataStruct}
+\vspace{\vspaceconst}
+
+As mentioned before, one way to solve the problem of workout logging which was stated was to be create simple data structure which could be used in flexible ways in conjunction with their own custom \tpts by the users of the application.\\
+So, the current data structure design is split into three parts, \tps, \tgs and \tpts. \textit{`Tracking point types'} is the first data structure to have been made, it contains information about each individual custom exercise, or any other tracking point the user might want to create. Code snippet~\ref{code:tptStruct} is the data structure used inside the \textit{`fl-tp-type'}, it allows the user to define their own measurement units, in case the experience uses some arbitrary resistance values; and last but not least we have the data type, this is an enum which tells \textit{`fl-tp'} micro service what kind of data this type will store. At the moment there are only two types of data, however, this could be expanded in the future, and theoretically could even add user definable data types.\\
+
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:tptStruct},caption={Tracking Point Types Data Struct}]
+export enum DataType {
+    Sets = 'sets',
+    SingleValue = 'single-value',
+}
+
+/* ITrackingPointTypes interface for typescript. */
+export interface ITrackingPointTypes {
+    userId: string;
+    tpName: string;
+    description: string;
+    dataType: DataType;
+    measurementUnit: string;
+}
+\end{lstlisting}
+
+The next data structure is one of the simplest ones, it is used to store meta data about each \tg (code snippet~\ref{code:tgStruct}). An example of a \tg could be one workout which would have multiple \tps. So a \tg would have meta data about start time, end time, and notes about the workout. The reason why there is no \tps inside this typescript interface.
+
+\begin{lstlisting}[escapeinside={(*}{*)},label={code:tgStruct} ,caption={Tracking Group Struct}]
+export interface TrackingGroup {
+    userId: string;
+    startTime: number;
+    endTime: number | undefined;
+    notes: string;
+}
+\end{lstlisting}
+
+The \tp data structure (code snipped \ref{code:tpStruct}) is the most important one, this is the actual structure for the exercise data or as it is referred to internally, \tps. It holds some meta data about the exercise but also the data of the exercise itself which, the type of that is retrieved from its corresponding \tg. This is part of what makes this system so flexible. A user is able to create their own type of workout, with potentially limitless types of data, then be able to log that kind of type of data into the database. 
+
+\begin{lstlisting}[escapeinside={(*}{*)},label={code:tpStruct} ,caption={Tracking Point Struct}]
+export interface SingleValue {
+    value: string;
+}
+
+export interface TpSet {
+    reps: string;
+    value: string;
+    isDropset: boolean;
+    setNr: number;
+}
+
+export interface TrackingPoint {
+    userId: string;
+    tpTypeId: string;
+    tgId: string;
+    notes: string;
+    data: TpSet[] | SingleValue;
+    tpNr: number;
+}
+\end{lstlisting}
+
+\subsubsection{Programming languages \& frameworks}
+\vspace{\vspaceconst}
+\NOTE mainly for the backend nodejs with typescript was used\\
+... talk about why this stack was chosen\\
+... then talk about expres\\
+... mongoose vs clean mongo \\
+
+\NOTE talk about writting fl-auth in go and why\\
 
 
+\subsubsection{Micro service split}
+\vspace{\vspaceconst}
+\NOTE fl-tp could have also been split into two parts
 
-% NOTE: In order to tackle the main problem of simplicity and flexibility it was decided that the data would be atomised as much as possible, 
+% \NOTE~talk about loose designs of the ui i have
 
 % \section{Implementation and Testing}
+% \vspace{\vspaceconst}
+
+% \subsection{Setup}
+% \vspace{\vspaceconst}
+
+% \subsubsection{Version control}
+% \vspace{\vspaceconst}
+
+% \subsubsection{Shared code library}
+% \vspace{\vspaceconst}
+
+% \subsubsection{Template for micro services}
+% \vspace{\vspaceconst}
+
+% \subsubsection{CI/CD}
+% \vspace{\vspaceconst}
+
+% \subsection{\textit{Fl-auth} service}
+% \vspace{\vspaceconst}
+
+% \subsection{\textit{Fl-tp-types} service}
+% \vspace{\vspaceconst}
+
+% \subsection{\textit{Fl-tp} service}
+% \vspace{\vspaceconst}
+
+% \subsection{Android client}
 % \vspace{\vspaceconst}
 
 % \section{Evaluation}

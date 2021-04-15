@@ -214,7 +214,7 @@ For example, assume \textit{Application x} has a user profile endpoint which is 
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./charts/Scale-up-vs-Scale-out.png}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/charts/Scale-up-vs-Scale-out.png}
 \captionof{figure}{Scaling out vs scaling in}
 ~\label{fig:ScaleOutVsIn}
 \endgroup
@@ -276,7 +276,7 @@ This project was mostly split into three main parts, the research phase, the set
 \begin{tabular}{l p{3.4cm} p{3.1cm}}
   \# & Milestone & Deadline\\
   \midrule
-  1 & Research & mid October to end of November\\
+  1 & Research & Mid October to end of November\\
   2 & Setup & December\\
   3 & Backend development & January and February\\
   4 & Frontend development & March\\
@@ -294,14 +294,14 @@ First and foremost, I had a complete understanding about what the end goal of my
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./img/backend_backlog.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/backend_backlog.jpg}
 \captionof{figure}{Backend Kanban Board}
 ~\label{fig:backendKanban}
 \endgroup
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./img/frontend_backlog.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/frontend_backlog.jpg}
 \captionof{figure}{Frontend Kanban Board}
 ~\label{fig:frontendKanban}
 \endgroup
@@ -321,7 +321,7 @@ The approach which I used was one of an \textit{`adaptive waterfall'} method. Me
 
 \begingroup
 \centering
-\includegraphics[width=0.7\linewidth]{./charts/fitness-logger.jpg}
+\includegraphics[width=0.7\linewidth]{./appendix/assets/charts/fitness-logger.jpg}
 \captionof{figure}{Fitness Logger Architecture}
 ~\label{fig:flChart}
 \endgroup
@@ -360,18 +360,18 @@ export interface ITrackingPointTypes {
 }
 \end{lstlisting}
 
-The next data structure is one of the simplest ones, it is used to store meta data about each \tg (code snippet~\ref{code:tgStruct}). An example of a \tg could be one workout which would have multiple \tps. So a \tg would have meta data about start time, end time, and notes about the workout. The reason why there is no \tps inside this typescript interface.
+The next data structure is one of the simplest ones, it is used to store meta data about each \tg (code snippet~\ref{code:tgStruct}). An example of a \tg could be one workout which would have multiple \tps. So a \tg would have meta data about start time, end time, and notes about the workout. The reason why there is no \tps inside this typescript interface. Note, the variable definition on line \ref{code:tgStruct:endTime} of snipped \ref{code:tpStruct} is of type \textit{`number $\vert$ undefined'} the reason for that is that when a \tg is first created it will not have an end time, so at first it is set to null.\\
 
 \begin{lstlisting}[escapeinside={(*}{*)},label={code:tgStruct} ,caption={Tracking Group Struct}]
 export interface TrackingGroup {
     userId: string;
     startTime: number;
-    endTime: number | undefined;
+    endTime: number | undefined; (*\label{code:tgStruct:endTime}*)
     notes: string;
 }
 \end{lstlisting}
 
-The \tp data structure (code snipped \ref{code:tpStruct}) is the most important one, this is the actual structure for the exercise data or as it is referred to internally, \tps. It holds some meta data about the exercise but also the data of the exercise itself which, the type of that is retrieved from its corresponding \tg. This is part of what makes this system so flexible. A user is able to create their own type of workout, with potentially limitless types of data, then be able to log that kind of type of data into the database. 
+The \tp data structure (code snipped \ref{code:tpStruct}) is the most important one, this is the actual structure for the exercise data or as it is referred to internally, \tps. It holds some meta data about the exercise but also the data of the exercise itself which, the type of that is retrieved from its corresponding \tg. This is part of what makes this system so flexible. A user is able to create their own type of workout, with potentially limitless types of data, then be able to log that kind of type of data into the database. Line \ref{code:tpStruct:dataTypes} of snippet \ref{code:tpStruct} is the way that the different data types are handled in the \textit{`fl-tp'} micro service. Here the two data structures are hard coded into the service, but technically with the right validation it should be easy and possible for the user to just use the typescript type of \textit{`any'}.\\
 
 \begin{lstlisting}[escapeinside={(*}{*)},label={code:tpStruct} ,caption={Tracking Point Struct}]
 export interface SingleValue {
@@ -390,26 +390,28 @@ export interface TrackingPoint {
     tpTypeId: string;
     tgId: string;
     notes: string;
-    data: TpSet[] | SingleValue;
+    data: TpSet[] | SingleValue; (*\label{code:tpStruct:dataTypes}*)
     tpNr: number;
 }
 \end{lstlisting}
 
 \subsubsection{Programming languages \& frameworks}
 \vspace{\vspaceconst}
-\NOTE mainly for the backend nodejs with typescript was used\\
-... talk about why this stack was chosen\\
-... then talk about expres\\
-... mongoose vs clean mongo \\
 
-\NOTE talk about writting fl-auth in go and why\\
-
+Another benefit, when it comes to using micro services, is the fact that a project could mix and mach programming languages,frameworks and stacks as needed throughout the codebase. Usually this is quite impractical, as it can often create more problems from a developmental point of view. However, there can be legitimate benefits for it. One such reason being using different programming languages as its strong point. For example, NodeJS\footnote{Node.js is a JavaScript runtime environment that runs on the V8 engine (same as Chrome) and executes JavaScript code outside a web browser. Designed for the backend.} could be used where there is a need of high I/O and Java could be used where there is a need for faster computation. And since micro services are deployed in containers which have their own pre-defined environments with the needed dependencies, problems that would arise from mixing different deployments on the same system are no more.\\
+So as a proof of concept, It was decided that the first micro service to be developed would be done using a different programming language. The language chosen was Golang\footnote{Golang is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.} with the Echo\footnote{Echo is a web API framework developed for Golang.} framework, for the simple reason that this language is very powerful, offers a proper typing system, interfaces easily with MongoDB and it is really easy to develop and expose web API using it.\\
+The default programming stack for this project is NodeJS with typescript\footnote{Typescript is a typing system for javascript run time environments} and express\footnote{Express is a popular NodeJS framework for creating web APIs}. For the database connection library \textit{mongoose} was used at first because of its popularity and the author's experience with it. However, for the last micro service, the base \textit{mongo} library was used because typescript already offers a typing system in form of interfaces, which is one of the problems that \textit{mongoose} fixes. So, in the author's opinion, using the base \textit{mongo} NodeJS library results in cleaner code.\\
 
 \subsubsection{Micro service split}
 \vspace{\vspaceconst}
-\NOTE fl-tp could have also been split into two parts
 
-% \NOTE~talk about loose designs of the ui i have
+It was decided that the micro services would be split largely by functionality and the designed data structures. For this reason it was originally designed with 4 micro services in mind (4 as the final product and 3 as the MVP): \textit{`fl-auth'} for authentication, \textit{`fl-tp-types'} for the custom user types, and \textit{`fl-tp'} for the \tgs and the \tps. However, \textit{`fl-tp'} could have actually been split down even more, one service for \tgs and another for \tps. At the time of designing, it it was just thought that these data structures are related enough that they could be in the same micro service. Which is still true, however, in practice they are just two different endpoint and could easily be split up with minimal work. The fourth micro service being \textit{`fl-analytics'}, a micro service for compiling reports and other analytical data based on the data structures used in the project.\\
+
+\subsection{User Interface}
+\vspace{\vspaceconst}
+\NOTE~talk about loose designs of the ui i have
+
+Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development a few sketches were made.
 
 % \section{Implementation and Testing}
 % \vspace{\vspaceconst}

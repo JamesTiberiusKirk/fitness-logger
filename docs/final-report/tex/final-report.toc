@@ -1,26 +1,36 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Why micro services}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Creating a potential product}{3}{subsection.1.2}%
-\contentsline {subsubsection}{\numberline {1.2.1}The problem}{3}{subsubsection.1.2.1}%
-\contentsline {subsubsection}{\numberline {1.2.2}My planned solution}{3}{subsubsection.1.2.2}%
-\contentsline {section}{\numberline {2}Background}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Architecture design}{3}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Helpful technologies}{4}{subsubsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.2}Market}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Specification}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Micro services}{4}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Business \& general project management problems}{4}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}The technical aspect}{5}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Solution}{5}{subsubsection.3.1.3}%
-\contentsline {subsection}{\numberline {3.2}The application}{5}{subsection.3.2}%
-\contentsline {subsubsection}{\numberline {3.2.1}Solution}{6}{subsubsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.3}Methodology}{6}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Milestones}{7}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Project management}{7}{subsubsection.3.3.2}%
-\contentsline {section}{\numberline {4}Design}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Technological design}{8}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}Database}{8}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Data structures}{8}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Programming languages \& frameworks}{9}{subsubsection.4.1.3}%
-\contentsline {subsubsection}{\numberline {4.1.4}Micro service split}{10}{subsubsection.4.1.4}%
-\contentsline {subsection}{\numberline {4.2}User Interface}{10}{subsection.4.2}%
+\contentsline {section}{\numberline {1}Introduction}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Why micro services}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Creating a potential product}{4}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}The problem}{4}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}My planned solution}{4}{subsubsection.1.2.2}%
+\contentsline {section}{\numberline {2}Background}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Architecture design}{5}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Helpful technologies}{5}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.2}Market}{5}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Specification}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Micro services}{5}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Business \& general project management problems}{5}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}The technical aspect}{6}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Solution}{6}{subsubsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.2}The application}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Solution}{7}{subsubsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.3}Methodology}{7}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Milestones}{8}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Project management}{8}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Design}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Technological design}{9}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}Database}{9}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Data structures}{9}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Programming languages \& frameworks}{10}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.4}Micro service split}{11}{subsubsection.4.1.4}%
+\contentsline {subsection}{\numberline {4.2}User Interface}{11}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Implementation and Testing}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Setup}{11}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Version control}{11}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Shared code library}{12}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Template for micro services}{12}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}CI/CD}{12}{subsubsection.5.1.4}%
+\contentsline {subsection}{\numberline {5.2}\textit {Fl-auth} service}{12}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}\textit {Fl-tp-types} service}{12}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}\textit {Fl-tp} service}{12}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Android client}{12}{subsection.5.5}%

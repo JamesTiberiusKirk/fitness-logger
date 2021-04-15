@@ -97,6 +97,20 @@
 \makeatother
 \urlstyle{leo}
 
+
+% making TOC and LOF smaller
+% \AtBeginDocument{
+  % \addtocontents{toc}{\tiny}
+  % \addtocontents{lof}{\tiny}
+% }
+
+% \usepackage{xpatch}
+% \makeatletter
+% \xpatchcmd{\tableofcontents}{\contentsname \@mkboth}{\small\contentsname \@mkboth}{}{}
+% \xpatchcmd{\listoffigures}{\chapter *{\listfigurename }}{\chapter *{\small\listfigurename }}{}{}
+% \makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % This is a constant to space out the section titles from their body
 \newcommand{\vspaceconst}{-2ex}
 
@@ -132,13 +146,15 @@ However, the main appeal of this project is the backend implementation. This is 
 
 \newpage
 \tableofcontents 
+\listoffigures
 \newpage
 
 \begin{multicols}{2}
 \section{Introduction}
 \vspace{\vspaceconst}
 
-\TODO~Need to come back after I'm done with the entire report to summarise it
+\TODO~Need to come back after I'm done with the entire report to summarise it\\
+\NOTE~Started this section first but then realised it would be easier to complete after finishing the report\\
 
 This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.
 
@@ -409,39 +425,75 @@ It was decided that the micro services would be split largely by functionality a
 
 \subsection{User Interface}
 \vspace{\vspaceconst}
+\TODO need to write this up\\
 \NOTE~talk about loose designs of the ui i have
 
 Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development a few sketches were made.
 
-% \section{Implementation and Testing}
-% \vspace{\vspaceconst}
+\section{Implementation and Testing}
+\vspace{\vspaceconst}
 
-% \subsection{Setup}
-% \vspace{\vspaceconst}
+\subsection{Setup}
+\vspace{\vspaceconst}
+This section will be talking about the different aspects of the setup phase: version control setup, shared code library, template creation and CI/CD.
 
-% \subsubsection{Version control}
-% \vspace{\vspaceconst}
+\subsubsection{Version control}
+\vspace{\vspaceconst}
+The version control management software which has been chosen is Git on GitHub. Other than being simple, Git is also very powerful, specifically in this project, the git-sub module system has been used.  
+\begin{quote}
+  `Git submodules are simply a reference to another repository at a particular snapshot in time'\cite{atlasianGitSubmodule}
+\end{quote}
+Originally intended as a dependency tracking system. One project would have a git submodule of some library which exists on another git repository; in a user specified folder, that git repository would be then cloned and a snapshot of it at that current commit. The owner of the parent repository would then be able to use a specified version of the library in their own project as it would be cloned together with the main parent repository.\\
+This essentially allows for git repositories to be nested inside one another for better structures. And in this project git submodules was used to separate each individual micro service and the shared code library out into their own repository and CI/CD environment. This separation of repositories is really nice when it comes to working on multiple independent or semi-independent projects that make up a bigger system which would ideally still have one big repository.\\
+Consider this use case, each submodule repository has its own CI pipeline where on commits or merges tests and builds are triggered. However, when there is a milestone reached or a version increase, the team could then branch the project parent repository, perform the version bump and then have the CI/CD pipeline of the parent repository perform more builds and tests, here they would even do integration tests with the whole application and not just individually on a per submodule level. So even though all tests and builds pass on the individual submodule, where the team does not need to worry about accidentally triggering builds for the other projects, the new version could have broken something on the bigger project.\\
 
-% \subsubsection{Shared code library}
-% \vspace{\vspaceconst}
+\subsubsection{Shared code library}
+\vspace{\vspaceconst}
+Since most of the micro services were written in NodeJS, an NPM\footnote{NPM or Node Package Manager is a package management system that allows one to pull in dependencies from repositories or make their own packages.} was made to share code in-between them. This was necessary because the micro services would be using a lot of the same code like JWT\footnote{JWT or JSON Web Token is an RFC standard for representing security claims\cite{jwtio}.} wrappers, database wrappers, environment variable definitions, data structures and more. Table~\ref{table:flSharedElements} showcases some of the more important elements of the \textit{`fl-shared'} library.\\
 
-% \subsubsection{Template for micro services}
-% \vspace{\vspaceconst}
+\begingroup
+\centering
+\begin{tabular}{p{2cm} p{5cm}}
+  Env wrapper and definition & This has a type definition to tell node which environment variables will exist and provides a wrapper for dealing with env variables.\\
+  FlApi & FlApi is a HTTP client which would make calls to neighbouring micro services.\\
+  JwtWrapper & This contains helper functions for the JWT lib, but also has express authentication middleware which authorises the users.\\
+  Logger & This is a simple std log library, but the idea is that it would be expanded to be able to log on message buses and more.\\
+  Models & This is a collection of all the data structures which would be shared across the entire application.\\
+\end{tabular}
+\captionof{table}{\textit{Fl-shared} elements}
+~\label{table:flSharedElements}
+\endgroup
 
-% \subsubsection{CI/CD}
-% \vspace{\vspaceconst}
+\subsubsection{Template for micro services}
+\vspace{\vspaceconst}
+With micro services it can be very useful to create a bare-bones project with some `hello world' implementation that will define the micro service structure and all of the basic always needed dependencies. This makes is easy to make sure that each project looks structurally similar since they all would start from the same bare-bones project. Additionally this makes the development of new micro services even easier to develop. Such a template was created for this project, however, it was not fully utilised because of... \TODO need to think of a reason.
 
-% \subsection{\textit{Fl-auth} service}
-% \vspace{\vspaceconst}
+\subsubsection{CI/CD}
+\vspace{\vspaceconst}
 
-% \subsection{\textit{Fl-tp-types} service}
-% \vspace{\vspaceconst}
+\subsection{\textit{Fl-auth} service}
+\vspace{\vspaceconst}
+The \textit{fl-auth} service was the only service to be written in a different programming language, and as mentioned before, it was done so as a proof of concept simply because this was the simplest service to develop. It only has 3 endpoints.
 
-% \subsection{\textit{Fl-tp} service}
-% \vspace{\vspaceconst}
+\begingroup
+\centering
+\begin{tabular}{p{2.5cm} p{4.5cm}}
+  POST /register & This accepts username, email and password. The password is the hashed with salted and hashed bcrypt\footnote{Bcrypt is a common password hashing function based on the Blowfish cipher.}, then stored in the MongoDB database.\\
+  POST /login & This accepts email and password, then it checked the password against the hashed password stored int he database, if a match is made, a JWT token with the appropriate data is generated and sent back.\\
+  POST /verify\_me & This accepts the JWT and checks its validity.\\
+\end{tabular}
+\captionof{table}{\textit{Fl-auth} endpoint}
+~\label{table:flAuthEndpoints}
+\endgroup
 
-% \subsection{Android client}
-% \vspace{\vspaceconst}
+\subsection{\textit{Fl-tp-types} service}
+\vspace{\vspaceconst}
+
+\subsection{\textit{Fl-tp} service}
+\vspace{\vspaceconst}
+
+\subsection{Android client}
+\vspace{\vspaceconst}
 
 % \section{Evaluation}
 % \vspace{\vspaceconst}
@@ -490,6 +542,14 @@ Since the author's main intention with this project was not the UI or overall us
   \bibitem{istio}
   Istio website (2021).\\
   \url{https://istio.io/}
+  
+  \bibitem{atlasianGitSubmodule}
+  Git sub module documentation from Atlasian(2021).
+  \url{https://www.atlassian.com/git/tutorials/git-submodule}
+ 
+  \bibitem{jwtio}
+  JWT.io web pabe (2021).
+  \url{https://www.jwt.io}
 \end{thebibliography}
 
 \section*{Appendices}

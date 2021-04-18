@@ -1,5 +1,5 @@
-% \documentclass[twocolumn]{article}
 \documentclass{article}
+% \documentclass[twocolumn]{article}
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
@@ -28,6 +28,8 @@
 
 % for code blocks
 \usepackage{listings}
+\usepackage{listings-golang} % import this package after listings
+
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -36,6 +38,7 @@
 \definecolor{lightgray}{rgb}{.9,.9,.9}
 % \definecolor{darkgray}{rgb}{.4,.4,.4}
 % \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
 \lstdefinelanguage{TypeScript}{
   keywords={undefined, boolean, number, string, break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
   morecomment=[l]{//},
@@ -466,14 +469,30 @@ Since most of the micro services were written in NodeJS, an NPM\footnote{NPM or 
 
 \subsubsection{Template for micro services}
 \vspace{\vspaceconst}
-With micro services it can be very useful to create a bare-bones project with some `hello world' implementation that will define the micro service structure and all of the basic always needed dependencies. This makes is easy to make sure that each project looks structurally similar since they all would start from the same bare-bones project. Additionally this makes the development of new micro services even easier to develop. Such a template was created for this project, however, it was not fully utilised because of... \TODO need to think of a reason.
+With micro services it can be very useful to create a bare-bones project with some `hello world' implementation that will define the micro service structure and all of the basic always needed dependencies. This makes is easy to make sure that each project looks structurally similar since they all would start from the same bare-bones project. Additionally this makes the development of new micro services even easier to develop. Such a template was created for this project, however, it was not fully utilised because of several reasons.
+
+\begingroup
+\centering
+\includegraphics[width=0.5\linewidth]{./appendix/assets/img/flTemplateTree.png}
+\captionof{figure}{Fl-template folder structure}
+~\label{fig:flTemplateTree}
+\endgroup
+
+\begingroup
+\centering
+\includegraphics[width=0.5\linewidth]{./appendix/assets/img/flTpTypesTree.png}
+\captionof{figure}{Fl-tp-types folder structure}
+~\label{fig:flTpTypesTree}
+\endgroup
+
+Figure~\ref{fig:flTemplateTree} shows a tree view of the micro service template. As you can see there are some key differences such as a unified clients folder, which would be used for any sort of clients the application would need. However, in addition to that, the kafka client was deleted. In the thought was in the beginning that kafka would be used for asynchronous calls, but in practice, at least for the MVP\footnote{MVP aka minimal viable product.}, there was no need for it so was later removed. Furthermore, the \textit{environment.d.ts} file was removed, the reason for that was the realisation that it was possible to define the environment typings inside the \textit{fl-shared} library.\\
 
 \subsubsection{CI/CD}
 \vspace{\vspaceconst}
 
 \subsection{\textit{Fl-auth} service}
 \vspace{\vspaceconst}
-The \textit{fl-auth} service was the only service to be written in a different programming language, and as mentioned before, it was done so as a proof of concept simply because this was the simplest service to develop. It only has 3 endpoints.
+The \textit{fl-auth} service was the only service to be written in a different programming language, and as mentioned before, it was done so as a proof of concept simply because this was the simplest service to develop. It only has 3 endpoints.\\
 
 \begingroup
 \centering
@@ -486,13 +505,46 @@ The \textit{fl-auth} service was the only service to be written in a different p
 ~\label{table:flAuthEndpoints}
 \endgroup
 
+The \textit{`/verify\_me'} endpoint is not actually used. The plan was that it wold be used internally by the other micro services to validate a user's JWT token, however, it was realised that this is not actually needed as with the JWT secret\footnote{JWT secrets are used to generate and to deconstruct the JWT payloads.} it is possible to do that from the other micro services. Although, this endpoint was left in there for possible use by the client, it might even be modified so that it returns the roles which are stored inside it, so that the client is aware of the user's roles. This would be useful in case it is decided to add some form of admin user with admin actions.\\
+
+At the moment authentication service is not actually feature complete. It lacks features such as password recovery proper admin control over the accounts, OAuth\footnote{OAuth\cite{oauth} is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. This mechanism is used by companies such as Amazon, Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.} and more. However, it works well enough as a test MVP.\@ In a proper implementation, ideally a system such KeyCloack\cite{keycloack} or Auth0\cite{auth0}.\\
+
+Currently the service generated a JWT based on a JWT claim structure (see code snippet \ref{code:jwtClaimGo}) which stores all the information about eh user, their email, username, user id and an array of roles the user holds.\\
+
+\lstset{language=Golang}
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:jwtClaimGo} ,caption={JWT Claim in Golang}]
+type JwtClaim struct {
+  ID       string   `json:"id"`
+  Username string   `json:"username"`
+  Email    string   `json:"email"`
+  Roles    []string `json:"roles"`
+  jwt.StandardClaims
+}
+\end{lstlisting}
+\lstset{language=TypeScript}
+
+See Section~\ref{section:innerServiceComms} to see how this system has been applied to authenticate communication in-between services.\\
+
 \subsection{\textit{Fl-tp-types} service}
 \vspace{\vspaceconst}
+The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. 
+\NOTE however it is annoying to make both a typescript type and a mongoose type and managing those separately
+
 
 \subsection{\textit{Fl-tp} service}
 \vspace{\vspaceconst}
 
+\subsection{Inner service communication}
+\vspace{\vspaceconst}
+~\label{section:innerServiceComms}
+
+\NOTE~talk about jwt implementation with a different role for microservices
+\NOTE~talk about how you have a http client in the shared code and how it contacts the rproxy, which is good design bc if that was also reposible for load balancing it would load balance, services need to be de-coupled as mch as possible
+
 \subsection{Android client}
+\vspace{\vspaceconst}
+
+\subsubsection{API Client}
 \vspace{\vspaceconst}
 
 % \section{Evaluation}
@@ -548,8 +600,20 @@ The \textit{fl-auth} service was the only service to be written in a different p
   \url{https://www.atlassian.com/git/tutorials/git-submodule}
  
   \bibitem{jwtio}
-  JWT.io web pabe (2021).
+  JWT.io website (2021).
   \url{https://www.jwt.io}
+
+  \bibitem{auth0}
+  Auth0 website (2021).
+  \url{https://auth0.com/#!}
+
+  \bibitem{keycloack}
+  KeyCloack website (2021).
+  \url{https://www.keycloak.org/}
+
+  \bibitem{oauth}
+  Oauth wiki page (2021).
+  \url{https://en.wikipedia.org/wiki/OAuth}
 \end{thebibliography}
 
 \section*{Appendices}

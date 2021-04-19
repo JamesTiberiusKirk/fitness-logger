@@ -140,17 +140,16 @@
 \vspace*{\fill/2}
 \begin{abstract} 
 
-This project is a tool to let people be able to log and track workouts overtime easily from their phone in a flexible yet complete way. The initial purpose was to make a phone application which can be used across different disciplines of sport and with different workout types. This would be done by breaking up the data in different manageable units so that the use can create their own workflow for logging workouts.
-
-However, the main appeal of this project is the backend implementation. This is because as a part of the architecture design process, it was decided that a micro-services structure would be followed. Where the backend would be split up into multiple applications which would talk to each other where needed. This was chosen for a multitude of reasons, including as a learning experience for this kind of backend architecture.
+This project is a tool to let people be able to log and track workouts overtime easily from their phone in a flexible yet complete way. The initial purpose was to make a phone application which can be used across different disciplines of sport and with different workout types. This would be done by breaking up the data in different manageable units so that the use can create their own workflow for logging workouts.\\
+However, the main appeal of this project is the backend implementation. This is because as a part of the architecture design process, it was decided that a micro-services structure would be followed. Where the backend would be split up into multiple applications which would talk to each other where needed. This was chosen for a multitude of reasons, including as a learning experience for this kind of backend architecture.\\
 
 \end{abstract}
 \vspace*{\fill}
 
 \newpage
-\tableofcontents 
-\listoffigures
-\newpage
+% \tableofcontents 
+% \listoffigures
+% \newpage
 
 \begin{multicols}{2}
 \section{Introduction}
@@ -182,10 +181,10 @@ Typically a notepad and pen is not a bad solution and usually preferable to most
 
 \subsubsection{My planned solution}
 \vspace{\vspaceconst}
+\TODO~this section is not finished\\
 
-The idea was that the system would be designed around the data structure which would be saved by the user. This data structure would be made as simple as possible while still allowing all the common basic exercise options (such as repetitions, resistance values, sets etc) but also others (such as the option to just write a single value). Furthermore, the system would allow the user to create their own exercise types which they would then use when logging a workout. 
-
-When using the application the user would first create a custom `type'. This type would usually be an exercise, however, it it not constrained to be one. For example, one type would be `exercise x' and another type could be `caffeine intake' for tracking the intake of caffeine over different workouts. Then, the 
+The idea was that the system would be designed around the data structure which would be saved by the user. This data structure would be made as simple as possible while still allowing all the common basic exercise options (such as repetitions, resistance values, sets etc) but also others (such as the option to just write a single value). Furthermore, the system would allow the user to create their own exercise types which they would then use when logging a workout.\\
+When using the application the user would first create a custom `type'. This type would usually be an exercise, however, it it not constrained to be one. For example, one type would be `exercise x' and another type could be `caffeine intake' for tracking the intake of caffeine over different workouts. Then, the \\
 
 \section{Background}
 \vspace{\vspaceconst}
@@ -195,14 +194,14 @@ When using the application the user would first create a custom `type'. This typ
 \subsection{Architecture design}
 \TODO~see if u can find a citation for the "popular questions to be answered" 
 
-A lot of time during this project was allocated to research of the backend architecture design, specifically relating to micro services. And when it comes to it, there is not just one or few generally accepted standards and patterns that projects adopt. This is simply because each and every system architect needs to answer a lot of questions about it will all be built.
- For instance, the questions about how the different services should be split, some say it should be split by the feature, some say by the individual data element, by endpoint and more. Another popular questions is how the services diagram should look like, one of the popular answers are to have a separate authentication service to provide authentication for the application and proxy the requests to all the other services. However, regardless of the question, there are a lot of different ways solutions to all of these questions that need to be answered when starting a project using micro services and all of them come with their own advantages and disadvantages. 
+A lot of time during this project was allocated to research of the backend architecture design, specifically relating to micro services. And when it comes to it, there is not just one or few generally accepted standards and patterns that projects adopt. This is simply because each and every system architect needs to answer a lot of questions about it will all be built.\\
+ For instance, the questions about how the different services should be split, some say it should be split by the feature, some say by the individual data element, by endpoint and more. Another popular questions is how the services diagram should look like, one of the popular answers are to have a separate authentication service to provide authentication for the application and proxy the requests to all the other services. However, regardless of the question, there are a lot of different ways solutions to all of these questions that need to be answered when starting a project using micro services and all of them come with their own advantages and disadvantages.\\
 
 \subsubsection{Helpful technologies}
 
   When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling.\\
 Micro services would often also need to talk to each other and as before, depending on requirements and design, there are different ways to do it. Overall there are two options many systems using both synchronous and asynchronous calls. Synchronous calls are usually straight forward and done over HTTP and the only thing that would need to be solved is proper authentication. Asynchronous calls are often made with either RPC calls (commonly gRPC\cite{grpc} would be used) or a message/event bus system such as Kafka\cite{kafka}.\\
-  Another great series of helpful technologies are service meshes, they provide great insight into your cluster of micro services. It is a dedicated infrastructure layer that all the different micro services would proxy their communication in-between. This can provide a multitude of benefits including communication observability, call chain traceability, secure connections and more. Examples of such services are Linkerd\cite{linkerd} and Istio\cite{istio}. If this project would be using Kubernetes, a service mesh would definitely be very useful and worth wile to integrate into the system.
+  Another great series of helpful technologies are service meshes, they provide great insight into your cluster of micro services. It is a dedicated infrastructure layer that all the different micro services would proxy their communication in-between. This can provide a multitude of benefits including communication observability, call chain traceability, secure connections and more. Examples of such services are Linkerd\cite{linkerd} and Istio\cite{istio}. If this project would be using Kubernetes, a service mesh would definitely be very useful and worth wile to integrate into the system.\\
 
 \subsection{Market} % Competitors apps
 \vspace{\vspaceconst}
@@ -216,14 +215,14 @@ Micro services would often also need to talk to each other and as before, depend
 \subsection{Micro services}
 \vspace{\vspaceconst}
 
-The proposed project is tackling two main problems, one being a whole set conceptual problem which are very common with increased project sizes, weather that is in terms of complexity, code base, team size or general scope of the project. So it is generally welcome to try and apprehend for these problems ahead of time by careful planning and designing of the system. In this case, the careful planning and designing would be done on the backend architecture. Here, using micro services would solve a lot of problems, both technical and business problems.
+The proposed project is tackling two main problems, one being a whole set conceptual problem which are very common with increased project sizes, weather that is in terms of complexity, code base, team size or general scope of the project. So it is generally welcome to try and apprehend for these problems ahead of time by careful planning and designing of the system. In this case, the careful planning and designing would be done on the backend architecture. Here, using micro services would solve a lot of problems, both technical and business problems.\\
 
 \subsubsection{Business \& general project management problems}
 \vspace{\vspaceconst}
 
 When a project grows in size to the point where there is a need for multiple teams it can become quite challenging to have all of the teams work on the same code base. Different tactics such as smart management of source management system could help with this issue. One such example would be to have different development branches for each team, however, this could introduce more problems such as needing to re-base the branch mid development. Here a much better way would be to simply have the teams work on different codebases, each making up a micro service. Depending on how the teams are organised, or on how the features are broken down in each micro service, each team would be solely responsible of one or more micro services, making them the de facto experts on that specific micro a service and its inner workings.\\
 What about when new individuals or teams enter the workforce? There is usually a fair amount of time taken just simply getting acclimated with the codebase and the whole product. Now, this would be true weather the project is or is not following a micro services architecture, however, if the project is just a monolith, usually the individual or team would need to get familiar with the while codebase. This would not need to be true in case of micro services.\\
-With micro services the individual or team would just need to look at the API documentation of the project, then only get accustomed with the micro service(s) that they would be working on. This way collaboration between teams also will become easier due to each team maintaining their own small codebases, and documentation for how to interact with their services.\\
+With micro services the individual or team would just need to look at the API documentation of the project, then only get accustomed with the micro services) that they would be working on. This way collaboration between teams also will become easier due to each team maintaining their own small codebases, and documentation for how to interact with their services.\\
 
 \subsubsection{The technical aspect}
 \vspace{\vspaceconst}
@@ -354,7 +353,6 @@ Even though micro services usually can increases the hugely complexity, this pro
 \vspace{\vspaceconst}
 
 The database management system that was chosen for this project was MongoDB.\@ This is a document object storage database (aka No SQL db), meaning it stores JSON\footnote{JSON stands for JavaScript Object Notation and it is a data formatting standard used for sending data over networks, saving data to files and more.} objects which can potentially have a tree like structure, which is actually important to some of the data which the project will be storing. Other than MongoDB being able to store object trees another reason why it was chosen was because of its ease of use with virtually any programming language. For example, in NodeJS, a read operation would be just as simple as \textit{'collection.findOne({})'}, just providing a JSON or a BSON\footnote{BSON stands for Binary JSON which is just binary encoded JSON model.} object with the search parameters matching the field names in the database. A create operations is even simpler, \textit{`collection.insertOne(data)'}, with data being any kind of JSON serializeable object.\\
-
 The alternative DBMS system which was considered for this project was Posture SQL. This is probably the best SQL system from a point of view of features and speed. However, the more considered it was the more it was realised that there is no point of using a relational database because the relations would have to be defines on the backend application side. That is because, if the different services where to interact with each other's database, or were all to use the same database, it could potentially case problems with data integrity on the database side. So, it is generally accepted as good practice that all micro services would have their own database, and if they needed to read or write data to another micro service's database, they would do it through their API.\@ Also, MongoDB offered the project the flexibility to use nested JSON objects which ended up being used in the \textit{`fl-tp'} service (see section \ref{sec:dataStruct}).
 
 \subsubsection{Data structures}\label{sec:dataStruct}
@@ -424,21 +422,38 @@ The default programming stack for this project is NodeJS with typescript\footnot
 \subsubsection{Micro service split}
 \vspace{\vspaceconst}
 
-It was decided that the micro services would be split largely by functionality and the designed data structures. For this reason it was originally designed with 4 micro services in mind (4 as the final product and 3 as the MVP): \textit{`fl-auth'} for authentication, \textit{`fl-tp-types'} for the custom user types, and \textit{`fl-tp'} for the \tgs and the \tps. However, \textit{`fl-tp'} could have actually been split down even more, one service for \tgs and another for \tps. At the time of designing, it it was just thought that these data structures are related enough that they could be in the same micro service. Which is still true, however, in practice they are just two different endpoint and could easily be split up with minimal work. The fourth micro service being \textit{`fl-analytics'}, a micro service for compiling reports and other analytical data based on the data structures used in the project.\\
+It was decided that the micro services would be split largely by functionality and the designed data structures. For this reason it was originally designed with 4 micro services in mind (4 as the final product and 3 as the MVP): \textit{`fl-auth'} for authentication, \textit{`fl-tp-types'} for the custom user types, and \textit{`fl-tp'} for the \tgs~and the \tps. However, \textit{`fl-tp'} could have actually been split down even more, one service for \tgs~and another for \tps. At the time of designing, it it was just thought that these data structures are related enough that they could be in the same micro service. Which is still true, however, in practice they are just two different endpoint and could easily be split up with minimal work. The fourth micro service being \textit{`fl-analytics'}, a micro service for compiling reports and other analytical data based on the data structures used in the project.\\
+
+\subsubsection{Inner service communication}
+\vspace{\vspaceconst}
+Inner service communication is a crucial part of any backend modeled with micro services and it is one of the added complexities which would occur when utilising such architecture. Generally when needing ISC\footnote{ISC aka inner service communication} there would be two types to chose from, synchronous and asynchronous. Many would default to using HTTP calls for ISC, however, this is a synchronous and care needs to be taken when using it. This is simply because it can block up a whole chain of services waiting for the calls to be resolved. So generally should only be used when one service is requesting data from another. The other option is message buses with a service such as Kafka\cite{kafka}. This can be used in an easy way to trigger jobs on other micro services.\\
+One of the planned ways to use kafka in this project was for \textit{`fl-tp'} to trigger a job on \textit{`fl-analytics'} to generate \tg~reports when the \tg~would be stopped. This would stop the services and the client from hanging and waiting while the report is being generated. Then the report would be made available to the user when its generated.\\
 
 \subsection{User Interface}
 \vspace{\vspaceconst}
-\TODO need to write this up\\
-\NOTE~talk about loose designs of the ui i have
 
-Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development a few sketches were made.
+Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development, a few sketches were made to help with visualising some specific pages. These page were the workout page, which would display individual \tgs~and their subsequent \tps~(see figure~\ref{fig:uiWorkoutPageDesign}), here i also specifically modeled each \tp card and talked about where each piece of data should be coming from. The next figure, figure~\ref{fig:uiExersicePageDesign}, shows a sketch of the add experience page and the add set page. 
+
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/Project\ 1.jpg}
+\captionof{figure}{Add exercise page and set dialogue.}
+~\label{fig:uiExersicePageDesign}
+\endgroup
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/Project.jpg}
+\captionof{figure}{Workout screen design}
+~\label{fig:uiWorkoutPageDesign}
+\endgroup
+
 
 \section{Implementation and Testing}
 \vspace{\vspaceconst}
 
 \subsection{Setup}
 \vspace{\vspaceconst}
-This section will be talking about the different aspects of the setup phase: version control setup, shared code library, template creation and CI/CD.
+This section will be talking about the different aspects of the setup phase: version control setup, shared code library, template creation and CI/CD.\@
 
 \subsubsection{Version control}
 \vspace{\vspaceconst}
@@ -490,6 +505,9 @@ Figure~\ref{fig:flTemplateTree} shows a tree view of the micro service template.
 \subsubsection{CI/CD}
 \vspace{\vspaceconst}
 
+This is one section which was severely compromised on due to time constraints. On the template micro service, a full CI/CD pipeline was setup, with testing builds and image pushes on the GitHub container registry on every single push to master branch. However, when proper development starter, there simple was not enough time to setup the CI/CD pipeline on every single repository and not enough time to follow test driven development. So in the end, using a script, the container image was built and pushed to the container registry from the main development machine.\\
+When it came to the shared NPM module, the pipeline is setup with GitHub actions, just again no actual tests were written, but the test framework has been setup, so this is one of the first items to be on the to-do list for future developments.\\
+
 \subsection{\textit{Fl-auth} service}
 \vspace{\vspaceconst}
 The \textit{fl-auth} service was the only service to be written in a different programming language, and as mentioned before, it was done so as a proof of concept simply because this was the simplest service to develop. It only has 3 endpoints.\\
@@ -497,19 +515,17 @@ The \textit{fl-auth} service was the only service to be written in a different p
 \begingroup
 \centering
 \begin{tabular}{p{2.5cm} p{4.5cm}}
-  POST /register & This accepts username, email and password. The password is the hashed with salted and hashed bcrypt\footnote{Bcrypt is a common password hashing function based on the Blowfish cipher.}, then stored in the MongoDB database.\\
-  POST /login & This accepts email and password, then it checked the password against the hashed password stored int he database, if a match is made, a JWT token with the appropriate data is generated and sent back.\\
-  POST /verify\_me & This accepts the JWT and checks its validity.\\
+  POST /auth/register & This accepts username, email and password. The password is the hashed with salted and hashed bcrypt\footnote{Bcrypt is a common password hashing function based on the Blowfish cipher.}, then stored in the MongoDB database.\\
+  POST /auth/login & This accepts email and password, then it checked the password against the hashed password stored int he database, if a match is made, a JWT token with the appropriate data is generated and sent back.\\
+  POST /auth/verify\_me & This accepts the JWT and checks its validity.\\
 \end{tabular}
 \captionof{table}{\textit{Fl-auth} endpoint}
 ~\label{table:flAuthEndpoints}
 \endgroup
 
 The \textit{`/verify\_me'} endpoint is not actually used. The plan was that it wold be used internally by the other micro services to validate a user's JWT token, however, it was realised that this is not actually needed as with the JWT secret\footnote{JWT secrets are used to generate and to deconstruct the JWT payloads.} it is possible to do that from the other micro services. Although, this endpoint was left in there for possible use by the client, it might even be modified so that it returns the roles which are stored inside it, so that the client is aware of the user's roles. This would be useful in case it is decided to add some form of admin user with admin actions.\\
-
 At the moment authentication service is not actually feature complete. It lacks features such as password recovery proper admin control over the accounts, OAuth\footnote{OAuth\cite{oauth} is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. This mechanism is used by companies such as Amazon, Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.} and more. However, it works well enough as a test MVP.\@ In a proper implementation, ideally a system such KeyCloack\cite{keycloack} or Auth0\cite{auth0}.\\
-
-Currently the service generated a JWT based on a JWT claim structure (see code snippet \ref{code:jwtClaimGo}) which stores all the information about eh user, their email, username, user id and an array of roles the user holds.\\
+Currently the service generated a JWT based on a JWT claim structure (see code snippet~\ref{code:jwtClaimGo}) which stores all the information about eh user, their email, username, user id and an array of roles the user holds.\\
 
 \lstset{language=Golang}
 \begin{lstlisting}[escapeinside={(*}{*)}, label={code:jwtClaimGo} ,caption={JWT Claim in Golang}]
@@ -525,21 +541,62 @@ type JwtClaim struct {
 
 See Section~\ref{section:innerServiceComms} to see how this system has been applied to authenticate communication in-between services.\\
 
-\subsection{\textit{Fl-tp-types} service}
+\subsection{\textit{Fl-tp-types} service}~\label{section:flTpTypeImpl}
 \vspace{\vspaceconst}
-The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. 
-\NOTE however it is annoying to make both a typescript type and a mongoose type and managing those separately
+The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. However, it can get cumbersome to make both a typescript interface type and a mongoose object defining the document type and managing those separately, so for the next service the author was in search to find another way to use MongoDB.\\
+This service is just responsible of dealing with the \tpt~data structure and it just performs crud operations on the database.\\
 
+\begingroup
+\centering
+\begin{tabular}{p{2.5cm} p{4.5cm}}
+  POST /types/ & Add a \tpt\\
+  GET /types/ & Get all or search \tpts\\
+  PUT /types/ & Modify a \tpt\\
+  DELETE /types/ & Delete a \tpt\\
+\end{tabular}
+\captionof{table}{\textit{Fl-tp-types} endpoint}
+~\label{table:flTpTypesEndpoints}
+\endgroup
 
 \subsection{\textit{Fl-tp} service}
 \vspace{\vspaceconst}
+In this service, the usual technical stack was used only with swapping out mongoose for the plain mongo NodeJS driver and using only the builtin typescript interfaces. Validation is just handled in plain logic on the controller side. However, the validation done really is not done on a professional level. Ideally, would build some library component for validation in \textit{fl-shared} or use a library such as \textit{`Joi'} for validation.\\
+This service deals with the \tps~the data inside them (sets or single values) and \tgs. Due to the data flow, this service also needs to make calls to \textit{fl-tp-type} (see Section~\ref{section:flTpTypeImpl}).\\
+For example, when a new \tp~is created, this service calls the \textit{fl-tp-types} service through a HTTP client wrapper 
+
+\begingroup
+\centering
+\begin{tabular}{p{2.5cm} p{4.5cm}}
+  GET /tracking/point/ & Get or search a list of all of the \tps~and the data inside them.\\
+  POST /tracking/point/ & Add a new \tp.\\
+  DELETE /tracking/point/ & Delete a \tp.\\
+  POST /tracking/point/set/ & Create a new set at a given \tp.\\
+  PUT /tracking/point/set/ & Update a specific set from a given \tp.\\
+  GET /tracking/group/ & Get all \tgs.\\
+  POST /tracking/group/start & Start a new \tg. Note, one cannot be started of there is one that has not been stopped.\\
+  POST /tracking/group/stop & Stop a \tg.\\
+  PUT /tracking/group/ & Update a \tp.\\
+  DELETE /tracking/group/ & Deletes a specific \tg.\\
+
+\end{tabular}
+\captionof{table}{\textit{Fl-tp} endpoint}
+~\label{table:flTpEndpoints}
+\endgroup
 
 \subsection{Inner service communication}
 \vspace{\vspaceconst}
 ~\label{section:innerServiceComms}
 
-\NOTE~talk about jwt implementation with a different role for microservices
-\NOTE~talk about how you have a http client in the shared code and how it contacts the rproxy, which is good design bc if that was also reposible for load balancing it would load balance, services need to be de-coupled as mch as possible
+With micro services, inner service communication is a given requirement. And since it is communicating outside the system the communication needs to be secured and authenticated. In terms of security, that would be done a https secrit
+
+\NOTE~talk about jwt implementation with a different role for microservices\\
+\NOTE~talk about how you have a http client in the shared code and how it contacts the rproxy, which is good design bc if that was also reposible for load balancing it would load balance, services need to be de-coupled as mch as possible\\
+
+\subsubsection{Dependency injection}
+\vspace{\vspaceconst}
+\NOTE~talk about creating the db and flApi on startup then they are injected and passed to the controller. this could also be done with the controllers that are needing it only.\\
+\NOTE~this is also good because it allows for dependency substitution on testing.\\
+\NOTE~if one of the dependencies fails overtime, service crashes and is restarted.\\
 
 \subsection{Android client}
 \vspace{\vspaceconst}
@@ -596,23 +653,23 @@ The \textit{fl-tp-types} micro service was the first service to be written in th
   \url{https://istio.io/}
   
   \bibitem{atlasianGitSubmodule}
-  Git sub module documentation from Atlasian(2021).
+  Git sub module documentation from Atlasian(2021).\\
   \url{https://www.atlassian.com/git/tutorials/git-submodule}
  
   \bibitem{jwtio}
-  JWT.io website (2021).
+  JWT.io website (2021).\\
   \url{https://www.jwt.io}
 
   \bibitem{auth0}
-  Auth0 website (2021).
+  Auth0 website (2021).\\
   \url{https://auth0.com/#!}
 
   \bibitem{keycloack}
-  KeyCloack website (2021).
+  KeyCloack website (2021).\\
   \url{https://www.keycloak.org/}
 
   \bibitem{oauth}
-  Oauth wiki page (2021).
+  Oauth wiki page (2021).\\
   \url{https://en.wikipedia.org/wiki/OAuth}
 \end{thebibliography}
 

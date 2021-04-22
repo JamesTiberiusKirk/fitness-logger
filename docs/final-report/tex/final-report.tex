@@ -562,7 +562,7 @@ This service is just responsible of dealing with the \tpt~data structure and it 
 \vspace{\vspaceconst}
 In this service, the usual technical stack was used only with swapping out mongoose for the plain mongo NodeJS driver and using only the builtin typescript interfaces. Validation is just handled in plain logic on the controller side. However, the validation done really is not done on a professional level. Ideally, would build some library component for validation in \textit{fl-shared} or use a library such as \textit{`Joi'} for validation.\\
 This service deals with the \tps~the data inside them (sets or single values) and \tgs. Due to the data flow, this service also needs to make calls to \textit{fl-tp-type} (see Section~\ref{section:flTpTypeImpl}).\\
-For example, when a new \tp~is created, this service calls the \textit{fl-tp-types} service through a HTTP client wrapper 
+For example, when a new \tp~is created, this service calls the \textit{fl-tp-types} service through a HTTP client wrapper from \textit{fl-shared}. The requests go through the reverse proxy making it easier when the reverse proxy will be migrated to a load balancer.\\
 
 \begingroup
 \centering
@@ -577,32 +577,74 @@ For example, when a new \tp~is created, this service calls the \textit{fl-tp-typ
   POST /tracking/group/stop & Stop a \tg.\\
   PUT /tracking/group/ & Update a \tp.\\
   DELETE /tracking/group/ & Deletes a specific \tg.\\
-
 \end{tabular}
 \captionof{table}{\textit{Fl-tp} endpoint}
 ~\label{table:flTpEndpoints}
 \endgroup
 
-\subsection{Inner service communication}
+At the moment, this service contains two endpoints, the idea being that \tgs~and \tps~are related to each other. In practice this would have worked just as well as two separate endpoint. So when the `/tracking/point' endpoint needs any \tg~data, it is actually done through the \textit{FlApi} HTTP client from \textit{fl-shared}. This de-couples the two endpoints allowing them to function as two separate entities. This was done to be able to easily separate these two endpoints into different services.\\
+
+\subsection{Inner-service communication}
 \vspace{\vspaceconst}
 ~\label{section:innerServiceComms}
 
-With micro services, inner service communication is a given requirement. And since it is communicating outside the system the communication needs to be secured and authenticated. In terms of security, that would be done a https secrit
+With micro services, inner-service communication is a given requirement. And since it is communicating outside the system the communication needs to be secured and authenticated. In terms of security, that would be done through some encrypted connection such as HTTPs which would be handled on the reverse proxy level of the application.\\
+However, authentication is a different topic. It would need to be made sure that micro services would have the necessary permissions for all of the calls performed. Luckily the JWT system made this easy. Since all of the micro services have the JWT secret to de-compile the JWT payload, they can also sign their own JWT tokens. So, in \textit{fl-shared} NPM module, some functions were created to generate a JWT token with a role of `microservice' (see Snippet \ref{code:microServiceJWTGeneration}), this is then injected into every request sent to the reverse proxy and subsequently the requested micro service would check for this role (see Snippet \ref{code:microServiceRoleChecking}).\\
 
-\NOTE~talk about jwt implementation with a different role for microservices\\
-\NOTE~talk about how you have a http client in the shared code and how it contacts the rproxy, which is good design bc if that was also reposible for load balancing it would load balance, services need to be de-coupled as mch as possible\\
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:microServiceRoleChecking} ,caption={Checking for microservice role.}]
+roles[0] === 'microservices' ?
+    query.userId = req.query.userId :
+    query.userId = res.locals.jwtPayload.id;
+\end{lstlisting}
+
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:microServiceJWTGeneration} ,caption={Generating jwt for microservices.}]
+/**
+ * Sign the jwt token with env variable.
+ *
+ * @return string of jwt.
+ */
+private signJwt(): string {
+    const jwtSecret = process.env.JWT_SECRET ?? '';
+    const jwtPayload = {
+        username: process.env.MS_NAME,
+        roles: [MS_ROLE]
+    }
+    return jwt.sign(jwtPayload, jwtSecret);
+}
+\end{lstlisting}
+
+When a micro service sees the `microseservice' role, it gets the user id from the URL parameters rather than the JWT payload. This basically lets the micro service perform operations on other endpoint on the behalf of the user.\\
 
 \subsubsection{Dependency injection}
 \vspace{\vspaceconst}
-\NOTE~talk about creating the db and flApi on startup then they are injected and passed to the controller. this could also be done with the controllers that are needing it only.\\
-\NOTE~this is also good because it allows for dependency substitution on testing.\\
-\NOTE~if one of the dependencies fails overtime, service crashes and is restarted.\\
+
+Dependency is an often overlooked aspect of application design, on both frontend and backend, and because of that there are many ways of solving the problem, different frameworks like to solve it in different ways. The way dependency injection was done in this application's backend was quite simple. All dependencies are created at the beginning before the HTTP server is started. Usually these would be a database client instance and a HTTP client instance. These would then be passed to the HTTP server's class constructor. From there the client would be injected either on an endpoint basis or server wide (see Snippet~\ref{code:dependencyInjectionWithinServer}). Then the injected dependencies would be available from the \textit{`response.locals'} variable on each controller (refer to Snippet~\ref{code:backendDependencyUse}).
+
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:dependencyInjectionWithinServer} ,caption={Dependency injection within HTTP server.}]
+this.app.use((req: Request, res: Response, next: NextFunction) => {
+    res.locals.db = this.db;
+    res.locals.flApi = this.flApi;
+    next();
+});
+\end{lstlisting}
+
+\begin{lstlisting}[escapeinside={(*}{*)}, label={code:backendDependencyUse} ,caption={Accessing database from locals as an injectable dependency.}]
+async function GetTrackingGroups(req: Request, res: Response) {
+    const db: DbClient = res.locals.db;
+...
+\end{lstlisting}
+
+Approaching dependency injection like this is good because it makes it easy to substitute dependencies, even more so if a template class would be used to implement the dependencies wrapper classes. But also makes it easy to test the application. For unit testing, a mock object class could be injected or even a database setup specifically for testing.\\
 
 \subsection{Android client}
 \vspace{\vspaceconst}
+\NOTE~used flutter because it compiles to native on all platforms, web, linux, windows, macos, android and ios
 
 \subsubsection{API Client}
 \vspace{\vspaceconst}
+\NOTE~talk about chopper\\
+\NOTE~talk about possible service based design which could be implemented and how ive implemented different services based on each endpoint. Specifically how I have different flutter services (classes) for each micro service.\\
+\NOTE~this would also be nice so I could only inject each service as needed per page.\\
 
 % \section{Evaluation}
 % \vspace{\vspaceconst}

@@ -39,6 +39,22 @@
 % \definecolor{darkgray}{rgb}{.4,.4,.4}
 % \definecolor{purple}{rgb}{0.65, 0.12, 0.82}
 
+
+\lstdefinelanguage{Dart}{
+  keywords={var, String, int, List},
+  ndkeywords={findAllElements,findElements},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{purple}\bfseries,
+  identifierstyle=\color{black},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  sensitive=true
+}
+
 \lstdefinelanguage{TypeScript}{
   keywords={undefined, boolean, number, string, break, case, catch, continue, debugger, default, delete, do, else, false, finally, for, function, if, in, instanceof, new, null, return, switch, this, throw, true, try, typeof, var, void, while, with},
   morecomment=[l]{//},
@@ -505,7 +521,7 @@ Figure~\ref{fig:flTemplateTree} shows a tree view of the micro service template.
 \subsubsection{CI/CD}
 \vspace{\vspaceconst}
 
-This is one section which was severely compromised on due to time constraints. On the template micro service, a full CI/CD pipeline was setup, with testing builds and image pushes on the GitHub container registry on every single push to master branch. However, when proper development starter, there simple was not enough time to setup the CI/CD pipeline on every single repository and not enough time to follow test driven development. So in the end, using a script, the container image was built and pushed to the container registry from the main development machine.\\
+This is one section which was severely compromised on due to time constraints. On the template micro service, a full CI/CD\footnote{CI/CD or continuous integration and continuous deployment is a pipeline which would be triggered by some event such as a push or a branch merge. The project would then have its unit tests run, the project built and then deployed to a live environment, repository or both.} pipeline was setup, with testing builds and image pushes on the GitHub container registry on every single push to master branch. However, when proper development starter, there simple was not enough time to setup the CI/CD pipeline on every single repository and not enough time to follow test driven development. So in the end, using a script, the container image was built and pushed to the container registry from the main development machine.\\
 When it came to the shared NPM module, the pipeline is setup with GitHub actions, just again no actual tests were written, but the test framework has been setup, so this is one of the first items to be on the to-do list for future developments.\\
 
 \subsection{\textit{Fl-auth} service}
@@ -639,13 +655,29 @@ Approaching dependency injection like this is good because it makes it easy to s
 
 \subsection{Android client}
 \vspace{\vspaceconst}
-\NOTE~used flutter because it compiles to native on all platforms, web, linux, windows, macos, android and ios
 
-\subsubsection{API Client}
-\vspace{\vspaceconst}
-\NOTE~talk about chopper\\
-\NOTE~talk about possible service based design which could be implemented and how ive implemented different services based on each endpoint. Specifically how I have different flutter services (classes) for each micro service.\\
-\NOTE~this would also be nice so I could only inject each service as needed per page.\\
+For this part of the project, it was decided that Flutter\footnote{Flutter\cite{flutter} is a frontend framework developed by Google, using dart as the core language, it is a framework which compiles to native platforms for building UI applications programmatically.} would be used. Flutter is really good for this use case because it can easily access any of the native components quite easily while being cross platform, compiling for the web, Windows, Linux, MacOS, Android and IOS. This makes it really nice to use because in the future, using the same codebase, the application could be compiled for all the other platforms which would be targeted. The libraries used in this Flutter project were primarily Chopper\cite{chopper} for an easy to use HTTP client and Provider\cite{provider} as a dependency injector.\\
+Chopper is nice because one could just create an abstract class, define the API URIs\footnote{A URI is a link localised to a site, in other words the path after the domain in a link.}, data to send and data to receive, then the `build\_runner'\footnote{Flutter package which generates code.} package generated the code for the abstract class. This package makes development a lot nicer, however, there were some difficulties with it. Flutter's latest update, version 2.0, defined a new way to deal with variables which can be null by using a \textit{`?'} operator to define variables which can be null. This means that packages which have not been updated/re-written with compatibility cannot be used in Flutter projects using version 2.0 or higher, and at the time of development Chopper did not have support for that. The right thing would have been to either switch to a different HTTP client library or to use the base HTTP package available in Flutter. However, after some research on the issue, a GitHub milestone\cite{chopperMileStone} and pull requests were found where the maintainers where working on upgrading the package. So it was decided to continue using Chopper, disable null safety\footnote{Null safety is the Flutter 2.0 feature where the Flutter team added support for nullable values} when building the application and to constantly modify the generated code after transpiration in order to make it work with this null safe project as a workaround.\\
+The other mentioned package used was Provider. Provider can be used in a lot of different ways, however, in this project it was used as a dependency injection system. At the top of the widget tree\footnote{In Flutter a widget tree is a tree like structure of all of the nested UI classes created. For example a form will have children of text inputs and buttons.} one could use Provider to inject a dependency such as seen in Snippet~\ref{code:flutterProviderInrAuthEx} with the authentication service client example. When it comes to consuming the dependency down the widget tree, its also fairly straight forward. Just one line of code to retrieve it from the current context, see Snippet~\ref{code:flutterProviderOutAuthEx}.\\
+
+\lstset{language=Dart}
+\begin{lstlisting}[label={code:flutterProviderInrAuthEx}, caption={Provider injection example with the Authentication service client}]
+Provider<AuthService>(
+  create: (_) => AuthService(FlAuthApiService.create()),
+  dispose: (_, AuthService service) =>
+      service.flAuthApiService.client.dispose(),
+)
+\end{lstlisting}
+
+\begin{lstlisting}[label={code:flutterProviderOutAuthEx}, caption={Provider consuming dependency example with the Authentication service client}]
+bool loginAtt = await Provider.of<AuthService>(context, listen: false).login(user)
+\end{lstlisting}
+\lstset{language=TypeScript}
+
+One missing technical component in this application which would have made the codebase cleaner and easier to develop for would be the inclusion of some state management library such as\cite{bloc}.
+
+\NOTE~talk about how i shouve used a standalone state manajent system like BloC\\
+\NOTE~need to think of why bloc would be good to use\\
 
 % \section{Evaluation}
 % \vspace{\vspaceconst}
@@ -658,6 +690,7 @@ Approaching dependency injection like this is good because it makes it easy to s
 
 % \section{Description of the Final Product}
 % \vspace{\vspaceconst}
+% \NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
 
 % \section{Reflection}
 % \vspace{\vspaceconst}
@@ -672,48 +705,70 @@ Approaching dependency injection like this is good because it makes it easy to s
 \begin{thebibliography}{9}
 
   \bibitem{Docker}
-  Docker (Software) Wikipedia (2021).\\
+  Docker (Software) Wikipedia (April 2021).\\
+  \TODO~needs to be swapped with a non wiki link\\
   \url{https://en.wikipedia.org/wiki/Docker_(software)}
 
   \bibitem{k8s}
-  Kubernetes website (2021).\\
+  Kubernetes website (April 2021).\\
   \url{https://kubernetes.io/}
 
   \bibitem{grpc}
-  gRPC website (2021).\\
+  gRPC website (April 2021).\\
   \url{https://www.grpc.io/}
 
   \bibitem{kafka}
-  Kafka website (2021).\\
+  Kafka website (April 2021).\\
   \url{https://kafka.apache.org/}
 
   \bibitem{linkerd}
-  Linkerd website (2021).\\
+  Linkerd website (April 2021).\\
   \url{https://linkerd.io/}
 
   \bibitem{istio}
-  Istio website (2021).\\
+  Istio website (April 2021).\\
   \url{https://istio.io/}
   
   \bibitem{atlasianGitSubmodule}
-  Git sub module documentation from Atlasian(2021).\\
+  Git sub module documentation from Atlasian(April 2021).\\
   \url{https://www.atlassian.com/git/tutorials/git-submodule}
  
   \bibitem{jwtio}
-  JWT.io website (2021).\\
+  JWT.io website (April 2021).\\
   \url{https://www.jwt.io}
 
   \bibitem{auth0}
-  Auth0 website (2021).\\
+  Auth0 website (April 2021).\\
   \url{https://auth0.com/#!}
 
   \bibitem{keycloack}
-  KeyCloack website (2021).\\
+  KeyCloack website (April 2021).\\
   \url{https://www.keycloak.org/}
 
   \bibitem{oauth}
-  Oauth wiki page (2021).\\
+  Oauth wiki page (April 2021).\\
+  \TODO~needs to be swapped with a non wiki link\\
   \url{https://en.wikipedia.org/wiki/OAuth}
+
+  \bibitem{flutter}
+  Flutter website (April 2021)
+  \url{https://flutter.dev/}
+
+  \bibitem{chopper}
+  Chopper repository (April 2021).\\
+  \url{https://pub.dev/packages/chopper}
+
+  \bibitem{chopperMileStone}
+  Chopper github repository milestone (April 2021).\\
+  \url{https://github.com/lejard-h/chopper/milestone/2}
+
+  \bibitem{provider}
+  Provider repository (April 2021).\\
+  \url{https://pub.dev/packages/provider}
+
+  \bibitem{bloc}
+  BloC repository (April 2021).\\
+  \url{https://pub.dev/packages/flutter\_bloc}
 \end{thebibliography}
 
 \section*{Appendices}

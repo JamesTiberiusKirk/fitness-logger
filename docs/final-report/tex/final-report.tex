@@ -543,6 +543,7 @@ See Section~\ref{section:innerServiceComms} to see how this system has been appl
 
 \subsection{\textit{Fl-tp-types} service}~\label{section:flTpTypeImpl}
 \vspace{\vspaceconst}
+
 The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. However, it can get cumbersome to make both a typescript interface type and a mongoose object defining the document type and managing those separately, so for the next service the author was in search to find another way to use MongoDB.\\
 This service is just responsible of dealing with the \tpt~data structure and it just performs crud operations on the database.\\
 

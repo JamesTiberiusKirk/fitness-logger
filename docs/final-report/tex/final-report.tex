@@ -208,15 +208,14 @@ When using the application the user would first create a custom `type'. This typ
 \section{Background}
 \vspace{\vspaceconst}
 
-\TODO~talk about common problems that arise in companies and how using micro services can help solve those problems. See if u can find some sources
-
 \subsection{Architecture design}
-\TODO~see if u can find a citation for the "popular questions to be answered" 
+\vspace{\vspaceconst}
 
-A lot of time during this project was allocated to research of the backend architecture design, specifically relating to micro services. And when it comes to it, there is not just one or few generally accepted standards and patterns that projects adopt. This is simply because each and every system architect needs to answer a lot of questions about it will all be built.\\
+A lot of time during this project was allocated to research of the backend architecture design, specifically relating to micro services. And when it comes to it, there is not just one or few generally accepted standards and patterns that projects adopt. This is simply because, from all of the articles and talks that exists online from system architect, each and every architect needs to answer a lot of questions about it will all be built.\\
  For instance, the questions about how the different services should be split, some say it should be split by the feature, some say by the individual data element, by endpoint and more. Another popular questions is how the services diagram should look like, one of the popular answers are to have a separate authentication service to provide authentication for the application and proxy the requests to all the other services. However, regardless of the question, there are a lot of different ways solutions to all of these questions that need to be answered when starting a project using micro services and all of them come with their own advantages and disadvantages.\\
 
 \subsubsection{Helpful technologies}
+\vspace{\vspaceconst}
 
   When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling.\\
 Micro services would often also need to talk to each other and as before, depending on requirements and design, there are different ways to do it. Overall there are two options many systems using both synchronous and asynchronous calls. Synchronous calls are usually straight forward and done over HTTP and the only thing that would need to be solved is proper authentication. Asynchronous calls are often made with either RPC calls (commonly gRPC\cite{grpc} would be used) or a message/event bus system such as Kafka\cite{kafka}.\\
@@ -225,8 +224,8 @@ Micro services would often also need to talk to each other and as before, depend
 \subsection{Market} % Competitors apps
 \vspace{\vspaceconst}
 
-\TODO~Need to find and list of competitor apps\\
-- the one I have tried was zero to hero\\
+One of the applications that the author had experience with was `Zero to Hero'\cite{zerotohero}. This is a workout application which mostly revolves around giving the users different workout programs to follow, it also calculates they weight they should be using based on the max weight the user can do. Then as the workout is performed, the user can log it. However, the problem with this application is its complexity and bugs. The complexity it has stems from the workflow the user would go through. An user cannot simply just open the app and start logging, first the user needs to chose from a program, then the user needs to follow the program precisely. And on top of that a user cannot make their own workouts or exercises. A majority of the workout logging apps tend to function in this manner.\\
+So, to reiterate, there are a fair amount of apps which cater to the fitness market, however, there seems to be a small gap in the market where there aren't many options for a workout logging app which does just logging of one's own custom experiences.\\
 
 \section{Specification}
 \vspace{\vspaceconst}
@@ -251,7 +250,7 @@ For example, assume \textit{Application x} has a user profile endpoint which is 
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/charts/Scale-up-vs-Scale-out.png}
+\includegraphics[width=0.9\linewidth]{./miscAssets/ScaleUpVsScaleOut.png}
 \captionof{figure}{Scaling out vs scaling in}
 ~\label{fig:ScaleOutVsIn}
 \endgroup
@@ -303,11 +302,12 @@ This concept could even be done on a finer scale on a per-exercise type basis. G
 
 \subsection{Methodology}
 \vspace{\vspaceconst}
-\NOTE~In this whole section I'm speaking from first person.\\
 
-This project was mostly split into three main parts, the research phase, the setup phase, and the development phase. The research phase being especially important because I had no prior experience with such a micro services architecture. This was a completely new to me and I was not really sure what to expect. So I also had to be fairly flexible with my requirements because I was not sure what I could achieve and what I had to leave on the conceptual table. In the setup phase I had to setup the git repositories, an NPM library which was used as the shared code library amongst the projects, and a template which can be used for easier creation of extra services. Then, the last phase was actually split into multiple parts, the backend, the frontend and the testing and debugging phase.\\
+This project was mostly split into three main parts, the research phase, the setup phase, and the development phase. The research phase being especially important because the author had no prior experience with such architectures and a lot of information had to be learned from scratch. For this reason, the requirements for the project had to be fairly flexible because there was uncertainly about what could achieved and what had to be left on the conceptual table.\\
+The setup phase was about setting up the git repositories, an NPM library which was used as the shared code library amongst the projects, and a template which can be used for easier creation of extra services. Then, the last phase was actually split into multiple parts, the backend, the frontend and the testing and debugging phase.\\
 
 \subsubsection{Milestones}
+\vspace{\vspaceconst}
 \begingroup
 \centering
 \begin{tabular}{l p{3.4cm} p{3.1cm}}
@@ -322,43 +322,45 @@ This project was mostly split into three main parts, the research phase, the set
 \captionof{table}{Mile Stone List}
 \endgroup
 
-When it came to adhering to the scheduled milestones I had set myself I have done mostly a pretty good job initially only slightly deviating and taking one week longer with the frontend development due to inexperience with the framework.\\
-To split this down further, there were some mini milestones set for each micro service, of which there were 3: \textit{`fl-auth'}, \textit{`fl-tp-types'} and \textit{`fl-tp'}. With \textit{`fl-auth'} taking two weeks to complete, and the other two micro services taking 3 weeks each. Although, this is without why proper integration testing and troubleshooting. Some of that had to be done while building the frontend.\\
+For the most part, the schedules milestones which were set has been followed, only slightly deviating at the end and taking one week longer with the frontend development due to inexperience with the UI framework being used.\\
+To split this down further, there were some mini milestones set for each micro service, of which there were 3: \textit{`fl-auth'}, \textit{`fl-tp-types'} and \textit{`fl-tp'}. With \textit{`fl-auth'} taking two weeks to complete, and the other two micro services taking 3 weeks each. Although, this is without any proper integration testing and troubleshooting. Some of that had to be done while building the frontend when consuming the API.\\
 
 \subsubsection{Project management}
-When it comes to integrated project management tools such as a Github Projects board or normal virtual Kanban board, I personally find them to be tiresome to use and usually result in more work to manage and keep track of them over time. In my opinion, they only come in useful when there are multiple contributors to a project or when the project scope is bigger than this project. However, here are some of the ways I managed my project.\\
-First and foremost, I had a complete understanding about what the end goal of my project was, complete with an MVP and stretch goals. There was no need to have that broken down into individual stories for a backlog. So for the majority of the development, I only kept a to-do list in my personal journal. The only time when it was needed to start keeping track of stories was near the end when I started finding bugs, and came across small improvements I wanted to implement. This came in the form of a physical Kanban board with post it notes. I had an individual one for backend (refer to figure~\ref{fig:backendKanban}) and one for frontend (refer to figure~\ref{fig:frontendKanban}).\\
+\vspace{\vspaceconst}
+
+Since this project is developed by a single project, there was not much need for standalone project management tools such as a GitHub Projects page or a Kanban board. From the author's past experiences these kind of tools are mostly useful when collaborating with other people on the same project, and when working on projects alone, it can actually become more work to just maintain and update such a system.\\
+Since the beginning, there was a complete understanding of what the end goal of this project was, complete with a rough MVP\footnote{MVP stands for Minimal Viable Product} and stretch goals for the project. Therefore, there was no need to have that broken down into individual stories for a backlog. So for the majority of the development, the author only kept a to-do list in his personal journal. The only needing a Kanban board when bugs started uprearing, so that was basically a bug tracking system, but also for small improvements which were thought about on the spot. This came in the form of a physical Kanban board with post it notes for stories. There was one for the backend (refer to figure~\ref{fig:backendKanban}) and one for the frontend (refer to figure~\ref{fig:frontendKanban}).\\
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/img/backend_backlog.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/backendBacklog.jpg}
 \captionof{figure}{Backend Kanban Board}
 ~\label{fig:backendKanban}
 \endgroup
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/img/frontend_backlog.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/frontendBacklog.jpg}
 \captionof{figure}{Frontend Kanban Board}
 ~\label{fig:frontendKanban}
 \endgroup
 
-This project's main client is myself, even though I am wanting to see if this can be taken to the market, this project is still make primarily for myself. For this reason, I precisely knew what the requirements and deliverables existed, so there was no need for an iterative approach to development. Meaning there was no need to agile sprint cycles.\\
-The approach which I used was one of an \textit{`adaptive waterfall'} method. Meaning that I already had a good idea what the final product would look like and only made small adjustments in my plan as I would hit different milestones.\\
+Even though it is thought that this project could be taken on the market with a seeming advantage other other apps, the main client for this application is the author himself. For this reason the wanted functionality of the project was known from the start, so then the requirements and deliverables were set in stone (example of draft one of requirements document in figure~\ref{fig:flReqDoc}). This means that there was no need for an iterative `Agile'\footnote{As written on Atlasian's page\cite{agile}: `Agile is an iterative approach to project management and software development that helps teams deliver value to their customers faster and with fewer headaches. Instead of betting everything on a \"big bang\" launch, an agile team delivers work in small, but consumable, increments. Requirements, plans, and results are evaluated continuously so teams have a natural mechanism for responding to change quickly.'} style approach to development. Meaning there was no need to agile sprint cycles.\\
+The approach used here was one of an \textit{`adaptive waterfall'} method. Meaning that there was already a good idea what the final product would look like and only made small adjustments in the plan as it made sense during the development phase.\\
 
-\NOTE\TODO~thats where i need some digitised stuff\\
-- will also need to get some examples of my todo lists\\
-- see if u can ask one of the guys to send u a picture of the requirements for the project that you have at home\\
-- The research noes will also come in useful here\\
-
-\TODO~need to figure out how the appendix works and how to reference stuff from there
+\begingroup
+\centering
+\includegraphics[angle=270,origin=c,width=0.9\linewidth]{./appendix/assets/img/initialRequirementDocument.jpg}
+\captionof{figure}{Fitness Logger Initial Requirements Document}
+~\label{fig:flReqDoc}
+\endgroup
 
 \section{Design}
 \vspace{\vspaceconst}
 
 \begingroup
 \centering
-\includegraphics[width=0.7\linewidth]{./appendix/assets/charts/fitness-logger.jpg}
+\includegraphics[width=0.7\linewidth]{./appendix/assets/charts/fitnessLogger.jpg}
 \captionof{figure}{Fitness Logger Architecture}
 ~\label{fig:flChart}
 \endgroup
@@ -455,13 +457,13 @@ Since the author's main intention with this project was not the UI or overall us
 
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/Project\ 1.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/excersisePage.jpg}
 \captionof{figure}{Add exercise page and set dialogue.}
 ~\label{fig:uiExersicePageDesign}
 \endgroup
 \begingroup
 \centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/Project.jpg}
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/ui_designs/workoutsPage.jpg}
 \captionof{figure}{Workout screen design}
 ~\label{fig:uiWorkoutPageDesign}
 \endgroup
@@ -677,20 +679,19 @@ bool loginAtt = await Provider.of<AuthService>(context, listen: false).login(use
 \end{lstlisting}
 \lstset{language=TypeScript}
 
-One missing technical component in this application which would have made the codebase cleaner and easier to develop for would be the inclusion of some state management library such as\cite{bloc}.
+One quick note on the structure of this application is one missing technical component which would have made the codebase cleaner and easier to develop for would be the inclusion of some state management library such as Bloc\cite{bloc}. Bloc is basically just an event bus for Flutter, it allows for the emission of messages in one place of an application and the listening of those messages in another place.\\
 
-\NOTE~talk about how i shouve used a standalone state manajent system like BloC\\
-\NOTE~need to think of why bloc would be good to use\\
-\NOTE~maybe put this in reflection?
 
-% \section{Evaluation}
-% \vspace{\vspaceconst}
+\section{Evaluation}
+\vspace{\vspaceconst}
 
-% \subsection{Usability}
-% \vspace{\vspaceconst}
+\NOTE~talk about how the spec evolved and what the end product evolved to compare to what the spec was
 
-% \subsection{Other Criteria}
-% \vspace{\vspaceconst}
+\subsection{Usability}
+\vspace{\vspaceconst}
+
+\subsection{Other Criteria}
+\vspace{\vspaceconst}
 
 % \section{Description of the Final Product}
 % \vspace{\vspaceconst}
@@ -699,11 +700,23 @@ One missing technical component in this application which would have made the co
 % \section{Reflection}
 % \vspace{\vspaceconst}
 
+% \NOTE~need to think of why bloc would be good to use\\
+
 % \section{Conclusion}
 % \vspace{\vspaceconst}
 
 % \section*{Acknowledgements}
 % \vspace{\vspaceconst}
+
+\end{multicols}
+
+\newpage
+\section*{Appendices}
+\vspace{\vspaceconst}
+
+\begin{enumerate}
+\input{appendicies_list_output.tex}
+\end{enumerate}
 
 \newpage
 \begin{thebibliography}{9}
@@ -711,7 +724,7 @@ One missing technical component in this application which would have made the co
   \bibitem{Docker}
   Docker (Software) Wikipedia (April 2021).\\
   \TODO~needs to be swapped with a non wiki link\\
-  \url{https://en.wikipedia.org/wiki/Docker_(software)}
+  \url{https://en.wikipedia.org/wiki/Docker\_(software)}
 
   \bibitem{k8s}
   Kubernetes website (April 2021).\\
@@ -734,7 +747,7 @@ One missing technical component in this application which would have made the co
   \url{https://istio.io/}
   
   \bibitem{atlasianGitSubmodule}
-  Git sub module documentation from Atlasian(April 2021).\\
+  Git sub module documentation from Atlasian (April 2021).\\
   \url{https://www.atlassian.com/git/tutorials/git-submodule}
  
   \bibitem{jwtio}
@@ -771,13 +784,17 @@ One missing technical component in this application which would have made the co
   \url{https://pub.dev/packages/provider}
 
   \bibitem{bloc}
-  BloC repository (April 2021).\\
+  Bloc repository (April 2021).\\
   \url{https://pub.dev/packages/flutter\_bloc}
+
+  \bibitem{zerotohero}
+  Zero to hero play store listing (April 2021).\\
+  \url{https://play.google.com/store/apps/details?id=com.mappz.zerotohero&hl=en_US&gl=US}
+
+  \bibitem{agile}
+  Agile elevator pitch from Atlasian (April 2021).\\
+  \url{https://www.atlassian.com/agile}
 \end{thebibliography}
 
-\section*{Appendices}
-\vspace{\vspaceconst}
-\TODO: make a list of appendices
 
-\end{multicols}
 \end{document}

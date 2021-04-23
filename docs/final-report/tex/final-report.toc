@@ -4,36 +4,39 @@
 \contentsline {subsubsection}{\numberline {1.2.1}The problem}{4}{subsubsection.1.2.1}%
 \contentsline {subsubsection}{\numberline {1.2.2}My planned solution}{4}{subsubsection.1.2.2}%
 \contentsline {section}{\numberline {2}Background}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Architecture design}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.1}Architecture design}{4}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Helpful technologies}{5}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Market}{5}{subsection.2.2}%
 \contentsline {section}{\numberline {3}Specification}{5}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Micro services}{5}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Business \& general project management problems}{5}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Business \& general project management problems}{6}{subsubsection.3.1.1}%
 \contentsline {subsubsection}{\numberline {3.1.2}The technical aspect}{6}{subsubsection.3.1.2}%
 \contentsline {subsubsection}{\numberline {3.1.3}Solution}{6}{subsubsection.3.1.3}%
 \contentsline {subsection}{\numberline {3.2}The application}{6}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Solution}{7}{subsubsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.3}Methodology}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.3}Methodology}{8}{subsection.3.3}%
 \contentsline {subsubsection}{\numberline {3.3.1}Milestones}{8}{subsubsection.3.3.1}%
 \contentsline {subsubsection}{\numberline {3.3.2}Project management}{8}{subsubsection.3.3.2}%
 \contentsline {section}{\numberline {4}Design}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Technological design}{9}{subsection.4.1}%
 \contentsline {subsubsection}{\numberline {4.1.1}Database}{9}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Data structures}{9}{subsubsection.4.1.2}%
-\contentsline {subsubsection}{\numberline {4.1.3}Programming languages \& frameworks}{10}{subsubsection.4.1.3}%
+\contentsline {subsubsection}{\numberline {4.1.2}Data structures}{10}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}Programming languages \& frameworks}{11}{subsubsection.4.1.3}%
 \contentsline {subsubsection}{\numberline {4.1.4}Micro service split}{11}{subsubsection.4.1.4}%
 \contentsline {subsubsection}{\numberline {4.1.5}Inner service communication}{11}{subsubsection.4.1.5}%
-\contentsline {subsection}{\numberline {4.2}User Interface}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.2}User Interface}{12}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Implementation and Testing}{12}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Setup}{12}{subsection.5.1}%
 \contentsline {subsubsection}{\numberline {5.1.1}Version control}{12}{subsubsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.2}Shared code library}{12}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.2}Shared code library}{13}{subsubsection.5.1.2}%
 \contentsline {subsubsection}{\numberline {5.1.3}Template for micro services}{13}{subsubsection.5.1.3}%
-\contentsline {subsubsection}{\numberline {5.1.4}CI/CD}{13}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.4}CI/CD}{14}{subsubsection.5.1.4}%
 \contentsline {subsection}{\numberline {5.2}\textit {Fl-auth} service}{14}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}\textit {Fl-tp-types} service}{14}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.3}\textit {Fl-tp-types} service}{15}{subsection.5.3}%
 \contentsline {subsection}{\numberline {5.4}\textit {Fl-tp} service}{15}{subsection.5.4}%
-\contentsline {subsection}{\numberline {5.5}Inner-service communication}{15}{subsection.5.5}%
+\contentsline {subsection}{\numberline {5.5}Inner-service communication}{16}{subsection.5.5}%
 \contentsline {subsubsection}{\numberline {5.5.1}Dependency injection}{16}{subsubsection.5.5.1}%
 \contentsline {subsection}{\numberline {5.6}Android client}{16}{subsection.5.6}%
+\contentsline {section}{\numberline {6}Evaluation}{17}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Usability}{17}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Other Criteria}{17}{subsection.6.2}%

@@ -189,7 +189,7 @@ Micro services architectures are becoming more and more relevant simply because 
 \subsection{Creating a potential product}
 \vspace{\vspaceconst}
 
-Creating a folly fledged product out of this project was never my main idea. However, in my personal opinion, my planned solution for the problem has enough potential that could work as a product in the market. And as long as the application works as intended, there are multiple potential monetisation routes which could be taken, such as extra features behind a subscription or just a flat rate at purchase.
+Creating a fully fledged product out of this project was never my main idea. However, in my personal opinion, my planned solution for the problem has enough potential that could work as a product in the market. And as long as the application works as intended, there are multiple potential monetisation routes which could be taken, such as extra features behind a subscription or just a flat rate at purchase.
 
 \subsubsection{The problem}
 \vspace{\vspaceconst}
@@ -748,12 +748,8 @@ Next up would be coming up with a way to monetise the application. One popular o
 
 Once all of the code refactoring, unit test coverage, necessary designs and market research is done, new features will start to be added to the project, some from the stretch goals that the project had and some new ones which the author thought about during development but which were never included in the project because they were out of scope for the current iteration.\\
 Firstly, a micro service for compiling reports and other analytical information is getting created. That micro service will get triggered by an event system like Kafka, it will then get information from the different micro services, calculate different statistics about them and make it available to the user. For example, the user would be able to see progress over time on certain exercises or workouts, and on completion of each workout they would have a report of the workout ready to download. This feature would get pulled in from the stretch goals.\\
-Another feature which would make this project sand out amongst other similar applications would be a tagging system. This tagging system would have the ability to create custom tags and apply them to anything in the system, custom types, workouts, \tps, etc. Then when generating analytical data, they would be used to compile custom reports and charts. For example a user could create a tag of \textit{`#badsleep'} and the user could apply this tag to any workout where they had bad sleep. Then when creating reports or custom graphs, they can make the analytical system not include the workouts where the user had bad sleep.\\
-
-\NOTE~talk about the stretch goals to be made\\
-\NOTE~talk about possible extra features which could be implemented\\
-\NOTE~can even talk about the comp viz and AI for form checking\\
-\NOTE~a tagging system which could be used in flexible charting and report generation.\\
+Another feature which would make this project sand out amongst other similar applications would be a tagging system. This tagging system would have the ability to create custom tags and apply them to anything in the system, custom types, workouts, \tps, etc. Then when generating analytical data, they would be used to compile custom reports and charts. For example a user could create a tag of \textit{`#badsleep'} and the user could apply this tag to any workout where they had bad sleep. Then when creating reports or custom graphs, they can make the analytical system not include the workouts where the user had bad sleep. Another way in which this tag system could be used would be to make tags for the different muscles to be used in an exercise or workout.\\
+A longer term feature which the author wants to research is a system for using the phones camera to check the form of the user's exercise\footnote{The form of an exercise is the way in which the athlete performs said exercise, it is important to have good form because could be cause from improper training.}. This would be using computer vision and machine learning in order to detect the form and give feedback. This would be a very powerful feature considering that at the moment there are only really two ways of learning the correct form of exercises. Getting a coach/personal trainer, which is the best option out of the two, however, it can be quite costly. Or, the athlete teaching the proper form himself, out of books, web sites and videos. The latter option is not the greatest because a person could teach themselves the wrong form, which could cause injuries in the long terms, but also will make it harder to learn the proper form in the future.
 
 % \subsection{Other Criteria}
 % \vspace{\vspaceconst}
@@ -771,7 +767,13 @@ Another feature which would make this project sand out amongst other similar app
 % \vspace{\vspaceconst}
 
 \newpage
-\end{multicols}
+\section*{Appendices}
+\vspace{\vspaceconst}
+
+\begin{enumerate}
+\input{appendicies_list_output.tex}
+\end{enumerate}
+
 
 \section{questions} 
 this section is just for me\\
@@ -786,20 +788,11 @@ this section is just for me\\
 \end{enumerate}
 
 \newpage
-\section*{Appendices}
-\vspace{\vspaceconst}
-
-\begin{enumerate}
-\input{appendicies_list_output.tex}
-\end{enumerate}
-
-\newpage
 \begin{thebibliography}{9}
 
   \bibitem{Docker}
-  Docker (Software) Wikipedia (April 2021).\\
-  \TODO~needs to be swapped with a non wiki link\\
-  \url{https://en.wikipedia.org/wiki/Docker\_(software)}
+  Docker website (April 2021).\\
+  \url{https://www.docker.com/}
 
   \bibitem{k8s}
   Kubernetes website (April 2021).\\
@@ -838,9 +831,8 @@ this section is just for me\\
   \url{https://www.keycloak.org/}
 
   \bibitem{oauth}
-  Oauth wiki page (April 2021).\\
-  \TODO~needs to be swapped with a non wiki link\\
-  \url{https://en.wikipedia.org/wiki/OAuth}
+  Oauth 2.0 RFC documentation (April 2021).\\
+  \url{https://tools.ietf.org/html/rfc6749}
 
   \bibitem{flutter}
   Flutter website (April 2021)
@@ -879,5 +871,8 @@ this section is just for me\\
   \url{https://www.adobe.com/products/xd.html}
 \end{thebibliography}
 
+
+\newpage
+\end{multicols}
 
 \end{document}

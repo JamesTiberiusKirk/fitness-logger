@@ -43,5 +43,6 @@
 \contentsline {subsection}{\numberline {6.2}Reflection}{18}{subsection.6.2}%
 \contentsline {subsubsection}{\numberline {6.2.1}Code Quality}{18}{subsubsection.6.2.1}%
 \contentsline {subsection}{\numberline {6.3}Future plans}{19}{subsection.6.3}%
-\contentsline {section}{\numberline {7}Description of the Final Product}{19}{section.7}%
-\contentsline {section}{\numberline {8}questions}{20}{section.8}%
+\contentsline {subsubsection}{\numberline {6.3.1}Features}{19}{subsubsection.6.3.1}%
+\contentsline {section}{\numberline {7}Description of the Final Product}{20}{section.7}%
+\contentsline {section}{\numberline {8}questions}{21}{section.8}%

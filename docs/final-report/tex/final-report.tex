@@ -264,7 +264,7 @@ In the long term this will also save on resources because developers will not ne
 \subsection{The application}
 \vspace{\vspaceconst}
 
-When it comes to logging any sort of fitness activities, there is no standard, and there are a lot of different ways an individual or a trainer might log these activities; there simply does not exist a \textit{one size fits all solution} to this. It all just depends on the goals of said person or trainer. Because of this it is gets fairly complex when it comes to trying to make a digital form which could be filled out and be able to process and display all the data from it in any meaningful way. Usually different applications would create a rigid structure for the data then there would be forms to input the data in. For some people that would work perfectly, but not for all especially across athletes from different disciples of sport.\\
+When it comes to logging any sort of fitness activities, there is no standard, and there are a lot of different ways an individual or a trainer might log these activities; there simply does not exist a \textit{one size fits all solution} or a generally accepted template to this. It all just depends on the goals of said person or trainer. Because of this it is gets fairly complex when it comes to trying to make a digital form which could be filled out and be able to process and display all the data from it in any meaningful way. Usually different applications would create a rigid structure for the data then there would be forms to input the data in. For some people that would work perfectly, but not for all especially across athletes from different disciples of sport.\\
 
 \begingroup
 \centering
@@ -669,8 +669,7 @@ The other mentioned package used was Provider. Provider can be used in a lot of 
 \begin{lstlisting}[label={code:flutterProviderInrAuthEx}, caption={Provider injection example with the Authentication service client}]
 Provider<AuthService>(
   create: (_) => AuthService(FlAuthApiService.create()),
-  dispose: (_, AuthService service) =>
-      service.flAuthApiService.client.dispose(),
+  dispose: (_, AuthService service) => service.flAuthApiService.client.dispose(),
 )
 \end{lstlisting}
 
@@ -681,32 +680,82 @@ bool loginAtt = await Provider.of<AuthService>(context, listen: false).login(use
 
 One quick note on the structure of this application is one missing technical component which would have made the codebase cleaner and easier to develop for would be the inclusion of some state management library such as Bloc\cite{bloc}. Bloc is basically just an event bus for Flutter, it allows for the emission of messages in one place of an application and the listening of those messages in another place.\\
 
+\subsubsection{UI}
+\vspace{\vspaceconst}
+
+\begingroup
+\centering
+\includegraphics[width=0.7\linewidth]{./appendix/assets/img/uiScreenShots/typesListScreen.jpg}
+\captionof{figure}{Custom exercise page screenshot.}
+~\label{fig:uiTypesListScreen}
+\endgroup
+
+The actual UI of this project was kept relatively simple as there were other more important issues to first tackle during the development of this project. It uses mostly a red and white colour theme and using pre built components from Google's Material UI library\cite{materialUi}. The author tried to keep the design as objectively simple as possible. Here you can see one of the screens, in Figure~\ref{fig:uiTypesListScreen}, which is the custom exercise list page. Here the user will be able to see the list of all the exercises that they have made and is able to create more, edit existent ones or delete them from here using using the add button at the top right of the screen and subsequently the edit or delete button on each listing.
+
+For the features which have not yet been implemented, a toast\footnote{A toast is a small temporary pop-up at the bottom of the screen with information.} with text saying that the feature was not yet implemented. See Figure~\ref{fig:uiToBeImplementedToast} for an example.\\
+
+\begingroup
+\centering
+\includegraphics[width=0.7\linewidth]{./appendix/assets/img/uiScreenShots/toBeImplementedToast.jpg}
+\captionof{figure}{Toast informing the user that the feature is yet to be implemented.}
+~\label{fig:uiToBeImplementedToast}
+\endgroup
+
+
+The following Figure~\ref{fig:uiTypeDeletionDialogue} is one of the confirmation dialogue forms which were used within the application.\\
+
+\begingroup
+\centering
+\includegraphics[width=0.7\linewidth]{./appendix/assets/img/uiScreenShots/typeDeletionDialogue.jpg}
+\captionof{figure}{Delete custom exercise dialogue.}
+~\label{fig:uiTypeDeletionDialogue}
+\endgroup
+
+For more examples please refer to the Appendix, in the \textit{`./appendix/assets/img/uiScreenShots/'}.\\
 
 \section{Evaluation}
 \vspace{\vspaceconst}
 
-\NOTE~talk about how the spec evolved and what the end product evolved to compare to what the spec was
-
 \subsection{Usability}
 \vspace{\vspaceconst}
 
-In this project there was not any user testing, reasons being: lack of gym access during the current world situation, lack of time Since
-Since this project was not centered around the frontend, but around the backend, there was not much need for proper user centered design with UI prototypes. So the only UI designs available are the sketches presented above (see figure~\ref{fig:uiWorkoutPageDesign} and~\ref{fig:uiExersicePageDesign}) which helped with development rather than making the app more usable. However, if development on this app would continue, some user centered design of the UI would definitely be in order. So at this stage, the UI is basically just a way to test the backend, and not much more. Because of this, and partly due to time constraints, it was decided to not perform any user testing.\\
-The closest actions which came close to usability testing was the author using the application himself.
+In this project there was not any user testing, reasons being: lack of gym access during the current world situation and the initial focus not being on UI and UX but being on the backend component. And since this project was not centered around the frontend, but around the backend, there was not much need for proper user centered design with UI prototypes. So the only UI designs available are the sketches presented above (see figure~\ref{fig:uiWorkoutPageDesign} and~\ref{fig:uiExersicePageDesign}) which helped with development rather than making the app more usable. However, if development on this app would continue, some user centered design of the UI would definitely be in order. So at this stage, the UI is basically just a way to test the backend, and not much more. Because of this, and partly due to time constraints, it was decided to not perform any user testing.\\
+The only testing which was done of the UI was done by the developer himself, which for now was enough because just by using the application as a normal user, the author came up with a few improvements which would be done to the workflow.\\
 
-\NOTE~talk about how there should have been some user testing, but due to time constrains and gyms being shut I could not find anyone that was able to test my application. 
-
-\subsection{Other Criteria}
+\subsection{Reflection}
 \vspace{\vspaceconst}
 
-% \section{Description of the Final Product}
-% \vspace{\vspaceconst}
-% \NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
+The core concept of this project was achieved. The application used micro services backed application, which in theory would allow for easier scalability in the future, offers better code encapsulation\footnote{Code encapsulation in the sense of splitting up different parts of the application.} of backend functions, making development easier with new future releases, and making it easier for multiple teams to collaborate if there is a future need for it. And the other part of the project being simplifying the workout logging such that it could be used simply in a multitude of ways.\\
+The one part of the project which had to be left out was the \textit{`fl-analytics'} micro service or any other analytical part of the client. Due to time constraints this had to be left out of the MVP and be changed to a stretch goal which was never reached in the end.\\
 
-% \section{Reflection}
-% \vspace{\vspaceconst}
+\subsubsection{Code Quality}~\label{section:codeQuality}
+\vspace{\vspaceconst}
 
-% \NOTE~need to think of why bloc would be good to use\\
+Because of time constraints, there needed to be some corners cut during the development of this project, so, the quality of the work could also be improved by a lot. Beginning with the fact that the whole project needs to be covered in unit tests and mocks for different tests. For example the database could be mocked or it just be a test database, but the different services would definitely need to be mocked for other services when testing. With that said, the \textit{`fl-shared'} library would also need to have unit tests implemented.\\
+One other obvious place where the code is of poor quality is the user validation on the API side. This is really important because at the moment there is nothing stopping the user from making their own API calls outside the application, so there could be security implications, simply data integrity implications and even server brashest. Although, because the application is deployed with \textit{`docker-compose'}, it was specified in the configuration to restart the containers whenever the crash.\\
+The frontend especially if of quite poor quality too. It does not have a standardised library of components, it does not have any proper state management system, it does not have any unit tests and there are a fair amount of bugs which would need to be researched and fixed. For example, in the workout screen (see Figure~\ref{fig:uiTypesListScreen}) there exists a bug which does not update the custom exercise properly, and it might not even update the right record, as just mentioned, it needs some research and troubleshooting.\\
+
+\subsection{Future plans}
+\vspace{\vspaceconst}
+
+First and foremost, the whole application would need to be covered in unit tests and possibly some integration test. This will allow the author, or a possible development team to be able to maintain, edit and create new features without having worrying about introducing bugs in another part of the application. One of the tricky problems with this is on the backend. Because there are some micro services which depend on others, some mocking~\footnote{Mocking is when, in a unit test, the developer would create functions or classes returning mock data, replacing the different dependencies that the unit test might need.} will need to be done. A good way of doing that would be to have mock classes in a shared NPM module, this would allow for easy maintenance and modification whenever the actual service is being updated, also for the sake of not having to individually mock each service when one service is dependant on another.\\
+On the frontend it is likely that a whole re-write would have to be done. First of all, there would need to be proper designs done in something like AdobeXD\cite{adobexd}, of both individual components (like buttons and input boxes) and of whole screens. This design would of course need to be user centered. Then, the component library would need to be built, simply so it could be used across the entire application. All of this would need to be unit tested too. When building developing the actual client app, a state management like Bloc will be used. This is simply so that the application can properly keep track of the state of different components and give them the ability to change states. This should help with bugs such that were mentioned in Section~\ref{section:codeQuality} where the information on the screen was not updating properly after an update. One last problem which would need to be fixed from the old codebase is the HTTP client, there will need to be a spike\footnote{Spike, a term from agile development, is when you have a story task to just complete research on a topic, usually with a cutoff date.} to determine if the Chopper library used before is appropriate to use or if it needs to be swapped out for something else. The author's current thoughts are that the base HTTP library is simple enough to use and might just need a custom simple wrapper around it before creating the service clients.\\
+When it comes to taking the application to market, there would need to be more market research to done.
+
+\NOTE~talk about about more market research\\
+\NOTE~talk about monetisation scheme\\
+\NOTE~talk about the stretch goals to be made\\
+\NOTE~talk about possible extra features which could be implemented\\
+\NOTE~can even talk about the comp viz and AI for form checking\\
+
+% \subsection{Other Criteria}
+% \vspace{\vspaceconst}
+% \NOTE~Not sure if theres anything to talk about here
+
+\section{Description of the Final Product}
+\vspace{\vspaceconst}
+
+\NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
 
 % \section{Conclusion}
 % \vspace{\vspaceconst}
@@ -714,7 +763,20 @@ The closest actions which came close to usability testing was the author using t
 % \section*{Acknowledgements}
 % \vspace{\vspaceconst}
 
+\newpage
 \end{multicols}
+
+\section{questions} 
+this section is just for me\\
+\TODO~remove before submission\\
+\begin{enumerate}
+  \item Are acknowledgements necessary?
+  \begin{enumerate}
+    \item if they are, can they include people which might have helped with small design decisions?
+  \end{enumerate}
+  \item Should i give a description of each item in the appendix?
+  \item Can the appendix be just a link to GitHub?
+\end{enumerate}
 
 \newpage
 \section*{Appendices}
@@ -800,6 +862,14 @@ The closest actions which came close to usability testing was the author using t
   \bibitem{agile}
   Agile elevator pitch from Atlasian (April 2021).\\
   \url{https://www.atlassian.com/agile}
+
+  \bibitem{materialUi}
+  Google's material UI website (April 2021).\\
+  \url{https://material-ui.com/}
+  
+  \bibitem{adobexd}
+  Adobe website (April 2021).\\
+  \url{https://www.adobe.com/products/xd.html}
 \end{thebibliography}
 
 

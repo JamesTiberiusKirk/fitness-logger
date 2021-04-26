@@ -1,22 +1,18 @@
 \documentclass{article}
-% \documentclass[twocolumn]{article}
 
 % Load basic packages
 \usepackage{balance}  % to better equalize the last page
-% \usepackage{graphics} % for EPS, load graphicx instead 
 \usepackage{txfonts}
 \usepackage{times}    % comment if you want LaTeX's default font
 \usepackage{color}
 \usepackage{textcomp}
 \usepackage{booktabs}
-%\usepackage{ccicons}
 \usepackage{todonotes}
 \usepackage{float}
 \usepackage{url}  
 \usepackage{titling}	% allows you to move title up the page
 \usepackage[
   pdftex,
-  % colorlinks=true,
   pdfborder={0 0 0},
   linkcolor=red
 ]{hyperref}
@@ -116,20 +112,6 @@
 \makeatother
 \urlstyle{leo}
 
-
-% making TOC and LOF smaller
-% \AtBeginDocument{
-  % \addtocontents{toc}{\tiny}
-  % \addtocontents{lof}{\tiny}
-% }
-
-% \usepackage{xpatch}
-% \makeatletter
-% \xpatchcmd{\tableofcontents}{\contentsname \@mkboth}{\small\contentsname \@mkboth}{}{}
-% \xpatchcmd{\listoffigures}{\chapter *{\listfigurename }}{\chapter *{\small\listfigurename }}{}{}
-% \makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 % This is a constant to space out the section titles from their body
 \newcommand{\vspaceconst}{-2ex}
 
@@ -173,9 +155,6 @@ However, the main appeal of this project is the backend implementation. This is 
 \begin{multicols}{2}
 \section{Introduction}
 \vspace{\vspaceconst}
-
-\TODO~Need to come back after I'm done with the entire report to summarise it\\
-\NOTE~Started this section first but then realised it would be easier to complete after finishing the report\\
 
 This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.\\
 
@@ -243,14 +222,14 @@ The proposed project is tackling two main problems, one being a whole set concep
 \subsubsection{Business \& general project management problems}
 \vspace{\vspaceconst}
 
-When a project grows in size to the point where there is a need for multiple teams it can become quite challenging to have all of the teams work on the same code base. Different tactics such as smart management of source management system could help with this issue. One such example would be to have different development branches for each team, however, this could introduce more problems such as needing to re-base the branch mid development. Here a much better way would be to simply have the teams work on different codebases, each making up a micro service. Depending on how the teams are organised, or on how the features are broken down in each micro service, each team would be solely responsible of one or more micro services, making them the de facto experts on that specific micro a service and its inner workings.\\
+When a project grows in size to the point where there is a need for multiple teams it can become quite challenging to have all of the teams work on the same code base. Different tactics such as smart management of the version management system could help with this issue. One such example would be to have different development branches for each team, however, this could introduce more problems such as needing to re-base the branch mid development. Here, a much better way would be to simply have the teams work on different codebases, each making up a micro service. Depending on how the teams are organised, or on how the features are broken down in each micro service, each team would be solely responsible of one or more micro services, making them the de facto experts on that specific micro a service and its inner workings.\\
 What about when new individuals or teams enter the workforce? There is usually a fair amount of time taken just simply getting acclimated with the codebase and the whole product. Now, this would be true weather the project is or is not following a micro services architecture, however, if the project is just a monolith, usually the individual or team would need to get familiar with the while codebase. This would not need to be true in case of micro services.\\
-With micro services the individual or team would just need to look at the API documentation of the project, then only get accustomed with the micro services) that they would be working on. This way collaboration between teams also will become easier due to each team maintaining their own small codebases, and documentation for how to interact with their services.\\
+With micro services the individual or team would just need to look at the API documentation of the project, then only get accustomed with the micro service that they would be working on. This way collaboration between teams also will become easier due to each team maintaining their own small codebases and API documentation, making it easier to consume the API.\\
 
 \subsubsection{The technical aspect}
 \vspace{\vspaceconst}
 
-Originally projects would just be one monolithic application and if we needed more performance we would optimise the code and add more power through better server hardware (or add more resources to the virtual machine or container if it was applicable). This is called vertical scaling. However, what happens when we need even more scaling? There can only be so much power we can add to one single server and only so much optimisation we can do to a codebase. Projects then started to scale their applications horizontally by deploying more instances of it, then adding some form of a load balancer which would balance the requests across all of their different deployments. These deployments could be individual computers, running the application directly on bare metal\footnote{Bare metal meaning that there is no other layer of management such as virtualisation or containerization and is running directly on the host OS.}. This, however, could be quite inefficient because it would scale the whole application and this might not be needed.\\
+Originally projects would just be one monolithic application and if we needed more performance we would optimise the code and add more power through better server hardware (or add more resources to the virtual machine or container if it was applicable). This is called vertical scaling. However, what happens when we need even more scaling? There can only be so much power we can add to one single server and only so much optimisation we can do to a codebase. Projects then started to scale their applications horizontally by deploying more instances of it, then adding some form of a load balancer which would balance the requests across all of their different deployments. These deployments could be individual computers, running the application directly on bare metal\footnote{Bare metal meaning that there is no other layer of management such as virtualisation or containerization and is running directly on the host OS.}. This, however, could be quite inefficient because it would scale the whole application and this might not be needed but also because applications typically would not be able to utilise 100\% of the resources the system has to offer.\\
 For example, assume \textit{Application x} has a user profile endpoint which is just a simple CRUD\footnote{Referring to data operations of Create Read Update Delete.} operation and a pictures endpoint which is responsible for handling picture uploads, picture compression, storage, serving, etc. The part which will need the most processing power will be the pictures endpoint, but when vertically scaling a monolith, all of the endpoints get deployed again regardless if they needed the extra resources or not. This in principle is wasted resources and by extension wasted budget for a project.\\
 
 \begingroup
@@ -270,7 +249,7 @@ In the long term this will also save on resources because developers will not ne
 \subsection{The application}
 \vspace{\vspaceconst}
 
-When it comes to logging any sort of fitness activities, there is no standard, and there are a lot of different ways an individual or a trainer might log these activities; there simply does not exist a \textit{one size fits all solution} or a generally accepted template to this. It all just depends on the goals of said person or trainer. Because of this it is gets fairly complex when it comes to trying to make a digital form which could be filled out and be able to process and display all the data from it in any meaningful way. Usually different applications would create a rigid structure for the data then there would be forms to input the data in. For some people that would work perfectly, but not for all especially across athletes from different disciples of sport.\\
+When it comes to logging any sort of fitness activities, there is no standard, and there are a lot of different ways an individual or a trainer might log these activities; there simply does not exist a \textit{one size fits all} solution or a generally accepted template to this. It all just depends on the goals of said person or trainer. Because of this it is gets fairly complex when it comes to trying to make a digital form which could be filled out and be able to process and display all the data from it in any meaningful way. Usually different applications would create a rigid structure for the data then there would be forms to input the data in. For some people that would work perfectly, but not for all especially across athletes from different disciples of sport.\\
 
 \begingroup
 \centering
@@ -293,8 +272,9 @@ When it comes to logging any sort of fitness activities, there is no standard, a
 ~\label{table:WorkoutLogExample1}
 \endgroup
 
-For instance, one of the simplest logging types would be just performing straight sets of different exercises, some exercises being done with weights, or some other form of resistance which would also be noted down with every set. Table \ref{table:WorkoutLogExample1} shows one such example. However, as mentioned just now, it is a very simple form of logging and there are a lot more details that could be added, or a lot more variations that people could be doing which would need to be noted. Some examples are the following: \textit{super-setting}\footnote{Super-setting is performing a set of one exercise and another set of another exercise straight away without resting, then repeating the cycle.} and \textit{drop-setting}\footnote{Drop-setting is when the athlete performs another set without set at a smaller resistance, usually -20\%}. These are just some of the more common ones, however, not everyone will use these exercise techniques so not everyone will need to be able to log them. All of this adds extra complexity, which means an application for logging will either be very complex, or only useful to a subgroup of people with a specific workout style.
+\TODO~Proofread from here.
 
+For instance, one of the simplest logging types would be just performing straight sets of different exercises, some exercises being done with weights, or some other form of resistance which would also be noted down with every set. Table~\ref{table:WorkoutLogExample1} shows one such example. However, as mentioned just now, it is a very simple form of logging and there are a lot more details that could be added, or a lot more variations that people could be doing which would need to be noted. Some examples are the following: \textit{super-setting}\footnote{Super-setting is performing a set of one exercise and another set of another exercise straight away without resting, then repeating the cycle.} and \textit{drop-setting}\footnote{Drop-setting is when the athlete performs another set without set at a smaller resistance, usually -20\%}. These are just some of the more common ones, however, not everyone will use these exercise techniques so not everyone will need to be able to log them. All of this adds extra complexity, which means an application for logging will either be very complex, or only useful to a subgroup of people with a specific workout style.\\
 
 \subsubsection{Solution}
 \vspace{\vspaceconst}

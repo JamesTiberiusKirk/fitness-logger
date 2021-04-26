@@ -758,6 +758,60 @@ A longer term feature which the author wants to research is a system for using t
 \section{Description of the Final Product}
 \vspace{\vspaceconst}
 
+Just like many other projects, the current version of this one is made up of primarily two components, a backend and a frontend. However, as it was mentioned before, this project was developed with a focus on the backend architecture first and everting else second. 
+
+\subsection{Backend Services}
+\vspace{\vspaceconst}
+
+The backend is mainly split into a few different parts, the three micro services which were developed, the shared code library for those micro services, the reverse proxy which routs traffic to the services and the database. At this end of this section, there will also be an outline of how everything was deployed.
+
+\subsubsection{Fl-Auth Service}
+\vspace{\vspaceconst}
+
+The authentication service is probably the simplest service. It has the ability to register new users and to log in the new users. At this point in time features such as password recovery and OAuth have not been implemented.
+
+\subsubsection{Fl-Tp-Types Service}
+\vspace{\vspaceconst}
+
+The types service is responsible of the storage of different \tpts~the user will create (all of the basic CRUD operations). Usually they will be exercises, however, they can be used for just about anything the users wants. For example, one the author at the moment has two non-exercise \tpts~, one for tracking caffeine intake before a workout, and another for logging amount of calories burnt during a workout (this information is manually tracked by a fitness band).\\
+It was mentioned before that there is a bug with updating \tpts~, it is likely that the problem is here in the \textit{`PUT'} controller of this service.\\
+
+\subsubsection{Fl-Tp Service}
+\vspace{\vspaceconst}
+
+The tracking point service is the service which deals with \tgs~(or workouts) and with \tps~(or exercise logs).
+
+
+\subsubsection{Fl-shared Service}
+\vspace{\vspaceconst}
+
+\subsubsection{Fl-proxy Service Proxy}
+\vspace{\vspaceconst}
+
+\subsubsection{Database}
+\vspace{\vspaceconst}
+
+\subsubsection{Deployment}
+\vspace{\vspaceconst}
+
+\subsection{User Interface}
+\vspace{\vspaceconst}
+
+\subsubsection{Login Screen}
+\vspace{\vspaceconst}
+
+\subsubsection{Home Screen}
+\vspace{\vspaceconst}
+
+\subsubsection{Types List Screen}
+\vspace{\vspaceconst}
+
+\subsubsection{Workouts List Screen}
+\vspace{\vspaceconst}
+
+\subsubsection{Workout Screen}
+\vspace{\vspaceconst}
+
 \NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
 
 % \section{Conclusion}

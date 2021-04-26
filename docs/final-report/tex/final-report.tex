@@ -287,7 +287,7 @@ This concept could even be done on a finer scale on a per-exercise type basis. G
 \vspace{\vspaceconst}
 
 This project was mostly split into three main parts, the research phase, the setup phase, and the development phase. The research phase being especially important because the author had no prior experience with such architectures and a lot of information had to be learned from scratch. For this reason, the requirements for the project had to be fairly flexible because there was uncertainly about what could achieved and what had to be left on the conceptual table.\\
-The setup phase was about setting up the git repositories, an NPM library which was used as the shared code library amongst the projects, and a template which can be used for easier creation of extra services. Then, the last phase was actually split into multiple parts, the backend, the frontend and the testing and debugging phase.\\
+The setup phase was about setting up the git repositories, an NPM library which was used as the shared code library amongst the projects, and a template which can be used for easier creation of extra services. Then, the last phase was actually split into multiple parts, the backend, the frontend and the testin//debugging phase.\\
 
 \subsubsection{Milestones}
 \vspace{\vspaceconst}
@@ -311,7 +311,7 @@ To split this down further, there were some mini milestones set for each micro s
 \subsubsection{Project management}
 \vspace{\vspaceconst}
 
-Since this project is developed by a single project, there was not much need for standalone project management tools such as a GitHub Projects page or a Kanban board. From the author's past experiences these kind of tools are mostly useful when collaborating with other people on the same project, and when working on projects alone, it can actually become more work to just maintain and update such a system.\\
+Since this project is developed by a single developer, there was not much need for standalone project management tools such as a GitHub Projects page or a Kanban board. From the author's past experiences these kind of tools are mostly useful when collaborating with other people on the same project, and when working on projects alone, it can actually become more work to just maintain and update such a system.\\
 Since the beginning, there was a complete understanding of what the end goal of this project was, complete with a rough MVP\footnote{MVP stands for Minimal Viable Product} and stretch goals for the project. Therefore, there was no need to have that broken down into individual stories for a backlog. So for the majority of the development, the author only kept a to-do list in his personal journal. The only needing a Kanban board when bugs started uprearing, so that was basically a bug tracking system, but also for small improvements which were thought about on the spot. This came in the form of a physical Kanban board with post it notes for stories. There was one for the backend (refer to figure~\ref{fig:backendKanban}) and one for the frontend (refer to figure~\ref{fig:frontendKanban}).\\
 
 \begingroup
@@ -381,7 +381,7 @@ export interface ITrackingPointTypes {
 }
 \end{lstlisting}
 
-The next data structure is one of the simplest ones, it is used to store meta data about each \tg (code snippet~\ref{code:tgStruct}). An example of a \tg could be one workout which would have multiple \tps. So a \tg would have meta data about start time, end time, and notes about the workout. The reason why there is no \tps inside this typescript interface. Note, the variable definition on line \ref{code:tgStruct:endTime} of snipped \ref{code:tpStruct} is of type \textit{`number $\vert$ undefined'} the reason for that is that when a \tg is first created it will not have an end time, so at first it is set to null.\\
+The next data structure is one of the simplest ones, it is used to store meta data about each \tg~(code snippet~\ref{code:tgStruct}). An example of a \tg~could be one workout which would have multiple \tps. So a \tg~would have meta data about start time, end time, and notes about the workout. The reason why there is no \tps~inside this typescript interface. Note, the variable definition on line~\ref{code:tgStruct:endTime} of Snipped~\ref{code:tgStruct} is of type \textit{`number $\vert$ undefined'} the reason for that is that when a \tg is first created it will not have an end time, so at first it is set to null.\\
 
 \begin{lstlisting}[escapeinside={(*}{*)},label={code:tgStruct} ,caption={Tracking Group Struct}]
 export interface TrackingGroup {
@@ -419,14 +419,14 @@ export interface TrackingPoint {
 \subsubsection{Programming languages \& frameworks}
 \vspace{\vspaceconst}
 
-Another benefit, when it comes to using micro services, is the fact that a project could mix and mach programming languages,frameworks and stacks as needed throughout the codebase. Usually this is quite impractical, as it can often create more problems from a developmental point of view. However, there can be legitimate benefits for it. One such reason being using different programming languages as its strong point. For example, NodeJS\footnote{Node.js is a JavaScript runtime environment that runs on the V8 engine (same as Chrome) and executes JavaScript code outside a web browser. Designed for the backend.} could be used where there is a need of high I/O and Java could be used where there is a need for faster computation. And since micro services are deployed in containers which have their own pre-defined environments with the needed dependencies, problems that would arise from mixing different deployments on the same system are no more.\\
-So as a proof of concept, It was decided that the first micro service to be developed would be done using a different programming language. The language chosen was Golang\footnote{Golang is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.} with the Echo\footnote{Echo is a web API framework developed for Golang.} framework, for the simple reason that this language is very powerful, offers a proper typing system, interfaces easily with MongoDB and it is really easy to develop and expose web API using it.\\
-The default programming stack for this project is NodeJS with typescript\footnote{Typescript is a typing system for javascript run time environments} and express\footnote{Express is a popular NodeJS framework for creating web APIs}. For the database connection library \textit{mongoose} was used at first because of its popularity and the author's experience with it. However, for the last micro service, the base \textit{mongo} library was used because typescript already offers a typing system in form of interfaces, which is one of the problems that \textit{mongoose} fixes. So, in the author's opinion, using the base \textit{mongo} NodeJS library results in cleaner code.\\
+Another benefit, when it comes to using micro services, is the fact that a project could mix and mach programming languages, frameworks and technical stacks\footnote{Technological stacks refers to all of the technologies used in the full stack. E.G. Angular, Java Spring, MySQL.} as needed throughout the codebase. Usually this is quite impractical, as it can often create more problems from a developmental point of view. However, there can be legitimate benefits for it. One such reason being using different programming languages as its strong point. For example, NodeJS\footnote{Node.js is a JavaScript runtime environment that runs on the V8 engine (same as Chrome) and executes JavaScript code outside a web browser. Designed for the backend.} could be used where there is a need of high I/O and Java could be used where there is a need for faster computation. And since micro services are deployed in containers which have their own pre-defined environments with the needed dependencies, problems that would arise from mixing different deployments on the same system are no more.\\
+So as a proof of concept, It was decided that the first micro service to be developed would be done using a different programming language. The language chosen was \textit{Golang}\footnote{Golang is a statically typed, compiled programming language designed at Google by Robert Griesemer, Rob Pike, and Ken Thompson.} with the \textit{Echo}\footnote{Echo is a web API framework developed for Golang.} framework, for the simple reason that this language is very powerful, offers a proper typing system, interfaces easily with MongoDB and it is really easy to develop and expose web API using it.\\
+The default programming stack for this project is NodeJS with \textit{TypeScript}\footnote{Typescript is a typing system for JavaScript run time environments} and \textit{Express}\footnote{Express is a popular NodeJS framework for creating web APIs}. For the database connection library \textit{mongoose} was used at first because of its popularity and the author's experience with it. However, for the last micro service, the base \textit{mongo} library was used because typescript already offers a typing system in form of interfaces, which is one of the problems that \textit{mongoose} fixes. So, in the author's opinion, using the base \textit{mongo} NodeJS library results in cleaner code.\\
 
 \subsubsection{Micro service split}
 \vspace{\vspaceconst}
 
-It was decided that the micro services would be split largely by functionality and the designed data structures. For this reason it was originally designed with 4 micro services in mind (4 as the final product and 3 as the MVP): \textit{`fl-auth'} for authentication, \textit{`fl-tp-types'} for the custom user types, and \textit{`fl-tp'} for the \tgs~and the \tps. However, \textit{`fl-tp'} could have actually been split down even more, one service for \tgs~and another for \tps. At the time of designing, it it was just thought that these data structures are related enough that they could be in the same micro service. Which is still true, however, in practice they are just two different endpoint and could easily be split up with minimal work. The fourth micro service being \textit{`fl-analytics'}, a micro service for compiling reports and other analytical data based on the data structures used in the project.\\
+It was decided that the micro services would be split largely by functionality and the designed data structures. For this reason it was originally designed with 4 micro services in mind (4 as the final product and 3 as the MVP): \textit{`fl-auth'} for authentication, \textit{`fl-tp-types'} for the custom user types, and \textit{`fl-tp'} for the \tgs~and the \tps. However, \textit{`fl-tp'} could have actually been split down even more, one service for \tgs~and another for \tps. At the time of designing, it it was just thought that these data structures are related enough that they could be in the same micro service. Which is still true. However, in practice they are just two different endpoint and could easily be split up with minimal work. The fourth micro service being \textit{`fl-analytics'}, a micro service for compiling reports and other analytical data based on the data structures used in the project.\\
 
 \subsubsection{Inner service communication}
 \vspace{\vspaceconst}
@@ -436,14 +436,6 @@ One of the planned ways to use kafka in this project was for \textit{`fl-tp'} to
 \subsection{User Interface}
 \vspace{\vspaceconst}
 
-Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development, a few sketches were made to help with visualising some specific pages. These page were the workout page, which would display individual \tgs~and their subsequent \tps~(see figure~\ref{fig:uiWorkoutPageDesign}), here i also specifically modeled each \tp card and talked about where each piece of data should be coming from. The next figure, figure~\ref{fig:uiExersicePageDesign}, shows a sketch of the add experience page and the add set page. 
-
-\begingroup
-\centering
-\includegraphics[width=0.9\linewidth]{./appendix/assets/img/uiDesigns/excersisePage.jpg}
-\captionof{figure}{Add exercise page and set dialogue.}
-~\label{fig:uiExersicePageDesign}
-\endgroup
 \begingroup
 \centering
 \includegraphics[width=0.9\linewidth]{./appendix/assets/img/uiDesigns/workoutsPage.jpg}
@@ -451,6 +443,14 @@ Since the author's main intention with this project was not the UI or overall us
 ~\label{fig:uiWorkoutPageDesign}
 \endgroup
 
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./appendix/assets/img/uiDesigns/excersisePage.jpg}
+\captionof{figure}{Add exercise page and set dialogue.}
+~\label{fig:uiExersicePageDesign}
+\endgroup
+
+Since the author's main intention with this project was not the UI or overall user experience, this was further down the priority list. However, to aid the UI development, a few sketches were made to help with visualising some specific pages. These page were the workout page, which would display individual \tgs~and their subsequent \tps~(see figure~\ref{fig:uiWorkoutPageDesign}), here the author also specifically modeled each \tp~card and talked about where each piece of data should be coming from. The other sketch in, figure~\ref{fig:uiExersicePageDesign}, shows the design of the add experience page and the add set page.\\
 
 \section{Implementation and Testing}
 \vspace{\vspaceconst}
@@ -488,7 +488,7 @@ Since most of the micro services were written in NodeJS, an NPM\footnote{NPM or 
 
 \subsubsection{Template for micro services}
 \vspace{\vspaceconst}
-With micro services it can be very useful to create a bare-bones project with some `hello world' implementation that will define the micro service structure and all of the basic always needed dependencies. This makes is easy to make sure that each project looks structurally similar since they all would start from the same bare-bones project. Additionally this makes the development of new micro services even easier to develop. Such a template was created for this project, however, it was not fully utilised because of several reasons.
+With micro services it can be very useful to create a bare-bones project with some `hello world' implementation that will define the micro service structure and all of the basic always needed dependencies. This makes is easy to make sure that each project looks structurally similar since they all would start from the same bare-bones project. Additionally this makes the development of new micro services even easier to develop. Such a template was created for this project, simply because during development small changes were made which made sense.
 
 \begingroup
 \centering
@@ -529,7 +529,7 @@ The \textit{fl-auth} service was the only service to be written in a different p
 
 The \textit{`/verify\_me'} endpoint is not actually used. The plan was that it wold be used internally by the other micro services to validate a user's JWT token, however, it was realised that this is not actually needed as with the JWT secret\footnote{JWT secrets are used to generate and to deconstruct the JWT payloads.} it is possible to do that from the other micro services. Although, this endpoint was left in there for possible use by the client, it might even be modified so that it returns the roles which are stored inside it, so that the client is aware of the user's roles. This would be useful in case it is decided to add some form of admin user with admin actions.\\
 At the moment authentication service is not actually feature complete. It lacks features such as password recovery proper admin control over the accounts, OAuth\footnote{OAuth\cite{oauth} is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords. This mechanism is used by companies such as Amazon, Google, Facebook, Microsoft and Twitter to permit the users to share information about their accounts with third party applications or websites.} and more. However, it works well enough as a test MVP.\@ In a proper implementation, ideally a system such KeyCloack\cite{keycloack} or Auth0\cite{auth0}.\\
-Currently the service generated a JWT based on a JWT claim structure (see code snippet~\ref{code:jwtClaimGo}) which stores all the information about eh user, their email, username, user id and an array of roles the user holds.\\
+Currently the service generated a JWT based on a JWT claim structure (see code snippet~\ref{code:jwtClaimGo}) which stores all the information about the user, their email, username, user id and an array of roles the user holds.\\
 
 \lstset{language=Golang}
 \begin{lstlisting}[escapeinside={(*}{*)}, label={code:jwtClaimGo} ,caption={JWT Claim in Golang}]
@@ -548,7 +548,7 @@ See Section~\ref{section:innerServiceComms} to see how this system has been appl
 \subsection{\textit{Fl-tp-types} service}~\label{section:flTpTypeImpl}
 \vspace{\vspaceconst}
 
-The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. However, it can get cumbersome to make both a typescript interface type and a mongoose object defining the document type and managing those separately, so for the next service the author was in search to find another way to use MongoDB.\\
+The \textit{fl-tp-types} micro service was the first service to be written in the default stack of NodeJS, typescript and express.  When it comes to the database client, in this service mongoose was used simply because the author was familiar with and the wide support on online forums. However, it can get cumbersome to make both a typescript interface type and a mongoose object defining the document type to manage those separately, so for the next service the author was in search to find another way to use MongoDB.\\
 This service is just responsible of dealing with the \tpt~data structure and it just performs crud operations on the database.\\
 
 \begingroup
@@ -623,7 +623,7 @@ When a micro service sees the `microseservice' role, it gets the user id from th
 \subsubsection{Dependency injection}
 \vspace{\vspaceconst}
 
-Dependency is an often overlooked aspect of application design, on both frontend and backend, and because of that there are many ways of solving the problem, different frameworks like to solve it in different ways. The way dependency injection was done in this application's backend was quite simple. All dependencies are created at the beginning before the HTTP server is started. Usually these would be a database client instance and a HTTP client instance. These would then be passed to the HTTP server's class constructor. From there the client would be injected either on an endpoint basis or server wide (see Snippet~\ref{code:dependencyInjectionWithinServer}). Then the injected dependencies would be available from the \textit{`response.locals'} variable on each controller (refer to Snippet~\ref{code:backendDependencyUse}).
+Dependency is an often overlooked aspect of application design, on both frontend and backend, and because of that there are many ways of solving the problem, different frameworks like to solve it in different ways. The way dependency injection was done in this application's backend was quite simple. All dependencies are created at the beginning before the HTTP server is started. Usually these would be a database client instance and a HTTP client instance. These would then be passed to the HTTP server's class constructor. From there the client would be injected either on an endpoint basis or server wide (see Snippet~\ref{code:dependencyInjectionWithinServer}) using a middleware\footnote{In this case a middleware is a function which runs before the controller. A middleware can also be used for authenticating requests, if the request is not authentic, then it is sent back with a 401 code before it ever reaches the final controller.} function. Then the injected dependencies would be available from the \textit{`response.locals'} variable on each controller (refer to Snippet~\ref{code:backendDependencyUse}).
 
 \begin{lstlisting}[escapeinside={(*}{*)}, label={code:dependencyInjectionWithinServer} ,caption={Dependency injection within HTTP server.}]
 this.app.use((req: Request, res: Response, next: NextFunction) => {
@@ -639,7 +639,7 @@ async function GetTrackingGroups(req: Request, res: Response) {
 ...
 \end{lstlisting}
 
-Approaching dependency injection like this is good because it makes it easy to substitute dependencies, even more so if a template class would be used to implement the dependencies wrapper classes. But also makes it easy to test the application. For unit testing, a mock object class could be injected or even a database setup specifically for testing.\\
+Approaching dependency injection like this is smart because it makes it easy to substitute dependencies, even more so if a template class would be used to implement the dependencies wrapper classes. But also makes it easy to test the application. For unit testing, a mock object class could be injected or even a database setup specifically for testing.\\
 
 \subsection{Android client}
 \vspace{\vspaceconst}
@@ -827,7 +827,7 @@ The main problem which are left are just problems of user experience and general
 
 \section*{Acknowledgements}
 \vspace{\vspaceconst}
-First and foremost I would like the to thank my advisor, Andrew Colby for guiding me through this project. One other person which deserves a mentions is my colleague Andrius Navasaitis for helping along while I was getting myself familiar with micro services. Last but not least a big thanks goes to my family, friends and god for all of the support during these uncertain, and mentally draining times we all live in.\\
+First and foremost I would like the to thank my advisor, Andrew Colby for guiding me through this project. One other person which deserves a mentions is my colleague Andrius Navasaitis for helping along while I was getting myself familiar with micro services. Last but not least a big thanks goes to my family, friends and god for all of the support during these uncertain, and mentally draining times\cite{uncertainTimes} we all live in.\\
 
 \newpage
 \section*{Appendices}
@@ -984,6 +984,10 @@ All of the links bellow are relative to the appendix folder which is located at 
   \bibitem{digitalOcean}
   Digital Ocean website (April 2021).\\
   \url{https://digitalocean.com}
+
+  \bibitem{uncertainTimes}
+  Information on these uncertainm times (April 2021).\\
+  \url{https://www.nhs.uk/conditions/coronavirus-covid-19/}
 \end{thebibliography}
 \newpage
 \end{multicols}

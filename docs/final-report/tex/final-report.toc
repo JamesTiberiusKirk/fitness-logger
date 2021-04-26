@@ -49,7 +49,7 @@
 \contentsline {subsubsection}{\numberline {7.1.1}Fl-Auth Service}{20}{subsubsection.7.1.1}%
 \contentsline {subsubsection}{\numberline {7.1.2}Fl-Tp-Types Service}{20}{subsubsection.7.1.2}%
 \contentsline {subsubsection}{\numberline {7.1.3}Fl-Tp Service}{20}{subsubsection.7.1.3}%
-\contentsline {subsubsection}{\numberline {7.1.4}Fl-shared Service}{21}{subsubsection.7.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.4}Fl-Shared NPM module}{20}{subsubsection.7.1.4}%
 \contentsline {subsubsection}{\numberline {7.1.5}Fl-proxy Service Proxy}{21}{subsubsection.7.1.5}%
 \contentsline {subsubsection}{\numberline {7.1.6}Database}{21}{subsubsection.7.1.6}%
 \contentsline {subsubsection}{\numberline {7.1.7}Deployment}{21}{subsubsection.7.1.7}%

@@ -779,20 +779,25 @@ It was mentioned before that there is a bug with updating \tpts~, it is likely t
 \subsubsection{Fl-Tp Service}
 \vspace{\vspaceconst}
 
-The tracking point service is the service which deals with \tgs~(or workouts) and with \tps~(or exercise logs).
+The tracking point service is the service which deals with \tgs~(or workouts) and with \tps~(or exercise logs). This is the service which gets used whenever there the user is logging an actual workout. In this version of the project, this is the only service making any calls to other services.\\
 
-
-\subsubsection{Fl-shared Service}
+\subsubsection{Fl-Shared NPM module}
 \vspace{\vspaceconst}
+
+The shared NPM module is used for any code which could be re-used for any other service, it contains code such as HTTP client wrappers, type declarations, miscellaneous functions, authentication middleware and more.\\
 
 \subsubsection{Fl-proxy Service Proxy}
 \vspace{\vspaceconst}
+
+The service proxy at the moment has two basic jobs. One is two cover the entire backend with a HTTPS certificate, and the second is to forward traffic to all of the different service. This way there is only one endpoint open to the internet under port 80 or 443. If each individual service were to be open to the internet, they would need to be open under different ports, which can become messy. For instance, the \textit{fl-tp-types} service is forwarded all of the traffic from \textit{`/types'} URI.\\
 
 \subsubsection{Database}
 \vspace{\vspaceconst}
 
 \subsubsection{Deployment}
 \vspace{\vspaceconst}
+
+A VPS\footnote{VPS meaning virtual private server.} was used for deploying the backend services, in specific one from Digital Ocean\cite{digitalOcean}. The server is running Docker and is configured with docker-compose. Two main docker-compose configuration files were made, one for the micro services and the proxy, another for services such as the database. This was done to simply avoid unnecessary restarts of the database or any message bus service which could be used.
 
 \subsection{User Interface}
 \vspace{\vspaceconst}
@@ -923,6 +928,10 @@ this section is just for me\\
   \bibitem{adobexd}
   Adobe website (April 2021).\\
   \url{https://www.adobe.com/products/xd.html}
+
+  \bibitem{digitalOcean}
+  Digital Ocean website (April 2021).\\
+  \url{https://digitalocean.com}
 \end{thebibliography}
 
 

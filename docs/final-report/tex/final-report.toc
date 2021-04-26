@@ -51,12 +51,12 @@
 \contentsline {subsubsection}{\numberline {7.1.3}Fl-Tp Service}{21}{subsubsection.7.1.3}%
 \contentsline {subsubsection}{\numberline {7.1.4}Fl-Shared NPM module}{21}{subsubsection.7.1.4}%
 \contentsline {subsubsection}{\numberline {7.1.5}Fl-proxy Service Proxy}{21}{subsubsection.7.1.5}%
-\contentsline {subsubsection}{\numberline {7.1.6}Database}{21}{subsubsection.7.1.6}%
-\contentsline {subsubsection}{\numberline {7.1.7}Deployment}{21}{subsubsection.7.1.7}%
+\contentsline {subsubsection}{\numberline {7.1.6}Database}{22}{subsubsection.7.1.6}%
+\contentsline {subsubsection}{\numberline {7.1.7}Deployment}{22}{subsubsection.7.1.7}%
 \contentsline {subsection}{\numberline {7.2}User Interface}{22}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Login Screen}{22}{subsubsection.7.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2}Home Screen}{22}{subsubsection.7.2.2}%
 \contentsline {subsubsection}{\numberline {7.2.3}Types}{22}{subsubsection.7.2.3}%
 \contentsline {subsubsection}{\numberline {7.2.4}Workouts}{22}{subsubsection.7.2.4}%
 \contentsline {subsubsection}{\numberline {7.2.5}Hamburger Menu}{22}{subsubsection.7.2.5}%
-\contentsline {section}{\numberline {8}Conclusion}{22}{section.8}%
+\contentsline {section}{\numberline {8}Conclusion}{23}{section.8}%

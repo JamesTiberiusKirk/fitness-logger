@@ -2,7 +2,7 @@ PAPER=./final-report.tex  # set the path to your TeX file here
 SHELL=/bin/zsh   # for the while loop below
 
 all:  ## Compile paper
-	./appendicies_list.sh && pdflatex -interaction=nonstopmode $(PAPER)
+	pdflatex -interaction=nonstopmode $(PAPER)
 
 clean:  ## Clean output files
 	rm $(PAPER)

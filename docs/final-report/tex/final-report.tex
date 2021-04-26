@@ -186,6 +186,8 @@ This project is split into two main objectives; first objective was to to be a l
 The basic principle of micro services as supposed to a monolith, is to split up the backend application into multiple smaller application. For example, in theory, a service such as Amazon, could have a separate micro service for the cart function, one for listings, one more user account management, one for payment and more.
 Micro services architectures are becoming more and more relevant simply because the industry is getting becoming more and more complex. And as size, complexity and user bases increase, so does the need for well scaled web applications. Micro services type architectures are simply one way to cleanly and easily scale web applications. So because of industry relevance and my personal enthusiasm, it was decided that this project's backend would also follow this architecture. 
 
+\TODO~diagram of monolith vs micro services
+
 \subsection{Creating a potential product}
 \vspace{\vspaceconst}
 
@@ -797,7 +799,7 @@ The service proxy at the moment has two basic jobs. One is two cover the entire 
 \subsubsection{Deployment}
 \vspace{\vspaceconst}
 
-A VPS\footnote{VPS meaning virtual private server.} was used for deploying the backend services, in specific one from Digital Ocean\cite{digitalOcean}. The server is running Docker and is configured with docker-compose. Two main docker-compose configuration files were made, one for the micro services and the proxy, another for services such as the database. This was done to simply avoid unnecessary restarts of the database or any message bus service which could be used.
+A VPS\footnote{VPS meaning virtual private server.} was used for deploying the backend services, in specific one from Digital Ocean\cite{digitalOcean}. The server is running Docker and is configured with docker-compose. Two main docker-compose configuration files were made, one for the micro services and the proxy, another for services such as the database. This was done to simply avoid unnecessary restarts of the database or any message bus service which could be used.\\
 
 \subsection{User Interface}
 \vspace{\vspaceconst}
@@ -817,10 +819,13 @@ A VPS\footnote{VPS meaning virtual private server.} was used for deploying the b
 \subsubsection{Workout Screen}
 \vspace{\vspaceconst}
 
+
 \NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
 
-% \section{Conclusion}
-% \vspace{\vspaceconst}
+\section{Conclusion}
+\vspace{\vspaceconst}
+\NOTE~how well it worked
+\NTOE~summarise future plans
 
 % \section*{Acknowledgements}
 % \vspace{\vspaceconst}
@@ -829,21 +834,63 @@ A VPS\footnote{VPS meaning virtual private server.} was used for deploying the b
 \section*{Appendices}
 \vspace{\vspaceconst}
 
+All of the links bellow are relative to the appendix folder which is located here: \url{https://github.com/JamesTiberiusKirk/fitness-logger/tree/master/docs/final-report/tex/appendix/}
 \begin{enumerate}
-\input{appendicies_list_output.tex}
+  \item Charts:
+    \begin{enumerate}
+      \item Project overview in draw.io format: \textbf{assets/charts/fitnessLogger.drawio}\\  
+      \item Project overview in PNG format: \textbf{assets/charts/fitnessLogger.png}\\  
+      \item Project overview in JPEG format: \textbf{assets/charts/fitnessLogger.jpg}\\
+    \end{enumerate}
+  \item Miscellanies Images:\\
+    \begin{enumerate}
+      \item Backend backlog and Kanban: \textbf{assets/img/backendBacklog.jpg}\\
+      \item Micro service template folder structure: \textbf{assets/img/flTemplateTree.png}\\
+      \item Frontend backlog and Kanban: \textbf{assets/img/frontendBacklog.jpg}\\
+      \item Initial Requirement Document: \textbf{assets/img/initialRequirementDocument.jpg}\\
+      \item Folder structure of fl-tp-types service: \textbf{assets/img/flTpTypesTree.png}\\
+    \end{enumerate}
+  \item Example journal entries:
+    \begin{enumerate}
+      \item \textbf{assets/img/journalEntries/ex1.jpg}\\
+      \item \textbf{assets/img/journalEntries/ex3.jpg}\\
+      \item \textbf{assets/img/journalEntries/ex2.jpg}\\ 
+      \item \textbf{assets/img/journalEntries/ex4.jpg}\\ 
+    \end{enumerate}
+  \item UI Designs:
+    \begin{enumerate}
+      \item Exercise page: \textbf{assets/img/uiDesigns/excersisePage.jpg}\\
+      \item Workouts page: \textbf{assets/img/uiDesigns/workoutsPage.jpg}\\ 
+    \end{enumerate}
+  \item Finished UI screenshots:
+    \begin{enumerate} 
+      \item Tracking points new set screenshot: \textbf{assets/img/uiScreenShots/trackingPointNewSet.jpg}\\
+      \item Tracking point new single value screenshot: \textbf{assets/img/uiScreenShots/trackingPointNewSingleValue.jpg}\\
+      \item Tracking point new type list screenshot: \textbf{assets/img/uiScreenShots/trackingPointNewTypeList.jpg}\\
+      \item Login page screenshot: \textbf{assets/img/uiScreenShots/loginScreen.jpg}\\ 
+      \item Workout stop dialogue screenshot: \textbf{assets/img/uiScreenShots/workoutStopDialogue.jpg}\\
+      \item Workout edit notes Dialogue: \textbf{assets/img/uiScreenShots/workoutEditNotesDialogue.jpg}\\ 
+      \item Workout screen screenshot: \textbf{assets/img/uiScreenShots/workoutScreen.jpg}\\
+      \item To be implemented toast screenshot: \textbf{assets/img/uiScreenShots/toBeImplementedToast.jpg}\\
+      \item Home screen screenshot: \textbf{assets/img/uiScreenShots/homeScreen.jpg}\\ 
+      \item Type edit screen screenshot: \textbf{assets/img/uiScreenShots/typeEditScreen.jpg}\\
+      \item New workout screen screenshot: \textbf{assets/img/uiScreenShots/newWorkout.jpg}\\
+      \item New tracking point screen screenshot: \textbf{assets/img/uiScreenShots/trackingPointNew.jpg}\\
+      \item New types screen screenshot: \textbf{assets/img/uiScreenShots/typeNewScreen.jpg}\\
+      \item Types list screen screenshot: \textbf{assets/img/uiScreenShots/typesListScreen.jpg}\\
+      \item Type deletion dialogue screenshot: \textbf{assets/img/uiScreenShots/typeDeletionDialogue.jpg}\\
+      \item Workouts list screen screenshot: \textbf{assets/img/uiScreenShots/workoutsListScreen.jpg}\\
+    \end{enumerate}
+  \item \TODO~meeting minutes
 \end{enumerate}
-
 
 \section{questions} 
 this section is just for me\\
 \TODO~remove before submission\\
 \begin{enumerate}
-  \item Are acknowledgements necessary?
-  \begin{enumerate}
-    \item if they are, can they include people which might have helped with small design decisions?
-  \end{enumerate}
   \item Should i give a description of each item in the appendix?
   \item Can the appendix be just a link to GitHub?
+  \item Does it make sense to keep the database and deployment section in s7?
 \end{enumerate}
 
 \newpage

@@ -56,8 +56,8 @@
 \contentsline {subsection}{\numberline {7.2}User Interface}{21}{subsection.7.2}%
 \contentsline {subsubsection}{\numberline {7.2.1}Login Screen}{21}{subsubsection.7.2.1}%
 \contentsline {subsubsection}{\numberline {7.2.2}Home Screen}{21}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Types List Screen}{21}{subsubsection.7.2.3}%
-\contentsline {subsubsection}{\numberline {7.2.4}Workouts List Screen}{21}{subsubsection.7.2.4}%
-\contentsline {subsubsection}{\numberline {7.2.5}Workout Screen}{21}{subsubsection.7.2.5}%
-\contentsline {section}{\numberline {8}Conclusion}{21}{section.8}%
-\contentsline {section}{\numberline {9}questions}{23}{section.9}%
+\contentsline {subsubsection}{\numberline {7.2.3}Types}{21}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Workouts}{21}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}Hamburger Menu}{22}{subsubsection.7.2.5}%
+\contentsline {section}{\numberline {8}Conclusion}{22}{section.8}%
+\contentsline {section}{\numberline {9}questions}{24}{section.9}%

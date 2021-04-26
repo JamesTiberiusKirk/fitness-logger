@@ -744,6 +744,7 @@ First and foremost, the whole application would need to be covered in unit tests
 On the frontend it is likely that a whole re-write would have to be done. First of all, there would need to be proper designs done in something like AdobeXD\cite{adobexd}, of both individual components (like buttons and input boxes) and of whole screens. This design would of course need to be user centered. Then, the component library would need to be built, simply so it could be used across the entire application. All of this would need to be unit tested too. When building developing the actual client app, a state management like Bloc will be used. This is simply so that the application can properly keep track of the state of different components and give them the ability to change states. This should help with bugs such that were mentioned in Section~\ref{section:codeQuality} where the information on the screen was not updating properly after an update. One last problem which would need to be fixed from the old codebase is the HTTP client, there will need to be a spike\footnote{Spike, a term from agile development, is when you have a story task to just complete research on a topic, usually with a cutoff date.} to determine if the Chopper library used before is appropriate to use or if it needs to be swapped out for something else. The author's current thoughts are that the base HTTP library is simple enough to use and might just need a custom simple wrapper around it before creating the service clients.\\
 When it comes to taking the application to market, there would need to be more market research to done. First thing would be to talk to some personal trainers and coaches, to get their opinion on what different types of logs could look like. Next, there would be a survey or an in person interview with a selection of athletes, to see what their workout loggers look like.\\
 Next up would be coming up with a way to monetise the application. One popular option is to have a free version with advertisements and less features, and a paid one without advertisements and with all the features enabled. However, another better option would be to have the free one be an offline only application with some features not working because there would be a need of connectivity to the servers. Then a paid one (paid in regular intervals as to be able to keep the servers running) with all the features working. This approach would mean that only paid customers are putting load on the backend infrastructure and the free application serves as a demo without putting a load on the servers.\\
+\TODO~talk about client cashing and server cashing\\
 
 \subsubsection{Features}
 \vspace{\vspaceconst}
@@ -800,27 +801,44 @@ The service proxy at the moment has two basic jobs. One is two cover the entire 
 \vspace{\vspaceconst}
 
 A VPS\footnote{VPS meaning virtual private server.} was used for deploying the backend services, in specific one from Digital Ocean\cite{digitalOcean}. The server is running Docker and is configured with docker-compose. Two main docker-compose configuration files were made, one for the micro services and the proxy, another for services such as the database. This was done to simply avoid unnecessary restarts of the database or any message bus service which could be used.\\
-
+\\
 \subsection{User Interface}
 \vspace{\vspaceconst}
+
+As it was mentioned above, the user interface, or client, is an Android application which was made for the purpose of consuming the backend API endpoints.\\
 
 \subsubsection{Login Screen}
 \vspace{\vspaceconst}
 
+In appendix 5.(d) you can see the login screen created for the application. On this version of the application this just allows the user to login using their credentials. Due to time constraints and beta purposes, the registration feature has not been implemented.\\
+
 \subsubsection{Home Screen}
 \vspace{\vspaceconst}
 
-\subsubsection{Types List Screen}
+In appendix 5.(i) you can see the home screen. This is basically just a menu to launch the types list page and the workouts list page.\\
+
+\subsubsection{Types}
 \vspace{\vspaceconst}
 
-\subsubsection{Workouts List Screen}
+In appendix 5.(n) you can see the types list screen. This is where all custom user types will be displayed. Mentioned above was a bug which this screen had. The bug occurs when editing a type. The author has not yet found the exact cause nor documented the exact behaviour of the bug as it is not constant.\\
+Furthermore, in appendices 5.(j) and 5.(m) you can see the same page which is the same screen, however, reused for editing a type (by pre-populating the fields with the existing information) or for creating a new type.\\
+Appendix 5.(o) is a dialogue box which gets a confirmation from the user if they want to delete the type.\\
+
+\subsubsection{Workouts}
 \vspace{\vspaceconst}
 
-\subsubsection{Workout Screen}
+In appendix 5.(p) you can see a list of workouts that the user has had in the past. If a workout is ongoing the user will also see that one. Here the workouts are listed in reverse order with the newest one on the top. On this screen the user can start another workout with the button on the top right corner, view a specific workout or delete one.\\
+Following up is appendix 5.(g), here you can see the screen which displayed the information about one specific workout. If the workout is ongoing, there will be buttons to end the workout, a stop button at the top right and an end workout text button on the bottom right of the first card. Bellow the line which comes after the second card, there is a list of all exercises or \tps~which have been logged for that specific workout.\\
+When stopping a workout, there is also a dialogue box confirming that action(see appendix 2.(e)).\\
+Each \tp~card shows information about the \tp~and about its respective \tpt. On each card there are three buttons if the \tpt~is using sets and two buttons if its using single values. The two buttons which are always there are an edit pencil icon button and a delete icon button, both of these do not work at this moment and just trigger a notification toast explaining that the feature has not been implemented (see appendix 5.(h)). The other button which appears on set types opens a new set dialogue box (see appendix 5.(q)).\\
+When adding a new exercise, or \tp~(see appendix 5.(l)) you can can chose from different types with a drop down (see appendix 5.(c)), or, from here you can also access the add new types screen with the add new type button. Once selecting a type, the information for that type will be displayed. In case the type is of a single value type, it will also display an input box for that single value (see appendix 5.(b)). Appendix 5.(a) is just with the set type.\\
+
+
+\subsubsection{Hamburger Menu}
 \vspace{\vspaceconst}
 
+The hamburger menu is quite simple, see appendix 5.(r). It only has two buttons, one for the home screen and another to logout and send the user to the login page.\\
 
-\NOTE~elevator pitch talk more about the backend services, talk about what works and doesnt
 
 \section{Conclusion}
 \vspace{\vspaceconst}
@@ -880,8 +898,11 @@ All of the links bellow are relative to the appendix folder which is located her
       \item Types list screen screenshot: \textbf{assets/img/uiScreenShots/typesListScreen.jpg}\\
       \item Type deletion dialogue screenshot: \textbf{assets/img/uiScreenShots/typeDeletionDialogue.jpg}\\
       \item Workouts list screen screenshot: \textbf{assets/img/uiScreenShots/workoutsListScreen.jpg}\\
+      \item Set add dialogue screenshot: \textbf{assets/img/uiScreenShots/setAddDialogue.jpg}\\
+      \item Hamburger menu screenshot: \textbf{assets/img/uiScreenShots/hamburgerMenu.jpg}\\
     \end{enumerate}
   \item \TODO~meeting minutes
+  \item \TODO~record another demo video, post it to YT and link it here
 \end{enumerate}
 
 \section{questions} 

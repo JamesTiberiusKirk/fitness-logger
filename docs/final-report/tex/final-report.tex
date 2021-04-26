@@ -177,35 +177,38 @@ However, the main appeal of this project is the backend implementation. This is 
 \TODO~Need to come back after I'm done with the entire report to summarise it\\
 \NOTE~Started this section first but then realised it would be easier to complete after finishing the report\\
 
-This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.
-
+This project is split into two main objectives; first objective was to to be a learning experience of creating a full stack application beginning to end and more importantly to get into micro services backend development. The second objective was to attempt to solve a problem which exists in the fitness industry by creating an application which would be useful to a different range of people and potentially taking this product to the market.\\
 
 \subsection{Why micro services}
 \vspace{\vspaceconst}
 
-The basic principle of micro services as supposed to a monolith, is to split up the backend application into multiple smaller application. For example, in theory, a service such as Amazon, could have a separate micro service for the cart function, one for listings, one more user account management, one for payment and more.
-Micro services architectures are becoming more and more relevant simply because the industry is getting becoming more and more complex. And as size, complexity and user bases increase, so does the need for well scaled web applications. Micro services type architectures are simply one way to cleanly and easily scale web applications. So because of industry relevance and my personal enthusiasm, it was decided that this project's backend would also follow this architecture. 
+  The basic principle of micro services as opposed to a monolith, is to split up the backend application into multiple smaller applications. For example, in theory, a service such as Amazon (the online store), could have a separate micro service for the cart function, one for item listings, user account management, one for payment and more.\\
+  Micro services architectures are becoming more and more relevant simply because the industry is getting becoming more and more complex. As size, complexity and number of users increase, so does the need for well scaled web applications. Micro services type architectures are simply one way to cleanly and easily scale web applications. So because of industry relevance and my personal enthusiasm, it was decided that this project's backend would also follow this architecture. See figure~\ref{fig:monoVsMicro} for a visual representation of this concept.\\
 
-\TODO~diagram of monolith vs micro services
+\begingroup
+\centering
+\includegraphics[width=0.9\linewidth]{./miscAssets/monoVsMicro.jpg}
+\captionof{figure}{Monolithic vs micro services architectures}
+~\label{fig:monoVsMicro}
+\endgroup
 
 \subsection{Creating a potential product}
 \vspace{\vspaceconst}
 
-Creating a fully fledged product out of this project was never my main idea. However, in my personal opinion, my planned solution for the problem has enough potential that could work as a product in the market. And as long as the application works as intended, there are multiple potential monetisation routes which could be taken, such as extra features behind a subscription or just a flat rate at purchase.
+Creating a fully fledged product out of this project was not the main intention. However, in in the author's personal opinion, the planned solution for the problem has enough potential that could work as a product in the market. And as long as the application works as intended, there are multiple potential monetisation routes which could be taken, such as extra features behind a subscription or just a flat rate at purchase.\\
 
 \subsubsection{The problem}
 \vspace{\vspaceconst}
 
-From personal past experience I have not found a simple, fuss free, yet flexible application for logging workout sessions and related notes for said session. The applications which I have tried so far are either made for a specific workout programs or are not complete, buggy or just do not have enough flexibility in the type of logging you can achieve. It often feels like a fight to be able to use such an app.\\
-In the fitness world there can be a lot of different types of workouts, exercises, exercise variations, and ways to do said exercises. Because of this, coaches, personal trainers and everyday people usually would stick to using a notepad and paper  simply because there are no arbitrary restrains on what you can log.\\
-Typically a notepad and pen is not a bad solution and usually preferable to most applications, however, there are certain drawbacks to this approach. One practical drawback is highlighted when working out in a commercial gym, walking around the gym using different equipment and carrying everything one might need including the notebook and pen combo can be quite cumbersome, same goes for actually noting down the data in the notebook. When it comes to looking back on previous workouts it can also be quite cumbersome, especially when you are in the middle of a workout and do not want to loose the tempo.\\
+From past experience, the author has not yet found a simple, fuss free, yet flexible application for logging workout sessions and related notes for said session. The applications which were tried so far are either made for specific workout programs or are not complete, buggy or just do not have enough flexibility in the type of logging one can achieve. It often feels like fighting an uphill battle when using one of these applications.\\
+In the fitness world there can be a lot of different types of workouts, exercises, exercise variations, and ways to do said exercises. Because of this, coaches, personal trainers and everyday people usually would stick to using a notepad and pen simply because there are no arbitrary restrains on what you can log, either that or or not log the workouts in general.\\
+Typically a notepad and pen is not a bad solution and usually preferable to most applications, however, there are certain drawbacks to this approach. One practical drawback is highlighted when working out in a commercial gym, walking around the gym using different equipment and carrying everything one might need including the notebook and pen combo can be quite cumbersome, same goes for actually noting down the data in the notebook. When it comes to looking back on previous workouts it can also be quite cumbersome, especially when you are in the middle of a workout and do not want to loose the tempo. And the other reason being that compiling analytical data from a notebook can be tedious and take time. Computers are much better at calculations and statistics.\\
 
 \subsubsection{My planned solution}
 \vspace{\vspaceconst}
-\TODO~this section is not finished\\
 
-The idea was that the system would be designed around the data structure which would be saved by the user. This data structure would be made as simple as possible while still allowing all the common basic exercise options (such as repetitions, resistance values, sets etc) but also others (such as the option to just write a single value). Furthermore, the system would allow the user to create their own exercise types which they would then use when logging a workout.\\
-When using the application the user would first create a custom `type'. This type would usually be an exercise, however, it it not constrained to be one. For example, one type would be `exercise x' and another type could be `caffeine intake' for tracking the intake of caffeine over different workouts. Then, the \\
+The idea was that the system would be designed around the data structures needed, one of which would be chosen by the user. This data structure would be made as simple as possible while still allowing all the common basic exercise options (such as repetitions, resistance values, sets etc) but also others (such as the option to just write a single value). Furthermore, the system would allow the user to create their own exercise types which they would then use when logging a workout.\\
+When using the application the user would first create a custom `type'. This type would usually be an exercise, however, it it not constrained to be one. For example, one type would be `exercise x' and another type could be `caffeine intake' for tracking the intake of caffeine over different workouts. Then, the user would able to create logs based on those custom types.\\
 
 \section{Background}
 \vspace{\vspaceconst}
@@ -219,7 +222,7 @@ A lot of time during this project was allocated to research of the backend archi
 \subsubsection{Helpful technologies}
 \vspace{\vspaceconst}
 
-  When creating micro services systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier was containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications and share the hosts kernel, and on a Linux system that means that containers can virtually run anywhere. Furthermore, we have also have container management and orchestration solutions such as Docker\cite{Docker}, docker-compose\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling.\\
+  When creating micro service systems, there are a lot of technologies which could and would be used to make the development of these services easier. Probably one of the first pieces of technologies to ease the development and deployment of micro services a lot easier are containers. Containers allow you to package applications with all of the needed dependencies and environments, they virtualise the user-land applications\footnote{User-land application are all the program running on a computer that do not run on the same level as the kernel.} and share the host's kernel. On a Linux system, that means that containers can virtually run under any distribution\footnote{Distribution of Linux is referring to different operation systems built on the Kernel}.On non-Linux systems, these containers would usually be inside a Linux virtual machine. Furthermore, container management and orchestration solutions also exist, technologies such as Docker\cite{Docker}, docker-compose\cite{Docker} Docker Swarm\cite{Docker}, Kubernetes\cite{k8s} and more. These help with running the actual containers, and in the case of Kubernetes, it also allows us to easily define configurations and scale the containers either on a definition or on demand. Scaling here would be done by running more instances of that container across a cluster of machines running the Kubernetes and load balancing the traffic amongst them. This is known as horizontal scaling (see figure~\ref{fig:ScaleUpVsScaleOut} for a comparison of horizontal vs vertical scaling).\\
 Micro services would often also need to talk to each other and as before, depending on requirements and design, there are different ways to do it. Overall there are two options many systems using both synchronous and asynchronous calls. Synchronous calls are usually straight forward and done over HTTP and the only thing that would need to be solved is proper authentication. Asynchronous calls are often made with either RPC calls (commonly gRPC\cite{grpc} would be used) or a message/event bus system such as Kafka\cite{kafka}.\\
   Another great series of helpful technologies are service meshes, they provide great insight into your cluster of micro services. It is a dedicated infrastructure layer that all the different micro services would proxy their communication in-between. This can provide a multitude of benefits including communication observability, call chain traceability, secure connections and more. Examples of such services are Linkerd\cite{linkerd} and Istio\cite{istio}. If this project would be using Kubernetes, a service mesh would definitely be very useful and worth wile to integrate into the system.\\
 
@@ -256,6 +259,7 @@ For example, assume \textit{Application x} has a user profile endpoint which is 
 \captionof{figure}{Scaling out vs scaling in}
 ~\label{fig:ScaleOutVsIn}
 \endgroup
+
 Note figure~\ref{fig:ScaleOutVsIn}, this is an example of vertical scaling (or scaling up) versus horizontal scaling (scaling out) for a file system. \\
 
 \subsubsection{Solution}
